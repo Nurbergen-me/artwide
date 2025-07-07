@@ -3,6 +3,8 @@
 import React, {useState} from 'react'
 import styles from './Header.module.css'
 import { cn } from "@/lib/utils"
+import Link from "next/link";
+import Image from "next/image";
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -14,20 +16,20 @@ const Header = () => {
         <header className={cn(styles.header, styles.light)}>
             <div className={cn(styles.container, 'container')}>
                 <div className={styles.header__logo}>
-                    <a href="/" className={styles.logo}>
-                        <img src="/img/logo.svg" alt="Artwide logo" />
-                    </a>
+                    <Link href="/" className={styles.logo}>
+                        <Image src="/img/logo.svg" alt="Artwide logo" />
+                    </Link>
                 </div>
                 <div className={styles.header__menu}>
                     <nav>
                         <ul>
-                            <li><a href="/" className={styles.active}>Home</a></li>
-                            <li><a href="/auctions/">Auctions</a></li>
-                            <li><a href="/private-sales/">Private Sales</a></li>
-                            <li><a href="/guidelines/">Guidelines</a></li>
-                            <li><a href="/about/">About</a></li>
-                            <li><a href="/press/">Press</a></li>
-                            <li><a href="/contact/">Contact</a></li>
+                            <li><Link href="/" className={styles.active}>Home</Link></li>
+                            <li><Link href="/auctions/">Auctions</Link></li>
+                            <li><Link href="/private-sales/">Private Sales</Link></li>
+                            <li><Link href="/guidelines/">Guidelines</Link></li>
+                            <li><Link href="/about/">About</Link></li>
+                            <li><Link href="/press/">Press</Link></li>
+                            <li><Link href="/contact/">Contact</Link></li>
                         </ul>
                     </nav>
                 </div>
@@ -39,13 +41,13 @@ const Header = () => {
             </div>
             <div className={cn(styles.mobmenu, { [styles.open]: isMenuOpen })}>
                 <div className={cn(styles.mobmenu__main, styles.open)}>
-                    <a href="/" className={styles.active}>Home</a>
-                    <a href="/auctions/">Auctions</a>
-                    <a href="/private-sales/">Private Sales</a>
-                    <a href="/guidelines/">Guidelines</a>
-                    <a href="/about/">About</a>
-                    <a href="/press/">Press</a>
-                    <a href="/contact/">Contact</a>
+                    <Link href="/" className={styles.active}>Home</Link>
+                    <Link href="/auctions/">Auctions</Link>
+                    <Link href="/private-sales/">Private Sales</Link>
+                    <Link href="/guidelines/">Guidelines</Link>
+                    <Link href="/about/">About</Link>
+                    <Link href="/press/">Press</Link>
+                    <Link href="/contact/">Contact</Link>
                     <div className={styles.mobmenu__bottom}>
                         <div>Login</div>
                         <div>Register</div>

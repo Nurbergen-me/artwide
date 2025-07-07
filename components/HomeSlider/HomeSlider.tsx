@@ -49,18 +49,18 @@ const HomeSlider = () => {
                                 </div>
 
                                 <div className={cn(topimg.topimg__button)}>
-                                    <a href="/auction/2025/indian-masters-of-color-and-spirit-1/"
+                                    <Link href="/auction/2025/indian-masters-of-color-and-spirit-1/"
                                        className={cn("button button_white i1")} data-active="Accepting bids"
                                        data-final="Accepting Bids" data-after="View results"
                                        data-href="/auction/2025/indian-masters-of-color-and-spirit-1/">
                                         Accepting bids
-                                    </a>
+                                    </Link>
                                     <div className={cn(topimg.artworkline)}>
 
                                         <div className={cn(topimg.artworkline__info)}>
                                             <div className={cn(topimg.artworkline__infoItem)}>
                                                 <div>Discretionary</div>
-                                                Seller's Fee
+                                                Seller is Fee
                                             </div>
                                             <div className={cn(topimg.artworkline__infoItem)}>
                                                 <div>14.5%-9.5%</div>

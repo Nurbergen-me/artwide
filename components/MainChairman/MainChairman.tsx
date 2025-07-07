@@ -19,8 +19,8 @@ const MainChairman = () => {
                             environment.
                         </p>
                         <p>
-                            Our platform features diversified and curated online auctions’ catalogues, competitive fees
-                            — enjoy a 0% seller's fee and a buyer's premium that ranges from 14.5% to 9.5% — and
+                            Our platform features diversified and curated online auctions catalogues, competitive fees
+                            — enjoy a 0% sellers fee and a buyers premium that ranges from 14.5% to 9.5% — and
                             cryptocurrency payments are available. Additionally, you will benefit from a dedicated,
                             supportive Artwide team.
                         </p>
