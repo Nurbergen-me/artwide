@@ -1,0 +1,253 @@
+
+.gallery {
+    padding: 6.6666666667vw 0 0;
+    position: relative;
+}
+@media (max-width: 767px) {
+    .gallery {
+        padding-top: 6.4vw;
+    }
+}
+.gallery__title {
+    font-family: "Kings Caslon";
+    font-size: 3.0555555556vw;
+    line-height: 1.3;
+    letter-spacing: normal;
+}
+@media (max-width: 767px) {
+    .gallery__title {
+        font-size: 7.4666666667vw;
+        margin-bottom: 4.2666666667vw;
+    }
+}
+.gallery__title a {
+    font-style: italic;
+    color: #002EA3;
+}
+
+.gallery__pop {
+    margin-top: 2.2222222222vw;
+    display: flex;
+    height: 95.6944444444vw;
+}
+@media (max-width: 767px) {
+    .gallery__pop {
+        margin-top: 0;
+        margin-bottom: 0;
+        padding: 0;
+        display: block;
+        height: auto;
+        padding-bottom: 6.4vw;
+    }
+    .gallery__pop::-webkit-scrollbar {
+        display: none;
+        width: 0;
+        height: 0;
+    }
+}
+.gallery__pop_main {
+    flex: 1;
+    position: relative;
+}
+@media (max-width: 767px) {
+    .gallery__pop_main {
+        display: none;
+    }
+}
+
+.gallery__titletop {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.gallery__link {
+    text-transform: uppercase;
+    color: #002EA3;
+    font-size: 1.25vw;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+}
+@media (max-width: 767px) {
+    .gallery__link {
+        display: none;
+    }
+}
+
+.gallery__link2 {
+    text-transform: uppercase;
+    color: #002EA3;
+    font-size: 1.25vw;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    display: none;
+}
+@media (max-width: 767px) {
+    .gallery__link2 {
+        display: block;
+        text-align: center;
+        font-size: 3.7333333333vw;
+    }
+}
+@media (max-width: 767px) {
+    .gallery__pop_main .gallery__item {
+        padding: 2.1333333333vw;
+        border-color: rgb(241, 241, 241);
+    }
+}
+.gallery__pop_main .gallery__item * {
+    pointer-events: none;
+}
+.gallery__pop_main .gallery__item.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+.gallery__pop_main .gallery__item.show * {
+    pointer-events: auto;
+}
+.gallery__pop_main .gallery__item_img {
+    height: 66.1111111111vw;
+}
+@media (max-width: 767px) {
+    .gallery__pop_main .gallery__item_img {
+        height: 57.6vw;
+    }
+}
+.gallery__pop_main .gallery__item_img img {
+    object-fit: cover;
+    position: relative;
+}
+.gallery__pop_list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    margin-left: 1.1111111111vw;
+    position: relative;
+}
+@media (max-width: 767px) {
+    .gallery__pop_list {
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        vertical-align: top;
+    }
+}
+.gallery__pop_list .gallery__item_img {
+    height: 20.5555555556vw;
+}
+@media (max-width: 767px) {
+    .gallery__pop_list .gallery__item_img {
+        height: 38.4vw;
+    }
+}
+.gallery__pop_list .gallery__item_img img {
+    object-fit: contain;
+}
+
+.gallery__pop_list .gallery__item {
+    height: 50%;
+    width: 50%;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s;
+    pointer-events: none;
+    padding: 1.6666666667vw;
+    border: 1px solid transparent;
+    border-radius: 0.5555555556vw;
+}
+.gallery__pop_list .gallery__item:hover {
+    border-color: rgb(241, 241, 241);
+}
+@media (max-width: 767px) {
+    .gallery__pop_list .gallery__item {
+        position: relative;
+        height: auto;
+        display: none;
+        margin-bottom: 4.2666666667vw;
+        width: 100%;
+        padding: 2.1333333333vw;
+        border-radius: 2.1333333333vw;
+        border-color: rgb(241, 241, 241);
+    }
+}
+.gallery__pop_list .gallery__item * {
+    pointer-events: none;
+}
+.gallery__pop_list .gallery__item.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+@media (max-width: 767px) {
+    .gallery__pop_list .gallery__item.show {
+        display: block;
+    }
+}
+.gallery__pop_list .gallery__item.show * {
+    pointer-events: auto;
+}
+.gallery__pop_list .gallery__item.hidden {
+    display: none;
+}
+.gallery__pop_list .gallery__item:nth-child(4n+1) {
+    top: 0;
+    left: 0;
+}
+.gallery__pop_list .gallery__item:nth-child(4n+2) {
+    top: 0;
+    right: 0;
+}
+.gallery__pop_list .gallery__item:nth-child(4n+3) {
+    top: 50%;
+    left: 0;
+}
+@media (max-width: 767px) {
+    .gallery__pop_list .gallery__item:nth-child(4n+3) {
+        top: 0;
+    }
+}
+.gallery__pop_list .gallery__item:nth-child(4n) {
+    top: 50%;
+    right: 0;
+}
+@media (max-width: 767px) {
+    .gallery__pop_list .gallery__item:nth-child(4n) {
+        top: 0;
+        margin-bottom: 0;
+    }
+}
+
+.gallery__pop .gallery__item .lot__auction-time {
+    font-size: 1.1vw;
+    font-weight: 500;
+    text-align: left;
+}
+
+.lot__auction-time.closing {
+    color: #FF4242;
+}
+
+.gallery__pop .gallery__item .lot__auction-time .lot__auction-time__closes-text {
+    font-weight: normal;
+}
+
+@media (max-width: 767px) {
+    .gallery__pop .gallery__item .lot__auction-time {
+        font-size: 3.5vw;
+    }
+}
+
+.gallery__pop_list .gallery__item_name {
+    font-family: "Kings Caslon";
+    font-size: 1.9444444444vw;
+    line-height: 1.3;
+    letter-spacing: normal;
+    min-height: 2.9166666667vw;
+}
+@media (max-width: 767px) {
+    .gallery__pop_list .gallery__item_name {
+        font-size: 6.4vw;
+        min-height: unset;
+    }
+}

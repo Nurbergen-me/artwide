@@ -1,0 +1,349 @@
+.auctionstarts {
+    position: absolute;
+    z-index: 10;
+    top: 4.3055555556vw;
+    left: 0;
+    width: 100%;
+    height: 8.3333333333vw;
+    background: rgba(5, 35, 114, 0.7);
+    color: #fff;
+}
+@media (max-width: 767px) {
+    .auctionstarts {
+        top: 14.4vw;
+        display: block;
+        padding: 0;
+        height: auto;
+    }
+}
+@media (min-aspect-ratio: 2.1) {
+    .auctionstarts {
+        height: 15.625vh;
+    }
+}
+.auctionstarts_empty {
+    opacity: 0;
+    pointer-events: none;
+}
+@media (max-width: 767px) {
+    .auctionstarts_empty {
+        height: 0;
+    }
+}
+.auctionstarts:hover .auctionstarts__final {
+    transform: scale(1.2);
+}
+.auctionstarts.active .auctionstarts__form {
+    opacity: 0;
+    pointer-events: none;
+}
+@media (max-width: 767px) {
+    .auctionstarts.active .auctionstarts__form {
+        display: none;
+    }
+}
+.auctionstarts.active .auctionstarts__form * {
+    pointer-events: none;
+}
+.auctionstarts .container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    min-height: unset;
+    margin: 0;
+}
+@media (max-width: 767px) {
+    .auctionstarts .container {
+        display: block;
+        padding: 3.0666666667vw 4.2666666667vw 4.2666666667vw;
+    }
+}
+.auctionstarts__end {
+    flex: 1;
+    height: 8.2638888889vw;
+    display: flex;
+    align-items: center;
+    padding-left: 2.0833333333vw;
+    font-size: 3.3333333333vw;
+    line-height: 1.25;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+}
+@media (max-width: 767px) {
+    .auctionstarts__end {
+        height: auto;
+        font-size: 5.3333333333vw;
+        padding: 0 0 2.6666666667vw;
+    }
+}
+@media (min-aspect-ratio: 2.1) {
+    .auctionstarts__end {
+        height: 15.4947916667vh;
+        padding-left: 3.90625vh;
+        font-size: 6.25vh;
+    }
+}
+.auctionstarts__title {
+    font-size: 1.9444444444vw;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    width: 11.875vw;
+}
+@media (max-width: 767px) {
+    .auctionstarts__title {
+        font-size: 4.2666666667vw;
+        line-height: 1.22;
+        padding: 0;
+        width: 100%;
+    }
+    .auctionstarts__title br {
+        display: none;
+    }
+}
+@media (min-aspect-ratio: 2.1) {
+    .auctionstarts__title {
+        font-size: 3.6458333333vh;
+    }
+}
+.auctionstarts__ftitle {
+    font-family: "Kings Caslon";
+    font-size: 2.2222222222vw;
+    line-height: 1.3;
+    letter-spacing: normal;
+    text-transform: uppercase;
+    flex: 1;
+}
+@media (min-aspect-ratio: 2.1) {
+    .auctionstarts__ftitle {
+        font-size: 5.7291666667vh;
+    }
+}
+@media (max-width: 767px) {
+    .auctionstarts__ftitle {
+        font-size: 6.4vw;
+        padding: 5.3333333333vw 0 2.9333333333vw;
+    }
+}
+.auctionstarts__final {
+    width: 3.3333333333vw;
+    height: 3.3333333333vw;
+    background-image: url(/img/arrow_white.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 1.9444444444vw;
+    transition: transform 0.3s;
+    will-change: transform;
+}
+@media (min-aspect-ratio: 2.1) {
+    .auctionstarts__final {
+        width: 6.25vh;
+        height: 6.25vh;
+        background-size: auto 3.6458333333vh;
+    }
+}
+@media (max-width: 767px) {
+    .auctionstarts__final {
+        width: 8.5333333333vw;
+        height: 8.5333333333vw;
+        background-size: auto 5.3333333333vw;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 2.1333333333vw;
+    }
+}
+.auctionstarts__timer {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding: 0 0 0 4.8611111111vw;
+}
+.auctionstarts__timer.hidden {
+    display: none;
+}
+@media (max-width: 767px) {
+    .auctionstarts__timer {
+        padding: 0;
+        height: 13.8666666667vw;
+        margin-top: 2.1333333333vw;
+    }
+}
+@media (min-aspect-ratio: 2.1) {
+    .auctionstarts__timer {
+        padding: 0 0 0 9.1145833333vh;
+    }
+}
+.auctionstarts__timer .timer {
+    width: auto;
+    padding: 0;
+    background: none;
+    font-size: 1.25vw;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    color: #fff;
+    height: auto;
+}
+@media (min-aspect-ratio: 2.1) {
+    .auctionstarts__timer .timer {
+        font-size: 2.34375vh;
+    }
+}
+@media (max-width: 767px) {
+    .auctionstarts__timer .timer {
+        font-size: 3.2vw;
+        margin-top: 0;
+    }
+}
+.auctionstarts__timer .timer__item {
+    margin: 0;
+}
+@media (max-width: 767px) {
+    .auctionstarts__timer .timer__item {
+        margin: 0;
+    }
+}
+.auctionstarts__timer .timer__item span {
+    font-family: "Kings Caslon";
+    font-size: 4.4444444444vw;
+    font-weight: 400;
+    line-height: 1.3;
+    letter-spacing: normal;
+    width: 6.6666666667vw;
+}
+@media (min-aspect-ratio: 2.1) {
+    .auctionstarts__timer .timer__item span {
+        font-size: 8.3333333333vh;
+        width: 12.5vh;
+    }
+}
+@media (max-width: 767px) {
+    .auctionstarts__timer .timer__item span {
+        font-size: 8.5333333333vw;
+        width: 21.3333333333vw;
+    }
+}
+.auctionstarts__timer .timer__item div {
+    margin-top: -1.1111111111vw;
+}
+@media (max-width: 767px) {
+    .auctionstarts__timer .timer__item div {
+        margin-top: 0.5333333333vw;
+    }
+}
+@media (min-aspect-ratio: 2.1) {
+    .auctionstarts__timer .timer__item div {
+        margin-top: -2.0833333333vh;
+    }
+}
+.auctionstarts__timer .timer__delimiter {
+    margin: -0.4861111111vw 0 0;
+}
+@media (min-aspect-ratio: 2.1) {
+    .auctionstarts__timer .timer__delimiter {
+        margin-top: -0.9114583333vh;
+    }
+}
+.auctionstarts__timer .timer__delimiter span {
+    width: auto;
+}
+.auctionstarts__form {
+    display: block;
+    flex: none;
+}
+@media (max-width: 767px) {
+    .auctionstarts__form {
+        margin-top: 4.2666666667vw;
+    }
+}
+.auctionstarts__form.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+@media (max-width: 767px) {
+    .auctionstarts__form.hidden {
+        display: none;
+    }
+}
+.auctionstarts__form.hidden * {
+    pointer-events: none;
+}
+.auctionstarts__formtitle {
+    font-size: 1.1111111111vw;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    padding-bottom: 0.2777777778vw;
+}
+@media (min-aspect-ratio: 2.1) {
+    .auctionstarts__formtitle {
+        font-size: 2.0833333333vh;
+        padding-bottom: 0.78125vh;
+    }
+}
+@media (max-width: 767px) {
+    .auctionstarts__formtitle {
+        font-size: 4.2666666667vw;
+        padding-bottom: 1.6vw;
+    }
+}
+.auctionstarts__form input {
+    width: 27.7777777778vw;
+}
+@media (min-aspect-ratio: 2.1) {
+    .auctionstarts__form input {
+        width: 52.0833333333vh;
+    }
+}
+@media (max-width: 767px) {
+    .auctionstarts__form input {
+        width: 76.5333333333vw;
+    }
+}
+.auctionstarts__form form {
+    display: flex;
+    align-items: center;
+    width: 31.6666666667vw;
+    height: 3.3333333333vw;
+}
+@media (min-aspect-ratio: 2.1) {
+    .auctionstarts__form form {
+        width: 59.375vh;
+        height: 6.25vh;
+    }
+}
+@media (max-width: 767px) {
+    .auctionstarts__form form {
+        height: auto;
+        width: 100%;
+    }
+}
+.auctionstarts_innerpage {
+    position: relative;
+    top: 0;
+    background: #002EA3;
+    height: 6.1111111111vw;
+}
+@media (max-width: 767px) {
+    .auctionstarts_innerpage .auctionstarts__ftitle {
+        font-size: 6.4vw;
+        padding: 2.4vw 0 1.6vw;
+    }
+}
+@media (max-width: 767px) {
+    .auctionstarts_innerpage {
+        height: auto;
+    }
+}
+
+.mainpage .auctionstarts_innerpage {
+    position: absolute;
+    top: 4.3055555556vw;
+}
+@media (max-width: 767px) {
+    .mainpage .auctionstarts_innerpage {
+        top: 14.4vw;
+    }
+}
