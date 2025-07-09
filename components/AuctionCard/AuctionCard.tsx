@@ -2,6 +2,7 @@ import React from 'react'
 import {cn} from "@/lib/utils";
 import styles from "./AuctionCard.module.css";
 import Image from "next/image";
+import Link from "next/link";
 
 interface ChildProps {
     height?: string
@@ -9,10 +10,10 @@ interface ChildProps {
 
 const AuctionCard: React.FC<ChildProps> = ({ height })=> {
     return (
-        <a href="#" className={cn(styles.gallery__item, "show")}
+        <Link href="#" className={cn(styles.gallery__item, "show")}
            data-id="10">
             <div className={cn(styles.gallery__item_img )} style={{'height': height}}>
-                <Image src="/uploads/33e75ff09dd601bbe69f351039152189.jpg" alt="image" />
+                <Image src="/uploads/33e75ff09dd601bbe69f351039152189.jpg" alt="image" width={195} height={205} />
             </div>
             <div className={cn(styles.gallery__item_info)}>
                 <div className={cn(styles.gallery__item_num)}><span>Lot 3</span></div>
@@ -38,7 +39,7 @@ const AuctionCard: React.FC<ChildProps> = ({ height })=> {
                 className="seconds">12</span><span className="seconds-numeral">s</span>
             </div>
 
-        </a>
+        </Link>
     )
 }
 export default AuctionCard
