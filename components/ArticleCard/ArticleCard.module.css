@@ -9,7 +9,7 @@
         width: 100%;
         margin-bottom: 17vw;
     }
-    .press__list-wrap .press__item{
+    .press__item{
         width: 78.93vw;
         margin-right: 4.26vw;
         margin-bottom: 0;
@@ -17,7 +17,7 @@
     .press__item:last-child{
         margin-bottom: 0;
     }
-    .press__list-wrap .press__item:last-child {
+    .press__item:last-child {
         margin-right: 0;
     }
 }

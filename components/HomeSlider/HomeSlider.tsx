@@ -1,10 +1,10 @@
 import React from 'react'
 import {
     Carousel,
-    CarouselContent,
+    CarouselContent, CarouselDots,
     CarouselItem,
     CarouselNext,
-    CarouselPrevious,
+    CarouselPrevious
 } from "@/components/ui/carousel"
 import topimg from './HomeSlider.module.css'
 import Link from "next/link"
@@ -83,6 +83,7 @@ const HomeSlider = () => {
                 </CarouselContent>
                 <CarouselPrevious className="max-sm:hidden"/>
                 <CarouselNext className="max-sm:hidden"/>
+                <CarouselDots />
             </Carousel>
         </div>
     )

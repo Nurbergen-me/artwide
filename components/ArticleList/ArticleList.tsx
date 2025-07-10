@@ -1,27 +1,30 @@
 import React from 'react'
 import Link from "next/link";
 import ArticleCard from "@/components/ArticleCard/ArticleCard";
+import styles from "./ArticleList.module.css";
+import {cn} from "@/lib/utils";
 
 const ArticleList = () => {
     return (
-        <div className="mt-[5vw]">
+        <div className={cn(styles.press, styles.press_main)}>
             <div className="container">
-                <div className="flex justify-between items-end mb-[2.22vw]">
-                    <Link href="/">
-                        <h3 className="text-[3vw] max-md:text-[7.5vw]">
-                            Press
-                        </h3>
+                <div className={styles.press__top}>
+                    <Link href="/" className={styles.press__title}>
+                        Press
                     </Link>
-                    <Link href="/">
-                        <button className="text-primary text-[1.25vw] uppercase">
-                            View All
-                        </button>
+                    <Link href="/" className={styles.press__link}>
+                        View All
                     </Link>
                 </div>
-                <div className="flex justify-between max-sm:flex-col">
-                    <ArticleCard />
-                    <ArticleCard />
+                <div className={styles.press__list_wrap}>
+                    <div className={styles.press__list}>
+                        <ArticleCard/>
+                        <ArticleCard/>
+                    </div>
                 </div>
+                <Link href="/press/" className={styles.press__link2}>
+                    VIEW ALL
+                </Link>
             </div>
         </div>
     )

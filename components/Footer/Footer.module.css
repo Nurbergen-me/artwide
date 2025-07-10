@@ -71,19 +71,19 @@
     transform: scale(1.15);
 }
 .footer__social a.instagram {
-    background-image: url(/img/social/instagram.svg);
+    background-image: url(/img/instagram.svg);
 }
 .footer__social a.linkdin {
-    background-image: url(/img/social/linkdin.svg);
+    background-image: url(/img/linkdin.svg);
 }
 .footer__social a.facebook {
-    background-image: url(/img/social/facebook.svg);
+    background-image: url(/img/facebook.svg);
 }
 .footer__social a.x {
-    background-image: url(/img/social/x.svg);
+    background-image: url(/img/x.svg);
 }
 .footer__social a.youtube {
-    background-image: url(/img/social/youtube.svg);
+    background-image: url(/img/youtube.svg);
 }
 .footer__coingate {
     display: flex;

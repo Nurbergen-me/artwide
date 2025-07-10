@@ -154,7 +154,7 @@
     .topimg__img {
         position: relative;
         padding-top: 0;
-        padding-bottom: 12.2666666667vw;
+        /*padding-bottom: 12.2666666667vw;*/
         transition: padding 0.3s;
         align-items: flex-start;
         display: block;
@@ -184,7 +184,7 @@
     .container {
         min-height: unset;
         padding: 0 4.2666666667vw;
-        margin-top: 0;
+        margin-top: 8vw;
     }
 }
 .topimg__label {

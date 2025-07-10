@@ -1,0 +1,107 @@
+
+.press {
+    margin-bottom: 4.4444444444vw;
+}
+@media (max-width: 767px) {
+    .press {
+        margin-bottom: 17.0666666667vw;
+    }
+}
+
+@media (max-width: 767px) {
+    .press + .bottomform {
+        margin-top: 10.6666666667vw;
+    }
+}
+
+.press_main {
+    margin-top: 5.5555555556vw;
+    margin-bottom: 0;
+}
+@media (max-width: 767px) {
+    .press_main {
+        margin-top: 10.6666666667vw;
+        margin-bottom: 10.6666666667vw;
+    }
+}
+
+.press__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 2.2222222222vw;
+}
+@media (max-width: 767px) {
+    .press__top {
+        margin-bottom: 4.2666666667vw;
+    }
+}
+
+.press__title {
+    font-family: "Kings Caslon";
+    font-size: 3.0555555556vw;
+    line-height: 1.3;
+    letter-spacing: normal;
+}
+@media (max-width: 767px) {
+    .press__title {
+        font-size: 8.5333333333vw;
+    }
+}
+
+.press__link {
+    text-transform: uppercase;
+    color: #002EA3;
+    font-size: 1.25vw;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+}
+@media (max-width: 767px) {
+    .press__link {
+        display: none;
+    }
+}
+
+.press__link2 {
+    text-transform: uppercase;
+    color: #002EA3;
+    font-size: 1.25vw;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    display: none;
+}
+@media (max-width: 767px) {
+    .press__link2 {
+        display: block;
+        text-align: center;
+        font-size: 3.7333333333vw;
+        margin-top: 6.4vw;
+    }
+}
+
+.press__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+@media (max-width: 767px) {
+    .press__list{
+        margin-top: 4.2666666667vw;
+        display: block;
+    }
+    .press__list_wrap{
+        margin-top: 4.2666666667vw;
+        overflow-x: auto;
+        overflow-y: hidden;
+        margin: 0 -4.26vw;
+        padding: 0 4.26vw;
+    }
+    .press__list_wrap .press__list{
+        margin-top: 0;
+        display: flex;
+        width: fit-content;
+        flex-wrap: nowrap;
+    }
+}
