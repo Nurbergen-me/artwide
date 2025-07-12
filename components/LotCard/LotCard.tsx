@@ -5,7 +5,6 @@ import styles from "./LotCard.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import {cn} from "@/lib/utils";
-import SellWithModal from "@/components/modals/SellWithModal";
 import EnquiryModal from "@/components/modals/EnquiryModal";
 
 interface AuctionCardProps {

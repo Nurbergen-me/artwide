@@ -1,6 +1,4 @@
 import React from 'react'
-import Image from "next/image";
-import Link from "next/link";
 import PageContent from "@/components/PageContent/PageContent";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import AuctionCard from "@/components/AuctionCard/AuctionCard";

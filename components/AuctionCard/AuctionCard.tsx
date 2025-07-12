@@ -17,7 +17,7 @@ interface AuctionCardProps {
     type?: string;
 }
 
-const AuctionCard: React.FC<AuctionCardProps> = ({id, imageSrc, alt, link = "#", auctionType, name, dateRange, time, calendarText = "Add to Google Calendar", bidButtonText = "ACCEPTING BIDS", type}) => {
+const AuctionCard: React.FC<AuctionCardProps> = ({imageSrc, alt, link = "#", auctionType, name, dateRange, time, calendarText = "Add to Google Calendar", bidButtonText = "ACCEPTING BIDS", type}) => {
     return (
         <div className={styles.auctions__item}>
             <Link href={link} className={styles.auctions__item_img}>
