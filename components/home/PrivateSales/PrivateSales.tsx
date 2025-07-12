@@ -1,5 +1,5 @@
 import React from 'react'
-import AuctionCard from "@/components/AuctionCard/AuctionCard";
+import LotCard from "@/components/LotCard/LotCard";
 import styles from "./PrivateSales.module.css";
 import Link from "next/link";
 
@@ -52,21 +52,21 @@ const PrivateSales = () => {
         <div className={styles.privsales}>
             <div className="container">
                 <div className={styles.privsales__top}>
-                    <Link href="/" className={styles.press__title}>
+                    <Link href="/public" className={styles.press__title}>
                         Private Sales
                     </Link>
-                    <Link href="/" className={styles.privsales__link}>
+                    <Link href="/public" className={styles.privsales__link}>
                         View All
                     </Link>
                 </div>
                 <div className={styles.privsales__list}>
-                    <div className="flex flex-wrap max-sm:flex-nowrap">
+                    <div className="grid grid-cols-4 gap-4 max-sm:grid-cols-[repeat(4,_minmax(250px,_1fr))]">
                         {lots.map(lot => (
-                            <AuctionCard variant="private" key={lot.id} {...lot}/>
+                            <LotCard variant="private" key={lot.id} {...lot}/>
                         ))}
                     </div>
                 </div>
-                <Link href="/" className={styles.privsales__link2}>
+                <Link href="/public" className={styles.privsales__link2}>
                     View All
                 </Link>
             </div>

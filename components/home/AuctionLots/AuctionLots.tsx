@@ -1,6 +1,6 @@
 import React from 'react'
-import AuctionCard from "@/components/AuctionCard/AuctionCard";
-import styles from  "./AuctionLots.module.css"
+import LotCard from "@/components/LotCard/LotCard";
+import styles from "./AuctionLots.module.css"
 import {cn} from "@/lib/utils";
 import Link from "next/link";
 
@@ -61,20 +61,20 @@ const AuctionLots = () => {
         <div className="container">
             <div className={cn(styles.gallery, styles.gallery_pop)}>
                 <div className={styles.gallery__titletop}>
-                    <Link href="/" className={styles.gallery__title}>
+                    <Link href="/public" className={styles.gallery__title}>
                         Auction Lots
                     </Link>
-                    <Link href="/" className={styles.gallery__link}>
+                    <Link href="/public" className={styles.gallery__link}>
                         View All
                     </Link>
                 </div>
                 <div className={styles.gallery__pop}>
                     <div className={styles.gallery__pop_main}>
-                        <AuctionCard variant="main" key={lots[0].id} {...lots[0]}/>
+                        <LotCard variant="main" key={lots[0].id} {...lots[0]}/>
                     </div>
                     <div className={styles.gallery__pop_list}>
                         {lots.map(lot => (
-                            <AuctionCard variant="list" key={lot.id} {...lot}/>
+                            <LotCard variant="list" key={lot.id} {...lot}/>
                         ))}
                     </div>
                 </div>

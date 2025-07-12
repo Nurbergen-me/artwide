@@ -3,7 +3,7 @@
 import React from 'react'
 import styles from './MainBanner.module.css'
 import {cn} from "@/lib/utils";
-import style from "@/components/MainBanner/MainBanner.module.css";
+import style from "@/components/home/MainBanner/MainBanner.module.css";
 const videos = [
     {
         href: "https://www.youtube.com/watch?v=2zU5tF6hHMI",

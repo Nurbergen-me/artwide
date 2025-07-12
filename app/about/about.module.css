@@ -1,0 +1,855 @@
+
+.about__top {
+    height: 56.8055555556vw;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    padding: 0 11.1111111111vw 4.1666666667vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+@media (min-width: 768px) {
+    .about__top {
+        background-image: url(/img/about_1.webp);
+    }
+}
+@media (max-width: 767px) {
+    .about__top {
+        display: block;
+        height: 218.1333333333vw;
+        padding: 23.4666666667vw 4.2666666667vw 0;
+        background-image: url(/img/about_1_m.webp);
+    }
+}
+
+.auctionstarts + .about .about__top {
+    height: 61.1111111111vw;
+    padding-top: 13.1944444444vw;
+}
+@media (max-width: 767px) {
+    .auctionstarts + .about .about__top {
+        height: 234.6666666667vw;
+        padding-top: 37.3333333333vw;
+    }
+}
+@media (max-width: 767px) {
+    .auctionstarts + .about .about__top_img {
+        top: 112vw;
+    }
+}
+
+.about__top_title {
+    font-family: "Kings Caslon";
+    font-size: 4.1666666667vw;
+    line-height: 1.1;
+    letter-spacing: normal;
+    opacity: 100;
+    transform: translateY(6.9444444444vw);
+    transition: opacity 1s 0.5s, transform 1s 0.5s;
+}
+@media (max-width: 767px) {
+    .about__top_title {
+        font-size: 12.8vw;
+        transform: translateY(26.6666666667vw);
+    }
+}
+.about__top_title.animon {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about__top_text {
+    margin-top: 2.9166666667vw;
+    width: 37.5vw;
+    font-size: 1.6666666667vw;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    opacity: 100;
+    transform: translateY(6.9444444444vw);
+    transition: opacity 1s 0.5s, transform 1s 0.5s;
+}
+@media (max-width: 767px) {
+    .about__top_text {
+        margin-top: 6.4vw;
+        width: 83.2vw;
+        font-size: 4.2666666667vw;
+        transform: translateY(26.6666666667vw);
+        color: #EFEFEF;
+    }
+}
+.about__top_text.animon {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about__top_img {
+    position: absolute;
+    top: 4%;
+    left: 0;
+    width: 100%;
+    height: 96%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: translateY(10.4166666667vw);
+    transition: opacity 1s, transform 1s;
+}
+@media (min-width: 768px) {
+    .about__top_img {
+        background-image: url(/img/about_2_v3.png);
+    }
+}
+@media (max-width: 767px) {
+    .about__top_img {
+        background-image: url(/img/about_2_m_v3.png);
+        transform: translateY(40vw);
+        height: 129.2vw;
+        top: 92vw;
+    }
+}
+.about__top_img.animon {
+    transform: translateY(0);
+}
+
+.about__text {
+    font-family: "Kings Caslon";
+    font-size: 3.0555555556vw;
+    line-height: 1.3;
+    letter-spacing: normal;
+    padding: 8.3333333333vw 0;
+    color: #26272D;
+}
+@media (max-width: 767px) {
+    .about__text {
+        padding: 19.2vw 0;
+        font-size: 6.4vw;
+    }
+}
+
+.about__text_container {
+    width: 77.7777777778vw;
+    margin: 0 auto;
+}
+@media (max-width: 767px) {
+    .about__text_container {
+        width: 91.4666666667vw;
+    }
+}
+
+.about__text_lfine {
+    opacity: 100;
+    transform: translateX(-13.8888888889vw);
+    transition: opacity 1.5s, transform 1.5s;
+}
+@media (max-width: 767px) {
+    .about__text_lfine {
+        transform: translateX(-53.3333333333vw);
+    }
+}
+.about__text_lfine.animon {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.about__text_sline {
+    padding-left: 11.1111111111vw;
+    margin-top: 1.875vw;
+    opacity: 100;
+    transform: translateX(20.8333333333vw);
+    transition: opacity 1.5s, transform 1.5s;
+}
+@media (max-width: 767px) {
+    .about__text_sline {
+        padding-left: 17.0666666667vw;
+        margin-top: 2.1333333333vw;
+        transform: translateX(80vw);
+    }
+}
+.about__text_sline.animon {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.about__text_tline {
+    padding-left: 11.1111111111vw;
+    opacity: 100;
+    transform: translateX(20.8333333333vw);
+    transition: opacity 1.5s, transform 1.5s;
+}
+@media (max-width: 767px) {
+    .about__text_tline {
+        padding-left: 17.0666666667vw;
+        transform: translateX(80vw);
+    }
+}
+.about__text_tline.animon {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.about__text_blue {
+    font-family: "Kings Caslon";
+    font-size: 3.6111111111vw;
+    font-weight: 400;
+    line-height: 1.3;
+    letter-spacing: normal;
+    font-style: italic;
+    color: #002EA3;
+    height: 4.7222222222vw;
+}
+@media (max-width: 767px) {
+    .about__text_blue {
+        font-size: 7.4666666667vw;
+        height: 9.7066666667vw;
+    }
+}
+
+.about__banner {
+    padding: 5.5555555556vw;
+    text_align: center;
+    background: #EFEFEF;
+    font-family: "Kings Caslon";
+    font-size: 3.0555555556vw;
+    line-height: 1.3;
+    letter-spacing: normal;
+    color: #26272D;
+}
+@media (max-width: 767px) {
+    .about__banner {
+        padding: 14.9333333333vw 4.2666666667vw;
+        font-size: 6.4vw;
+    }
+}
+
+.about__banner_container {
+    transform: translateY(6.9444444444vw);
+    transition: transform 1s;
+}
+@media (max-width: 767px) {
+    .about__banner_container {
+        transform: translateY(26.6666666667vw);
+    }
+}
+.about__banner_container.animon {
+    transform: translateY(0);
+}
+
+.about__banner_blue {
+    font-family: "Kings Caslon";
+    font-size: 3.6111111111vw;
+    font-weight: 400;
+    line-height: 1.3;
+    letter-spacing: normal;
+    font-style: italic;
+    color: #002EA3;
+    margin-top: 1.6666666667vw;
+    height: 5.7638888889vw;
+}
+@media (max-width: 767px) {
+    .about__banner_blue {
+        font-size: 7.4666666667vw;
+        height: 9.7066666667vw;
+        margin-top: 2.1333333333vw;
+    }
+}
+
+.about__why {
+    padding: 8.3333333333vw 0;
+    color: #26272D;
+}
+@media (max-width: 767px) {
+    .about__why {
+        padding: 19.2vw 0 12.8vw;
+    }
+}
+
+.about__why_title {
+    font-family: "Kings Caslon";
+    font-size: 3.0555555556vw;
+    line-height: 1.3;
+    letter-spacing: normal;
+    padding: 0 5.5555555556vw;
+}
+@media (max-width: 767px) {
+    .about__why_title {
+        font-size: 11.7333333333vw;
+        padding: 0 4.2666666667vw;
+        width: 50%;
+    }
+}
+
+.about__why_container {
+    margin-top: 4.4444444444vw;
+}
+@media (max-width: 767px) {
+    .about__why_container {
+        margin-top: 2.1333333333vw;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding-top: 6.4vw;
+        padding-bottom: 6.4vw;
+    }
+}
+
+.about__why_list {
+    padding: 0 5.5555555556vw;
+    width: fit-content;
+    display: flex;
+}
+@media (max-width: 767px) {
+    .about__why_list {
+        padding: 0 4.2666666667vw;
+    }
+}
+
+.about__why_item {
+    width: 22.2222222222vw;
+    margin-right: 2.2222222222vw;
+    background: #fff;
+    border: 1px solid #D7D7DA;
+    box-shadow: 0.1388888889vw 0.1388888889vw 1.3888888889vw 0.1388888889vw rgba(38, 39, 45, 0.15);
+    border-radius: 2.2222222222vw;
+    padding: 2.7777777778vw 2.2222222222vw;
+}
+@media (max-width: 767px) {
+    .about__why_item {
+        width: 64vw;
+        margin-right: 4.2666666667vw;
+        box-shadow: 0.5333333333vw 0.5333333333vw 5.3333333333vw 0.5333333333vw rgba(38, 39, 45, 0.15);
+        border-radius: 8.5333333333vw;
+        padding: 8.5333333333vw 6.4vw;
+    }
+}
+.about__why_item:last-child {
+    margin-right: 0;
+}
+.about__why_item div:first-child {
+    font-family: "Kings Caslon";
+    font-size: 2.2222222222vw;
+    line-height: 1.3;
+    letter-spacing: normal;
+}
+@media (max-width: 767px) {
+    .about__why_item div:first-child {
+        font-size: 6.4vw;
+    }
+}
+.about__why_item div:last-child {
+    font-size: 1.25vw;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    margin-top: 2.2222222222vw;
+}
+@media (max-width: 767px) {
+    .about__why_item div:last-child {
+        font-size: 4.2666666667vw;
+        margin-top: 4.2666666667vw;
+    }
+}
+
+.about__platform {
+    background: #EFEFEF;
+    padding: 8.3333333333vw 5.5555555556vw;
+}
+@media (max-width: 767px) {
+    .about__platform {
+        padding: 19.2vw 4.2666666667vw 10.6666666667vw;
+    }
+}
+
+.about__platform_top {
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(13.8888888889vw);
+    transition: transform 1s;
+}
+@media (max-width: 767px) {
+    .about__platform_top {
+        display: block;
+        transform: translateY(13.3333333333vw);
+        padding-bottom: 2.1333333333vw;
+        border-bottom: 1px solid #353640;
+    }
+}
+.about__platform_top.animon {
+    transform: translateY(0);
+}
+
+.about__platform_topleft {
+    width: 31.25vw;
+    font-family: "Kings Caslon";
+    font-size: 3.0555555556vw;
+    line-height: 1.3;
+    letter-spacing: normal;
+}
+@media (max-width: 767px) {
+    .about__platform_topleft {
+        font-size: 8.5333333333vw;
+        width: 100%;
+        position: relative;
+        z-index: 10;
+    }
+}
+.about__platform_topleft span {
+    display: inline-block;
+    color: #002EA3;
+    font-style: italic;
+}
+
+.about__platform_topright {
+    width: 18.0555555556vw;
+    text_align: right;
+    font-family: "Kings Caslon";
+    font-size: 2.2222222222vw;
+    line-height: 1.3;
+    letter-spacing: normal;
+    position: relative;
+    color: #6C6C73;
+}
+@media (max-width: 767px) {
+    .about__platform_topright {
+        font-size: 4.8vw;
+        width: 100%;
+        margin-top: 4.2666666667vw;
+    }
+}
+@media (min-width: 768px) {
+    .about__platform_topright .mobile {
+        display: none;
+    }
+}
+.about__platform_topright div {
+    position: relative;
+    z-index: 1;
+}
+.about__platform_topright::before {
+    content: "”";
+    position: absolute;
+    top: -11.875vw;
+    right: -3.125vw;
+    z-index: 0;
+    font-family: "Kings Caslon";
+    line-height: 1.3;
+    font-size: 27.7777777778vw;
+    color: #fff;
+    letter-spacing: normal;
+}
+@media (max-width: 767px) {
+    .about__platform_topright::before {
+        font-size: 53.3333333333vw;
+        top: -22.6666666667vw;
+        right: -4.5333333333vw;
+    }
+}
+
+.about__platform_list {
+    margin-top: 2.2222222222vw;
+    padding-top: 4.4444444444vw;
+    border-top: 1px solid #353640;
+    transform: translateY(13.8888888889vw);
+    transition: transform 1s;
+}
+@media (max-width: 767px) {
+    .about__platform_list {
+        transform: translateY(0);
+        border: none;
+        overflow-x: auto;
+        overflow-y: hidden;
+        margin: 0 -4.2666666667vw;
+        padding-top: 8.5333333333vw;
+    }
+}
+.about__platform_list.animon {
+    transform: translateY(0);
+}
+
+.about__platform_listin {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+@media (max-width: 767px) {
+    .about__platform_listin {
+        border: none;
+        flex-wrap: nowrap;
+        width: fit-content;
+        padding: 8.5333333333vw 4.2666666667vw;
+        align-items: stretch;
+    }
+}
+
+.about__platform_item {
+    padding: 2.7777777778vw 2.2222222222vw;
+    margin: 0 1.9444444444vw 3.8888888889vw;
+    width: 36.9444444444vw;
+    background: #fff;
+    border: 1px solid #353640;
+    box-shadow: 0.1388888889vw 0.1388888889vw 1.3888888889vw 0.1388888889vw rgba(38, 39, 45, 0.15);
+    border-radius: 2.2222222222vw;
+    font-size: 1.25vw;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    opacity: 100;
+    transform: translateY(6.9444444444vw);
+    transition: transform 1s, opacity 1s;
+}
+@media (max-width: 767px) {
+    .about__platform_item {
+        padding: 8.5333333333vw 4.2666666667vw;
+        margin: 0 4.2666666667vw 0 0;
+        width: 64vw;
+        box-shadow: 0.5333333333vw 0.5333333333vw 5.3333333333vw 0.5333333333vw rgba(38, 39, 45, 0.15);
+        border-radius: 8.5333333333vw;
+        transform: translateY(0);
+        font-size: 4.2666666667vw;
+    }
+}
+.about__platform_item.animon {
+    opacity: 1;
+    transform: translateY(0);
+}
+.about__platform_item p {
+    margin: 1em 0;
+}
+.about__platform_item p:first-child {
+    margin-top: 0;
+}
+.about__platform_item p:last-child {
+    margin-bottom: 0;
+}
+.about__platform_item:nth-child(2n+3) {
+    margin-top: -8.8888888889vw;
+}
+@media (max-width: 767px) {
+    .about__platform_item:nth-child(2n+3) {
+        margin-top: 0;
+    }
+}
+.about__platform_item:nth-child(2) {
+    transition-delay: 0.3s;
+}
+
+.about__platform_author {
+    text_align: right;
+    font-weight: 500;
+    margin-top: 2.2222222222vw;
+}
+@media (max-width: 767px) {
+    .about__platform_author {
+        margin-top: 8.5333333333vw;
+        font-size: 3.7333333333vw;
+    }
+}
+
+.about__platform_img {
+    margin: 0 1.6666666667vw;
+    height: 14.1666666667vw;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+@media (max-width: 767px) {
+    .about__platform_img {
+        margin: 0 6.4vw 3.2vw;
+        height: 34.1333333333vw;
+    }
+}
+
+.about__platform_imgtext {
+    text_align: center;
+    margin: 2.2222222222vw 1.6666666667vw 0;
+    padding: 2.2222222222vw 1.6666666667vw 0;
+    border-top: 1px solid #353640;
+}
+@media (max-width: 767px) {
+    .about__platform_imgtext {
+        margin: 4.2666666667vw 4.2666666667vw 0;
+        padding: 4.2666666667vw 0 0;
+    }
+}
+
+.about__ourcom {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    background: #EFEFEF;
+}
+
+.about__ourcom_in {
+    padding: 11.1111111111vw 0;
+    height: 79.375vw;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 100;
+    transition: opacity 1s;
+}
+@media (min-width: 768px) {
+    .about__ourcom_in {
+        background-image: url(/img/about2.webp);
+    }
+}
+@media (max-width: 767px) {
+    .about__ourcom_in {
+        background-image: url(/img/about2_m.webp);
+        padding: 19.2vw 0;
+        height: 242.9333333333vw;
+    }
+}
+.about__ourcom_in.animon {
+    opacity: 1;
+}
+
+.about__ourcom_container {
+    width: 88.8888888889vw;
+    margin: 0 auto;
+}
+@media (max-width: 767px) {
+    .about__ourcom_container {
+        width: 100%;
+    }
+}
+
+.about__ourcom_title {
+    font-family: "Kings Caslon";
+    font-size: 4.4444444444vw;
+    font-weight: 400;
+    line-height: 1.3;
+    letter-spacing: normal;
+    text_align: center;
+}
+@media (max-width: 767px) {
+    .about__ourcom_title {
+        font-size: 11.7333333333vw;
+        border-bottom: 1px solid #fff;
+        margin: 0 4.2666666667vw;
+        padding-bottom: 4.2666666667vw;
+    }
+}
+
+.about__ourcom_text {
+    font-size: 1.6666666667vw;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    padding-top: 2.2222222222vw;
+    border-top: 2px solid #fff;
+    text_align: center;
+}
+@media (max-width: 767px) {
+    .about__ourcom_text {
+        border: none;
+        font-size: 4.2666666667vw;
+        padding: 6.4vw 4.2666666667vw 0;
+        color: #EFEFEF;
+    }
+    .about__ourcom_text br {
+        display: none;
+    }
+}
+
+.about__ourcom_list {
+    margin-top: 4.4444444444vw;
+}
+@media (max-width: 767px) {
+    .about__ourcom_list {
+        margin-top: 4.2666666667vw;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 4.2666666667vw 0;
+    }
+}
+
+.about__ourcom_listin {
+    display: flex;
+    justify-content: center;
+}
+@media (max-width: 767px) {
+    .about__ourcom_listin {
+        justify-content: flex-start;
+        width: fit-content;
+        padding: 0 4.2666666667vw;
+    }
+}
+
+.about__ourcom_item {
+    margin-right: 2.2222222222vw;
+    width: 20.46875vw;
+    background: #fff;
+    border-radius: 2.2222222222vw;
+    border: 1px solid #D7D7DA;
+    padding: 2.7777777778vw 2.2222222222vw 2.8472222222vw;
+    color: #002EA3;
+    font-size: 1.25vw;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+}
+@media (max-width: 767px) {
+    .about__ourcom_item {
+        width: 64vw;
+        margin-right: 4.2666666667vw;
+        padding: 8.5333333333vw 6.4vw;
+        font-size: 4.2666666667vw;
+        border-radius: 8.5333333333vw;
+    }
+}
+.about__ourcom_item:last-child {
+    margin-right: 0;
+}
+
+.about__ourcom_itemnum {
+    text_transform: uppercase;
+    text_align: center;
+    font-size: 1.5277777778vw;
+}
+@media (max-width: 767px) {
+    .about__ourcom_itemnum {
+        font-size: 4.8vw;
+    }
+}
+
+.about__ourcom_itemtitle {
+    text_align: center;
+    margin-top: 0.5555555556vw;
+    font-family: "Kings Caslon";
+    font-size: 2.2222222222vw;
+    line-height: 1.3;
+    letter-spacing: normal;
+}
+@media (max-width: 767px) {
+    .about__ourcom_itemtitle {
+        margin-top: 2.1333333333vw;
+        font-size: 6.4vw;
+    }
+}
+
+.about__ourcom_itemtext {
+    margin-top: 2.2222222222vw;
+    padding-top: 2.0833333333vw;
+    border-top: 1px solid #002EA3;
+}
+@media (max-width: 767px) {
+    .about__ourcom_itemtext {
+        margin-top: 6.4vw;
+        padding-top: 6.4vw;
+    }
+}
+
+.about__bottom {
+    position: relative;
+    z-index: 0;
+    padding-top: 2.7777777778vw;
+    margin-bottom: -8.3333333333vw;
+    padding-bottom: 8.3333333333vw;
+    background: #EFEFEF;
+}
+@media (max-width: 767px) {
+    .about__bottom {
+        margin-bottom: -10.6666666667vw;
+        padding: 16vw 0 22.6666666667vw;
+    }
+}
+
+.about__bottom_container {
+    height: 49.5833333333vw;
+    background-position: 2.2916666667vw center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@media (min-width: 768px) {
+    .about__bottom_container {
+        background-image: url(/img/about3_v3.png);
+    }
+}
+@media (max-width: 767px) {
+    .about__bottom_container {
+        background-image: url(/img/about3_m_v3.png);
+        height: 61.6vw;
+        background-position: -1.3333333333vw center;
+    }
+}
+
+.about__bottom_block {
+    padding: 4.4444444444vw 2.2222222222vw;
+    width: 55.5555555556vw;
+    height: 23.8888888889vw;
+    background: rgba(255, 255, 255, 0.6);
+    border: 2px solid #26272D;
+    backdrop-filter: blur(5px);
+    border-radius: 2.2222222222vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transform: translateY(100%);
+    opacity: 100;
+    transition: transform 0.7s, opacity 0.7s;
+}
+.about__bottom_block.animon {
+    opacity: 1;
+    transform: translateY(0);
+}
+@media (max-width: 767px) {
+    .about__bottom_block {
+        width: 85.3333333333vw;
+        height: 71.4666666667vw;
+        padding: 8.5333333333vw 6.4vw;
+        border-radius: 8.5333333333vw;
+    }
+}
+
+.about__bottom_text {
+    text_align: center;
+    font-family: "Kings Caslon";
+    font-size: 3.0555555556vw;
+    line-height: 1.3;
+    letter-spacing: normal;
+}
+@media (max-width: 767px) {
+    .about__bottom_text {
+        font-size: 8.5333333333vw;
+    }
+}
+.about__bottom_text span {
+    display: block;
+    color: #002EA3;
+    font-style: italic;
+}
+@media (max-width: 767px) {
+    .about__bottom_text span {
+        display: inline-block;
+    }
+}
+
+.about__bottom_buttons {
+    margin-top: 2.2222222222vw;
+    display: flex;
+    justify-content: center;
+}
+@media (max-width: 767px) {
+    .about__bottom_buttons {
+        margin-top: 4.2666666667vw;
+        display: block;
+    }
+}
+.about__bottom_buttons .button {
+    margin: 0 0.5555555556vw;
+}
+@media (max-width: 767px) {
+    .about__bottom_buttons .button {
+        margin: 2.1333333333vw 0 0;
+    }
+    .about__bottom_buttons .button:first-child {
+        margin-top: 0;
+    }
+}

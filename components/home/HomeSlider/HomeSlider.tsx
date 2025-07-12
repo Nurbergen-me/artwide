@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/carousel"
 import topimg from './HomeSlider.module.css'
 import Link from "next/link"
-import AuctionStarts from "@/components/AuctionStarts/AuctionStarts";
+import AuctionStarts from "@/components/home/AuctionStarts/AuctionStarts";
 import {cn} from "@/lib/utils";
 import Image from "next/image";
 
