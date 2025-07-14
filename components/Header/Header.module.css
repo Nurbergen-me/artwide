@@ -133,6 +133,7 @@
 .header__auth {
     margin-left: 5.5555555556vw;
     display: flex;
+    gap: 1.1vw;
     justify-content: flex-end;
     position: relative;
 }
@@ -142,7 +143,7 @@
     }
 }
 .header__auth .button {
-    margin-right: 1.1111111111vw;
+    /*margin-right: 1.1111111111vw;*/
     height: 2.9166666667vw;
     font-size: 0.8333333333vw;
     letter-spacing: 0.1em;

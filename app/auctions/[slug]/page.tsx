@@ -1,21 +1,111 @@
 'use client'
 
-import React from 'react'
+import React, {useState} from 'react'
 import Image from "next/image";
+import LotCard from "@/components/LotCard/LotCard";
+import {MultiSelect, Option} from "@/components/ui/multi-select";
+import {RangeSelect} from "@/components/ui/range-select";
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select"
+
+const lots = [
+    {
+        id: 1,
+        imageSrc: "/uploads/3c59dc048e8850243be8079a5c74d079.jpg",
+        artistName: "Claudia Ginocchio",
+        title: "All in the same time, 2017",
+        technique: "Acrylic on canvas",
+        estimate: "1,500 - 3000 EUR",
+        startingBid: "1,200 EUR",
+        link: "/auction/2025/indian-masters-of-color-and-spirit-1/all-in-the-same-time-21/",
+        timerEndUnix: 1752418860
+    },{
+        id: 2,
+        imageSrc: "/uploads/3c59dc048e8850243be8079a5c74d079.jpg",
+        artistName: "Claudia Ginocchio",
+        title: "All in the same time, 2017",
+        technique: "Acrylic on canvas",
+        estimate: "1,500 - 3000 EUR",
+        startingBid: "1,200 EUR",
+        link: "/auction/2025/indian-masters-of-color-and-spirit-1/all-in-the-same-time-21/",
+        timerEndUnix: 1752418860
+    },{
+        id: 3,
+        imageSrc: "/uploads/3c59dc048e8850243be8079a5c74d079.jpg",
+        artistName: "Claudia Ginocchio",
+        title: "All in the same time, 2017",
+        technique: "Acrylic on canvas",
+        estimate: "1,500 - 3000 EUR",
+        startingBid: "1,200 EUR",
+        link: "/auction/2025/indian-masters-of-color-and-spirit-1/all-in-the-same-time-21/",
+        timerEndUnix: 1752418860
+    },{
+        id: 4,
+        imageSrc: "/uploads/1ff1de774005f8da13f42943881c655f.jpg",
+        artistName: "Claudia Ginocchio",
+        title: "All in the same time, 2017",
+        technique: "Acrylic on canvas",
+        estimate: "1,500 - 3000 EUR",
+        startingBid: "1,200 EUR",
+        link: "/auction/2025/indian-masters-of-color-and-spirit-1/all-in-the-same-time-21/",
+        timerEndUnix: 1752418860
+    },
+]
+const mediaTypes: Option[] = [
+    { label: "Design", value: "design" },
+    { label: "Film, video", value: "film" },
+    { label: "Installation", value: "installation" },
+    { label: "Jewellery", value: "Jewellery" },
+    { label: "Mixed Media", value: "mixed" },
+    { label: "Paintings", value: "Paintings" },
+    { label: "Photographs", value: "Photographs" },
+    { label: "Prints and multiples", value: "prints" },
+    { label: "Sculpture", value: "Sculpture" },
+    { label: "Works on paper", value: "works_on_paper" },
+    { label: "Others", value: "others" },
+]
+
+const sizes: Option[] = [
+    { label: "Small", value: "small" },
+    { label: "Medium", value: "medium" },
+    { label: "Large", value: "large" },
+]
+
+const bids: Option[] = [
+    { label: "No bids", value: "no_bids" },
+    { label: "Has bids", value: "has_bids" },
+    { label: "Reserve not met", value: "reserve_not_met" },
+    { label: "Reserve met", value: "reserve_met" },
+]
+
 
 const Page = () => {
+    const [selectedFilterValues, setSelectedFilterValues] = useState("")
+    const handleSelect = (values: string[], items: Option[]) => {
+        console.log("Selected values:", values)
+        console.log("Selected items:", items)
+        setSelectedFilterValues(prevState => prevState + " " + values)
+    }
     return (
         <div>
             <div className="auction__top-image__container">
-                <Image src="/uploads/1745425001.png" alt="Indian Masters of Color and Spirit" width={100} height={100}/>
+                <Image src="/uploads/1745425001.png" alt="Indian Masters of Color and Spirit" width={888} height={277}/>
             </div>
             <div className="container">
                 <div className="content">
-                    <div className="auction__title" data-aid="1"><h1>Indian Masters of Color and Spirit</h1></div>
-
+                    <div className="auction__title" data-aid="1">
+                        <h1>Indian Masters of Color and Spirit</h1>
+                    </div>
                     <div className="auction__date">
-                        <div className="auction__date-text"><span className="before">4 days</span> Until Lots Begin
-                            Closing<i className="infoicon infoicon_pop"></i></div>
+                        <div className="auction__date-text">
+                            <span className="before">4 days</span> Until Lots Begin Closing
+                            <i className="infoicon infoicon_pop"></i>
+                        </div>
                         <div className="auction__date-full">
                             <span>13 July 2025</span> <i>•</i> <span>03:53 PM UK time</span> • Online<i
                             className="infoicon infoicon_pop"></i>
@@ -50,6 +140,49 @@ const Page = () => {
                         </p></div>
                     </div>
                     <div className="auction__tabs"></div>
+
+                    <div className="flex justify-between items-center pt-[2.8vw]">
+                        <div className="flex items-center gap-[2.8vw]">
+                            <RangeSelect
+                                minValue={1500}
+                                maxValue={10000}
+                                currency="USD"
+                                placeholder="Price"
+                                onSubmit={({ min, max }) => {
+                                    console.log("User selected:", min, max);
+                                }}
+                            />
+                            <MultiSelect
+                                options={mediaTypes}
+                                placeholder="Media"
+                                onChange={handleSelect}
+                            />
+                            <MultiSelect
+                                options={sizes}
+                                placeholder="Size"
+                                onChange={handleSelect}
+                            />
+                            <MultiSelect
+                                options={bids}
+                                placeholder="Bids"
+                                onChange={handleSelect}
+                            />
+                            <Select>
+                                <SelectTrigger >
+                                    <SelectValue placeholder="Bids" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    {bids.map((bid, index) => (
+                                        <SelectItem key={"bid-"+index} value={bid.value}>
+                                            {bid.label}
+                                        </SelectItem>
+                                    ))}
+                                </SelectContent>
+                            </Select>
+                        </div>
+                    </div>
+
+
                     <div className="content__filter">
                         <div className="content__filter-left">
                             <div className="select content__filter-price range">
@@ -161,337 +294,59 @@ const Page = () => {
                         <div className="content__mfilter">Sort &amp; Filters</div>
                     </div>
                     <div className="chosenfilters">
+                        {selectedFilterValues.toString()}
                         <div className="chosenfilters__clear">Clear all</div>
                     </div>
                     <input type="hidden" name="baf" value=""/>
                     <input type="hidden" name="aaf" value="1"/>
                     <input type="hidden" name="faf" value=""/>
                     <input type="hidden" name="caf" value=""/>
-                    <div className="gallery">
-                        <div className="gallery__list" id="gallerylist">
+                    <div className="pt-[6.6vw]">
 
-                            <a href="/auction/2025/indian-masters-of-color-and-spirit-1/agata-che-pensa-in-un-prato-in--islanda-8/"
-                               className="gallery__item" data-id="8">
-                                <div className="gallery__item-img">
-                                    <Image
-                                    src="/uploads/4e732ced3463d06de0ca9a15b6153677.jpg" alt="image" width={100} height={100}/></div>
-                                <div className="gallery__item-info">
-                                    <div className="gallery__item-num"><span>Lot 1</span></div>
-                                    <div className="gallery__item-like hintpopupParent" data-id="8">
-                                        <div className="hintpopup">Please Log In or Register to add the lot to your
-                                            favourites
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="gallery__item-name">Mirko Leuzzi</div>
-                                <div className="gallery__item-title">Agata Che Pensa In Un Prato In Islanda</div>
-                                <div className="gallery__item-technique">Oil on canvas with 3 cm thick wooden frame
-                                </div>
-                                <div className="gallery__item-estimate">Estimate: 5,500 - 7,000 EUR</div>
-                                <div className="gallery__item-start">
+                        <div className="grid grid-cols-3 gap-4" id="gallerylist">
+                            {lots.map(lot => (
+                                <LotCard
+                                    variant=""
+                                    key={lot.id}
+                                    {...lot}
+                                />
+                            ))}
 
-                                    <span>Current Bid:</span> <span>9,000 EUR</span>
-                                    <div><span>9</span> bids | <span>Reserve met</span></div>
-                                </div>
+                            {/*<a href="/auction/2025/indian-masters-of-color-and-spirit-1/agata-che-pensa-in-un-prato-in--islanda-8/"*/}
+                            {/*   className="gallery__item" data-id="8">*/}
+                            {/*    <div className="gallery__item-img">*/}
+                            {/*        <Image*/}
+                            {/*            src="/uploads/4e732ced3463d06de0ca9a15b6153677.jpg" alt="image" width={100}*/}
+                            {/*            height={100}/></div>*/}
+                            {/*    <div className="gallery__item-info">*/}
+                            {/*        <div className="gallery__item-num"><span>Lot 1</span></div>*/}
+                            {/*        <div className="gallery__item-like hintpopupParent" data-id="8">*/}
+                            {/*            <div className="hintpopup">Please Log In or Register to add the lot to your*/}
+                            {/*                favourites*/}
+                            {/*            </div>*/}
+                            {/*        </div>*/}
+                            {/*    </div>*/}
+                            {/*    <div className="gallery__item-name">Mirko Leuzzi</div>*/}
+                            {/*    <div className="gallery__item-title">Agata Che Pensa In Un Prato In Islanda</div>*/}
+                            {/*    <div className="gallery__item-technique">Oil on canvas with 3 cm thick wooden frame*/}
+                            {/*    </div>*/}
+                            {/*    <div className="gallery__item-estimate">Estimate: 5,500 - 7,000 EUR</div>*/}
+                            {/*    <div className="gallery__item-start">*/}
 
-                                <div className="lot__auction-time timercount closing" data-id="8"
-                                     data-time="1752418440">
-                                    <span className="lot__auction-time__closes-text timer-text">Extended: </span>
-                                    <span className="days">04</span><span className="days-numeral">d</span>
-                                    <span className="hours">05</span><span className="hours-numeral">h</span>
-                                    <span className="minutes">26</span><span className="minutes-numeral">m</span> <span
-                                    className="seconds">10</span><span className="seconds-numeral">s</span>
-                                </div>
+                            {/*        <span>Current Bid:</span> <span>9,000 EUR</span>*/}
+                            {/*        <div><span>9</span> bids | <span>Reserve met</span></div>*/}
+                            {/*    </div>*/}
 
-                            </a>
+                            {/*    <div className="lot__auction-time timercount closing" data-id="8"*/}
+                            {/*         data-time="1752418440">*/}
+                            {/*        <span className="lot__auction-time__closes-text timer-text">Extended: </span>*/}
+                            {/*        <span className="days">04</span><span className="days-numeral">d</span>*/}
+                            {/*        <span className="hours">05</span><span className="hours-numeral">h</span>*/}
+                            {/*        <span className="minutes">26</span><span className="minutes-numeral">m</span> <span*/}
+                            {/*        className="seconds">10</span><span className="seconds-numeral">s</span>*/}
+                            {/*    </div>*/}
 
-                            <a href="/auction/2025/indian-masters-of-color-and-spirit-1/liquid-project-9/"
-                               className="gallery__item" data-id="9">
-                                <div className="gallery__item-img">
-                                    <Image
-                                    src="/uploads/02e74f10e0327ad868d138f2b4fdd6f0.jpg"
-                                    alt="image" width={100} height={100}/></div>
-                                <div className="gallery__item-info">
-                                    <div className="gallery__item-num"><span>Lot 2</span></div>
-                                    <div className="gallery__item-like hintpopupParent" data-id="9">
-                                        <div className="hintpopup">Please Log In or Register to add the lot to your
-                                            favourites
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="gallery__item-name">Nicolas Denino</div>
-                                <div className="gallery__item-title">Liquid Project</div>
-                                <div className="gallery__item-technique">Acrylic, pigment, plaster</div>
-                                <div className="gallery__item-estimate">Estimate: 6,000 - 10,000 EUR</div>
-                                <div className="gallery__item-start">
-
-                                    <span>Current Bid:</span> <span>6,000 EUR</span>
-                                    <div><span>3</span> bids | <span>Reserve met</span></div>
-                                </div>
-
-                                <div className="lot__auction-time timercount closing" data-id="9"
-                                     data-time="1752418500">
-                                    <span className="lot__auction-time__closes-text timer-text">Extended: </span>
-                                    <span className="days">04</span><span className="days-numeral">d</span>
-                                    <span className="hours">05</span><span className="hours-numeral">h</span>
-                                    <span className="minutes">27</span><span className="minutes-numeral">m</span> <span
-                                    className="seconds">10</span><span className="seconds-numeral">s</span>
-                                </div>
-
-                            </a>
-
-                            <a href="/auction/2025/indian-masters-of-color-and-spirit-1/marilyn-orange-10/"
-                               className="gallery__item" data-id="10">
-                                <div className="gallery__item-img">
-                                    <Image
-                                    src="/uploads/33e75ff09dd601bbe69f351039152189.jpg"
-                                    alt="image" width={100} height={100}/></div>
-                                <div className="gallery__item-info">
-                                    <div className="gallery__item-num"><span>Lot 3</span></div>
-                                    <div className="gallery__item-like hintpopupParent" data-id="10">
-                                        <div className="hintpopup">Please Log In or Register to add the lot to your
-                                            favourites
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="gallery__item-name">DICÒ</div>
-                                <div className="gallery__item-title">Marilyn Orange</div>
-                                <div className="gallery__item-technique">Acrylic, resin, LED neon, combustion</div>
-                                <div className="gallery__item-estimate">Estimate: 5,000 - 10,000 EUR</div>
-                                <div className="gallery__item-start">
-
-                                    <span>Current Bid:</span> <span>4,950 EUR</span>
-                                    <div><span>2</span> bids | <span>Reserve not met</span></div>
-                                </div>
-
-                                <div className="lot__auction-time timercount " data-id="10" data-time="1752418560">
-                                    <span className="lot__auction-time__closes-text timer-text">Lot closes: </span>
-                                    <span className="days">04</span><span className="days-numeral">d</span>
-                                    <span className="hours">05</span><span className="hours-numeral">h</span>
-                                    <span className="minutes">28</span><span className="minutes-numeral">m</span> <span
-                                    className="seconds">10</span><span className="seconds-numeral">s</span>
-                                </div>
-
-                            </a>
-
-                            <a href="/auction/2025/indian-masters-of-color-and-spirit-1/conscio-and-inconscio-13/"
-                               className="gallery__item" data-id="13">
-                                <div className="gallery__item-img">
-                                    <Image
-                                    src="/uploads/c16a5320fa475530d9583c34fd356ef5.jpg" alt="image" width={100} height={100}/></div>
-                                <div className="gallery__item-info">
-                                    <div className="gallery__item-num"><span>Lot 4</span></div>
-                                    <div className="gallery__item-like hintpopupParent" data-id="13">
-                                        <div className="hintpopup">Please Log In or Register to add the lot to your
-                                            favourites
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="gallery__item-name">Annalisa Conter</div>
-                                <div className="gallery__item-title">CONSCIO and INCONSCIO</div>
-                                <div className="gallery__item-technique">Hahnemühle Photo Rag® Satin 310 gsm 100%
-                                    cotone; Diptych
-                                </div>
-                                <div className="gallery__item-estimate">Estimate: 3,000 - 6,000 EUR</div>
-                                <div className="gallery__item-start">
-
-                                    <span>Current Bid:</span> <span>2,500 EUR</span>
-                                    <div><span>1</span> bid | <span>Reserve not met</span></div>
-                                </div>
-
-                                <div className="lot__auction-time timercount " data-id="13" data-time="1752418620">
-                                    <span className="lot__auction-time__closes-text timer-text">Lot closes: </span>
-                                    <span className="days">04</span><span className="days-numeral">d</span>
-                                    <span className="hours">05</span><span className="hours-numeral">h</span>
-                                    <span className="minutes">29</span><span className="minutes-numeral">m</span> <span
-                                    className="seconds">10</span><span className="seconds-numeral">s</span>
-                                </div>
-
-                            </a>
-
-                            <a href="/auction/2025/indian-masters-of-color-and-spirit-1/venus-in-disguise-edition-13-12/"
-                               className="gallery__item" data-id="12">
-                                <div className="gallery__item-img">
-                                    <Image
-                                    src="/uploads/34173cb38f07f89ddbebc2ac9128303f.jpg" alt="image" width={200} height={200}/></div>
-                                <div className="gallery__item-info">
-                                    <div className="gallery__item-num"><span>Lot 5</span></div>
-                                    <div className="gallery__item-like hintpopupParent" data-id="12">
-                                        <div className="hintpopup">Please Log In or Register to add the lot to your
-                                            favourites
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="gallery__item-name">Micha Cattaui</div>
-                                <div className="gallery__item-title">Venus in disguise. Edition 1/3</div>
-                                <div className="gallery__item-technique">Acryluxe print</div>
-                                <div className="gallery__item-estimate">Estimate: 4,000 - 8,000 EUR</div>
-                                <div className="gallery__item-start">
-
-                                    <span>Current Bid:</span> <span>3,750 EUR</span>
-                                    <div><span>2</span> bids | <span>Reserve not met</span></div>
-                                </div>
-
-                                <div className="lot__auction-time timercount " data-id="12" data-time="1752418680">
-                                    <span className="lot__auction-time__closes-text timer-text">Lot closes: </span>
-                                    <span className="days">04</span><span className="days-numeral">d</span>
-                                    <span className="hours">05</span><span className="hours-numeral">h</span>
-                                    <span className="minutes">30</span><span className="minutes-numeral">m</span> <span
-                                    className="seconds">10</span><span className="seconds-numeral">s</span>
-                                </div>
-
-                            </a>
-
-                            <a href="/auction/2025/indian-masters-of-color-and-spirit-1/pondering-edition-215-15/"
-                               className="gallery__item" data-id="15">
-                                <div className="gallery__item-img">
-                                    <Image
-                                    src="/uploads/182be0c5cdcd5072bb1864cdee4d3d6e.png"
-                                    alt="image" width={200} height={200} /></div>
-                                <div className="gallery__item-info">
-                                    <div className="gallery__item-num"><span>Lot 6</span></div>
-                                    <div className="gallery__item-like hintpopupParent" data-id="15">
-                                        <div className="hintpopup">Please Log In or Register to add the lot to your
-                                            favourites
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="gallery__item-name">Henry Lohmeyer</div>
-                                <div className="gallery__item-title">Pondering. Edition 2/15</div>
-                                <div className="gallery__item-technique">Hahnemuhle archival cotton paper, with rag torn
-                                    edges
-                                </div>
-                                <div className="gallery__item-estimate">Estimate: 1,500 - 3,000 EUR</div>
-                                <div className="gallery__item-start">
-
-                                    <span>Current Bid:</span> <span>1,300 EUR</span>
-                                    <div><span>1</span> bid | <span>Reserve not met</span></div>
-                                </div>
-
-                                <div className="lot__auction-time timercount closing" data-id="15"
-                                     data-time="1752418740">
-                                    <span className="lot__auction-time__closes-text timer-text">Extended: </span>
-                                    <span className="days">04</span><span className="days-numeral">d</span>
-                                    <span className="hours">05</span><span className="hours-numeral">h</span>
-                                    <span className="minutes">31</span><span className="minutes-numeral">m</span> <span
-                                    className="seconds">10</span><span className="seconds-numeral">s</span>
-                                </div>
-
-                            </a>
-
-                            <a href="/auction/2025/indian-masters-of-color-and-spirit-1/the-jesters-symphony-artist-proof-14/"
-                               className="gallery__item" data-id="14">
-                                <div className="gallery__item-img">
-                                    <Image
-                                    src="/uploads/6364d3f0f495b6ab9dcf8d3b5c6e0b01.jpg" alt="image" width={200} height={200}/></div>
-                                <div className="gallery__item-info">
-                                    <div className="gallery__item-num"><span>Lot 7</span></div>
-                                    <div className="gallery__item-like hintpopupParent" data-id="14">
-                                        <div className="hintpopup">Please Log In or Register to add the lot to your
-                                            favourites
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="gallery__item-name">Zoobs Ansari</div>
-                                <div className="gallery__item-title">The Jester’s Symphony. Artist Proof</div>
-                                <div className="gallery__item-technique">Raw linen, copper</div>
-                                <div className="gallery__item-estimate">Estimate: 1,500 - 3,000 EUR</div>
-                                <div className="gallery__item-start"><span>Starting Bid:</span> <span>1,200 EUR</span>
-                                </div>
-                                <div className="lot__auction-time timercount " data-id="14" data-time="1752418800">
-                                    <span className="lot__auction-time__closes-text timer-text">Lot closes: </span>
-                                    <span className="days">04</span><span className="days-numeral">d</span>
-                                    <span className="hours">05</span><span className="hours-numeral">h</span>
-                                    <span className="minutes">32</span><span className="minutes-numeral">m</span> <span
-                                    className="seconds">10</span><span className="seconds-numeral">s</span>
-                                </div>
-                            </a>
-
-                            <a href="/auction/2025/indian-masters-of-color-and-spirit-1/from-the-series-19/"
-                               className="gallery__item" data-id="19">
-                                <div className="gallery__item-img">
-                                    <Image
-                                    src="/uploads/a5bfc9e07964f8dddeb95fc584cd965d.jpeg" alt="image" width={200} height={200}/></div>
-                                <div className="gallery__item-info">
-                                    <div className="gallery__item-num"><span>Lot 8</span></div>
-                                    <div className="gallery__item-like hintpopupParent" data-id="19">
-                                        <div className="hintpopup">Please Log In or Register to add the lot to your
-                                            favourites
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="gallery__item-name">Janik Bürgin</div>
-                                <div className="gallery__item-title">From the series</div>
-                                <div className="gallery__item-technique">Print framed with 92UV Glass</div>
-                                <div className="gallery__item-estimate">Estimate: 4,500 - 9,000 EUR</div>
-                                <div className="gallery__item-start"><span>Starting Bid:</span> <span>4,100 EUR</span>
-                                </div>
-                                <div className="lot__auction-time timercount " data-id="19" data-time="1752418860">
-                                    <span className="lot__auction-time__closes-text timer-text">Lot closes: </span>
-                                    <span className="days">04</span><span className="days-numeral">d</span>
-                                    <span className="hours">05</span><span className="hours-numeral">h</span>
-                                    <span className="minutes">33</span><span className="minutes-numeral">m</span> <span
-                                    className="seconds">10</span><span className="seconds-numeral">s</span>
-                                </div>
-                            </a>
-
-                            <a href="/auction/2025/indian-masters-of-color-and-spirit-1/witness-and-whisper-17/"
-                               className="gallery__item" data-id="17">
-                                <div className="gallery__item-img">
-                                    <Image
-                                    src="/uploads/1c383cd30b7c298ab50293adfecb7b18.jpg" alt="image" width={200} height={200}/></div>
-                                <div className="gallery__item-info">
-                                    <div className="gallery__item-num"><span>Lot 9</span></div>
-                                    <div className="gallery__item-like hintpopupParent" data-id="17">
-                                        <div className="hintpopup">Please Log In or Register to add the lot to your
-                                            favourites
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="gallery__item-name">Tim Thiel &amp; Stefanie Seif</div>
-                                <div className="gallery__item-title">Witness and Whisper</div>
-                                <div className="gallery__item-technique">Acrylic on Fine Art Print on Aludibond wooden,
-                                    Frame, Glass; Diptych
-                                </div>
-                                <div className="gallery__item-estimate">Estimate: 3,500 - 7,000 EUR</div>
-                                <div className="gallery__item-start"><span>Starting Bid:</span> <span>3,000 EUR</span>
-                                </div>
-                                <div className="lot__auction-time timercount " data-id="17" data-time="1752418920">
-                                    <span className="lot__auction-time__closes-text timer-text">Lot closes: </span>
-                                    <span className="days">04</span><span className="days-numeral">d</span>
-                                    <span className="hours">05</span><span className="hours-numeral">h</span>
-                                    <span className="minutes">34</span><span className="minutes-numeral">m</span> <span
-                                    className="seconds">10</span><span className="seconds-numeral">s</span>
-                                </div>
-                            </a>
-
-                            <a href="/auction/2025/indian-masters-of-color-and-spirit-1/all-in-the-same-time-21/"
-                               className="gallery__item" data-id="21">
-                                <div className="gallery__item-img">
-                                    <Image
-                                    src="/uploads/d67d8ab4f4c10bf22aa353e27879133c.jpg" alt="image" width={200} height={200}/></div>
-                                <div className="gallery__item-info">
-                                    <div className="gallery__item-num"><span>Lot 10</span></div>
-                                    <div className="gallery__item-like hintpopupParent" data-id="21">
-                                        <div className="hintpopup">Please Log In or Register to add the lot to your
-                                            favourites
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="gallery__item-name">Claudia Ginocchio</div>
-                                <div className="gallery__item-title">All in the same time</div>
-                                <div className="gallery__item-technique">Acrylic on canvas</div>
-                                <div className="gallery__item-estimate">Estimate: 1,500 - 3,000 EUR</div>
-                                <div className="gallery__item-start"><span>Starting Bid:</span> <span>1,200 EUR</span>
-                                </div>
-                                <div className="lot__auction-time timercount " data-id="21" data-time="1752418980">
-                                    <span className="lot__auction-time__closes-text timer-text">Lot closes: </span>
-                                    <span className="days">04</span><span className="days-numeral">d</span>
-                                    <span className="hours">05</span><span className="hours-numeral">h</span>
-                                    <span className="minutes">35</span><span className="minutes-numeral">m</span> <span
-                                    className="seconds">10</span><span className="seconds-numeral">s</span>
-                                </div>
-                            </a>
+                            {/*</a>*/}
 
                         </div>
                     </div>
