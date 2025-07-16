@@ -100,7 +100,7 @@
         margin-bottom: 8.5333333333vw;
     }
 }
-.footer__coingate-logo {
+.footer__coingate_logo {
     width: 11.1805555556vw;
     height: 1.6666666667vw;
     background-position: center;
@@ -109,23 +109,23 @@
     background-image: url(/img/coingate_logo.svg);
 }
 @media (max-width: 767px) {
-    .footer__coingate-logo {
+    .footer__coingate_logo {
         width: 28.8vw;
         height: 4.2666666667vw;
     }
 }
-.footer__coingate-text {
+.footer__coingate_text {
     margin-left: 1.1111111111vw;
     padding-left: 1.1111111111vw;
     position: relative;
 }
 @media (max-width: 767px) {
-    .footer__coingate-text {
+    .footer__coingate_text {
         margin-left: 2.1333333333vw;
         padding-left: 2.1333333333vw;
     }
 }
-.footer__coingate-text::before {
+.footer__coingate_text::before {
     content: "";
     position: absolute;
     left: 0;
@@ -135,7 +135,7 @@
     border-left: 1px solid #AFB0B6;
 }
 @media (max-width: 767px) {
-    .footer__coingate-text::before {
+    .footer__coingate_text::before {
         height: 4.8vw;
     }
 }
@@ -146,6 +146,14 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-image: url(/img/logo.svg);
+    width: 13.89vw;
+    height: 2.2vw;
+}
+@media (max-width: 767px) {
+    .footer__logo .logo {
+        width: 53.3333333333vw;
+        height: 8.5333333333vw;
+    }
 }
 .footer__contacts {
     margin-left: 6.6666666667vw;
@@ -305,4 +313,41 @@
 }
 .footer__mailing input:focus {
     border-color: rgba(8, 54, 170, 0.8);
+}
+.button_small {
+    width: 3.3333333333vw;
+    height: 3.3333333333vw;
+    background-color: #002ea3;
+    background-image: url(/img/arrow_white.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 0.9722222222vw;
+    padding: 0;
+}
+@media (max-width: 767px) {
+    .button_small {
+        width: 12.8vw;
+        height: 12.8vw;
+        border-radius: 2.1333333333vw;
+        background-size: auto 3.7333333333vw;
+    }
+}
+.button:not(.button_nohover):not(.disabled):hover {
+    box-shadow: 6px 6px 30px 3px rgba(53, 46, 42, 0.2);
+}
+.icon.location {
+    background-image: url(/img/location.svg);
+}
+.icon {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 1.6666666667vw;
+    height: 1.6666666667vw;
+}
+@media (max-width: 767px) {
+    .icon {
+        width: 6.4vw;
+        height: 6.4vw;
+    }
 }

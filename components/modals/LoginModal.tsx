@@ -57,7 +57,7 @@ const LoginModal = ({ open, onOpenChange, onRegister, onForgotPassword }: LoginM
                     </DialogTitle>
                 </DialogHeader>
                 <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-[1.6vw]">
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-[1.6vw] max-sm:px-[4.26vw] max-sm:gap-[6.4vw] overflow-auto py-12 max-sm:h-[calc(100vh-15vw)]">
                         <FormField
                             control={form.control}
                             name="email"
@@ -87,16 +87,16 @@ const LoginModal = ({ open, onOpenChange, onRegister, onForgotPassword }: LoginM
                             )}
                         />
                         <span
-                            className="text-right text-primary text-[1.1vw] tracking-[0.01em] cursor-pointer"
+                            className="text-right text-primary text-[1.1vw] tracking-[0.01em] cursor-pointer max-sm:text-[3.2vw]"
                             onClick={onForgotPassword}
                         >
                             Forgot your password?
                         </span>
                         <div>
-                            <Button type="submit" className="w-full mt-[1.2vw] font-medium text-[1.1vw]">
+                            <Button type="submit" className="w-full mt-[1.2vw] font-medium text-[1.1vw] max-sm:h-[12.8vw] max-sm:rounded-[2.1vw] max-sm:text-[4.26vw]">
                                 Login
                             </Button>
-                            <div className="mt-[1.1vw] text-[0.83vw] text-center -tracking-[0.01em]">
+                            <div className="mt-[1.1vw] text-[0.83vw] text-center -tracking-[0.01em] max-sm:text-[3.2vw] max-sm:mt-[4.26vw]">
                                 Don&apos;t have an account? <span onClick={onRegister} className="underline cursor-pointer">
                                     Register
                                 </span>

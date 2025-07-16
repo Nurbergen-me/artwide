@@ -10,8 +10,8 @@ import {
     SelectContent,
     SelectItem,
     SelectTrigger,
-    SelectValue,
 } from "@/components/ui/select"
+import {Button} from "@/components/ui/button";
 
 const lots = [
     {
@@ -83,14 +83,43 @@ const bids: Option[] = [
     { label: "Reserve met", value: "reserve_met" },
 ]
 
+const sortOptions = [
+    { label: "Lot number", value: "id" },
+    { label: "Price", value: "currentprice" },
+    { label: "Artist", value: "author" },
+];
 
 const Page = () => {
-    const [selectedFilterValues, setSelectedFilterValues] = useState("")
-    const handleSelect = (values: string[], items: Option[]) => {
-        console.log("Selected values:", values)
-        console.log("Selected items:", items)
-        setSelectedFilterValues(prevState => prevState + " " + values)
-    }
+    const [filters, setFilters] = useState<{
+        price?: { min: number | null; max: number | null};
+        media?: string[];
+        size?: string[];
+        bid?: string;
+        sort?: string;
+    }>({});
+
+    const setSort = (val: string) =>
+        setFilters((prev) => ({ ...prev, sort: val }));
+
+    // Clear one filter
+    const removeFilter = (key: keyof typeof filters, valueToRemove?: string) => {
+        setFilters((prev) => {
+            if (key === "media" || key === "size") {
+                return {
+                    ...prev,
+                    [key]: prev[key]?.filter((v) => v !== valueToRemove),
+                };
+            } else {
+                const updated = { ...prev };
+                delete updated[key];
+                return updated;
+            }
+        });
+    };
+
+    // Clear all filters
+    const clearAll = () => setFilters({});
+
     return (
         <div>
             <div className="auction__top-image__container">
@@ -149,152 +178,103 @@ const Page = () => {
                                 currency="USD"
                                 placeholder="Price"
                                 onSubmit={({ min, max }) => {
-                                    console.log("User selected:", min, max);
+                                    setFilters((prev) => ({
+                                        ...prev,
+                                        price: { min, max },
+                                    }));
                                 }}
                             />
                             <MultiSelect
                                 options={mediaTypes}
                                 placeholder="Media"
-                                onChange={handleSelect}
+                                onChange={(values: string[]) =>
+                                    setFilters((prev) => ({ ...prev, media: values }))
+                                }
                             />
+
                             <MultiSelect
                                 options={sizes}
                                 placeholder="Size"
-                                onChange={handleSelect}
+                                onChange={(values: string[]) =>
+                                    setFilters((prev) => ({ ...prev, size: values }))
+                                }
                             />
-                            <MultiSelect
-                                options={bids}
-                                placeholder="Bids"
-                                onChange={handleSelect}
-                            />
-                            <Select>
-                                <SelectTrigger >
-                                    <SelectValue placeholder="Bids" />
-                                </SelectTrigger>
+
+                            <Select
+                                onValueChange={(val) =>
+                                    setFilters((prev) => ({ ...prev, bid: val }))
+                                }
+                            >
+                                <SelectTrigger>Bids</SelectTrigger>
                                 <SelectContent>
                                     {bids.map((bid, index) => (
-                                        <SelectItem key={"bid-"+index} value={bid.value}>
+                                        <SelectItem key={index} value={bid.value}>
                                             {bid.label}
                                         </SelectItem>
                                     ))}
                                 </SelectContent>
                             </Select>
                         </div>
+                        <div className="content__filter-right sort flex items-center gap-2">
+                            <span className="text-sm text-muted-foreground">Sort by:</span>
+                            {sortOptions.map((option, idx) => (
+                                <button
+                                    key={idx}
+                                    className={`text-sm border-r pr-[0.5vw] last:border-none ${
+                                        filters.sort === option.value
+                                            ? "text-muted"
+                                            : "text-foreground hover:text-active"
+                                    }`}
+                                    onClick={() => setSort(option.value)}
+                                >
+                                    {option.label}
+                                </button>
+                            ))}
+                        </div>
                     </div>
 
-
-                    <div className="content__filter">
-                        <div className="content__filter-left">
-                            <div className="select content__filter-price range">
-                                <div className="select__val">Price</div>
-                                <div className="select__options">
-                                    <input type="text" name="min" value="1500" onChange={() => (console.log('test'))}/>
-                                    <span>—</span>
-                                    <input type="text" name="max" value="10000" onChange={() => (console.log('test'))}/>
-                                    <div className="button" data-category="price" data-currency="EUR">OK</div>
-                                </div>
-                            </div>
-                            <div className="select content__filter-technique multiple">
-                                <div className="select__val">Media</div>
-                                <div className="select__options">
-                                    <div className="select__option" data-val="10" data-category="media"><label
-                                        className="checkbox"><input type="checkbox"/>
-                                        <div className="checkbox__box"></div>
-                                        <div className="checkbox__text">Design</div>
-                                    </label></div>
-                                    <div className="select__option" data-val="11" data-category="media"><label
-                                        className="checkbox"><input type="checkbox"/>
-                                        <div className="checkbox__box"></div>
-                                        <div className="checkbox__text">Film, video</div>
-                                    </label></div>
-                                    <div className="select__option" data-val="12" data-category="media"><label
-                                        className="checkbox"><input type="checkbox"/>
-                                        <div className="checkbox__box"></div>
-                                        <div className="checkbox__text">Installation</div>
-                                    </label></div>
-                                    <div className="select__option" data-val="495" data-category="media"><label
-                                        className="checkbox"><input type="checkbox"/>
-                                        <div className="checkbox__box"></div>
-                                        <div className="checkbox__text">Jewellery</div>
-                                    </label></div>
-                                    <div className="select__option" data-val="494" data-category="media"><label
-                                        className="checkbox"><input type="checkbox"/>
-                                        <div className="checkbox__box"></div>
-                                        <div className="checkbox__text">Mixed Media</div>
-                                    </label></div>
-                                    <div className="select__option" data-val="13" data-category="media"><label
-                                        className="checkbox"><input type="checkbox"/>
-                                        <div className="checkbox__box"></div>
-                                        <div className="checkbox__text">Paintings</div>
-                                    </label></div>
-                                    <div className="select__option" data-val="14" data-category="media"><label
-                                        className="checkbox"><input type="checkbox"/>
-                                        <div className="checkbox__box"></div>
-                                        <div className="checkbox__text">Photographs</div>
-                                    </label></div>
-                                    <div className="select__option" data-val="15" data-category="media"><label
-                                        className="checkbox"><input type="checkbox"/>
-                                        <div className="checkbox__box"></div>
-                                        <div className="checkbox__text">Prints and multiples</div>
-                                    </label></div>
-                                    <div className="select__option" data-val="16" data-category="media"><label
-                                        className="checkbox"><input type="checkbox"/>
-                                        <div className="checkbox__box"></div>
-                                        <div className="checkbox__text">Sculpture</div>
-                                    </label></div>
-                                    <div className="select__option" data-val="17" data-category="media"><label
-                                        className="checkbox"><input type="checkbox"/>
-                                        <div className="checkbox__box"></div>
-                                        <div className="checkbox__text">Works on paper</div>
-                                    </label></div>
-                                    <div className="select__option" data-val="496" data-category="media"><label
-                                        className="checkbox"><input type="checkbox"/>
-                                        <div className="checkbox__box"></div>
-                                        <div className="checkbox__text">Others</div>
-                                    </label></div>
-                                </div>
-                            </div>
-                            <div className="select content__filter-size multiple">
-                                <div className="select__val">Size</div>
-                                <div className="select__options">
-                                    <div className="select__option" data-val="7" data-category="size"><label
-                                        className="checkbox"><input type="checkbox"/>
-                                        <div className="checkbox__box"></div>
-                                        <div className="checkbox__text">Small</div>
-                                    </label></div>
-                                    <div className="select__option" data-val="8" data-category="size"><label
-                                        className="checkbox"><input type="checkbox"/>
-                                        <div className="checkbox__box"></div>
-                                        <div className="checkbox__text">Medium</div>
-                                    </label></div>
-                                    <div className="select__option" data-val="9" data-category="size"><label
-                                        className="checkbox"><input type="checkbox"/>
-                                        <div className="checkbox__box"></div>
-                                        <div className="checkbox__text">Large</div>
-                                    </label></div>
-                                </div>
-                            </div>
-                            <div className="select content__filter-rates single">
-                                <div className="select__val">Bids</div>
-                                <div className="select__options">
-                                    <div className="select__option" data-val="0" data-category="rates">No bids</div>
-                                    <div className="select__option" data-val="1" data-category="rates">Has bids</div>
-                                    <div className="select__option" data-val="2" data-category="rates">Reserve not met
-                                    </div>
-                                    <div className="select__option" data-val="3" data-category="rates">Reserve met</div>
-                                </div>
-                            </div>
+                    <div className="chosenfilters mt-[1.38vw]">
+                        <div className="flex gap-2 flex-wrap">
+                            {filters.price && (
+                                <Button
+                                    variant="secondary"
+                                    onClick={() => removeFilter("price")}
+                                >
+                                    ${filters.price.min} - ${filters.price.max} ✕
+                                </Button>
+                            )}
+                            {filters.media?.map((item) => (
+                                <Button
+                                    key={"media-" + item}
+                                    variant="secondary"
+                                    onClick={() => removeFilter("media", item)}
+                                >
+                                    {item} ✕
+                                </Button>
+                            ))}
+                            {filters.size?.map((item) => (
+                                <Button
+                                    key={"size-" + item}
+                                    variant="secondary"
+                                    onClick={() => removeFilter("size", item)}
+                                >
+                                    {item} ✕
+                                </Button>
+                            ))}
+                            {filters.bid && (
+                                <Button
+                                    variant="secondary"
+                                    onClick={() => removeFilter("bid")}
+                                >
+                                    {filters.bid} ✕
+                                </Button>
+                            )}
+                            {(filters.price || filters.media || filters.size || filters.bid) && (
+                                <Button variant="link" className="text-black underline" onClick={clearAll}>
+                                    Clear All
+                                </Button>
+                            )}
                         </div>
-                        <div className="content__filter-right sort">
-                            <span>Sort by:</span>
-                            <a data-val="id" className="active">Lot number</a>|<a data-val="currentprice">Price</a>|<a
-                            data-val="author">Artist</a>
-                        </div>
-                        {/*onClick="openPopup('#popupFilters')"*/}
-                        <div className="content__mfilter">Sort &amp; Filters</div>
-                    </div>
-                    <div className="chosenfilters">
-                        {selectedFilterValues.toString()}
                         <div className="chosenfilters__clear">Clear all</div>
                     </div>
                     <input type="hidden" name="baf" value=""/>

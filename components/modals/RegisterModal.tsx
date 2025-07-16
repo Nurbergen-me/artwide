@@ -65,7 +65,7 @@ const RegisterModal = ({ open, onOpenChange, onLogin }: RegisterModalProps) => {
                     </DialogTitle>
                 </DialogHeader>
                 <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-[1.6vw]">
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-[1.6vw] max-sm:px-[4.26vw] max-sm:gap-[6.4vw] overflow-auto py-12 max-sm:h-[calc(100vh-15vw)]">
                         <FormField
                             control={form.control}
                             name="first_name"
@@ -135,7 +135,7 @@ const RegisterModal = ({ open, onOpenChange, onLogin }: RegisterModalProps) => {
                             name="terms"
                             render={({ field }) => (
                                 <div>
-                                    <div className="flex items-center gap-3">
+                                    <div className="flex items-center gap-3 max-sm:gap-[5vw]">
                                         <Checkbox id="terms" checked={field.value} onCheckedChange={field.onChange} />
                                         <Label htmlFor="terms">
                                             By registering, you agree to our <a href="/online-auctions-terms-and-conditions/" target="_blank" className="underline hover:no-underline">
@@ -154,10 +154,10 @@ const RegisterModal = ({ open, onOpenChange, onLogin }: RegisterModalProps) => {
                             )}
                         />
                         <div>
-                            <Button type="submit" className="w-full mt-[1.2vw] font-medium text-[1.1vw]">
+                            <Button type="submit" className="w-full mt-[1.2vw] font-medium text-[1.1vw] max-sm:h-[12.8vw] max-sm:rounded-[2.1vw] max-sm:text-[4.26vw]">
                                 Register
                             </Button>
-                            <div className="mt-[1.1vw] text-[0.83vw] text-center -tracking-[0.01em]">
+                            <div className="mt-[1.1vw] text-[0.83vw] text-center -tracking-[0.01em] max-sm:text-[3.2vw] max-sm:mt-[4.26vw]">
                                 Already have an account? <span onClick={onLogin} className="underline cursor-pointer">
                                     Login
                                 </span>

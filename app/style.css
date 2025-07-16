@@ -1293,7 +1293,8 @@ select {
   .popup__mtitle {
     display: block;
     height: 14.9333333333vw;
-    margin-bottom: 10.6666666667vw;
+    /*margin-bottom: 10.6666666667vw;*/
+    margin-bottom: 0;
     border-bottom: 2px solid #F0EEEC;
     padding: 0 4.2666666667vw;
     font-family: "Gotham", Arial;
@@ -3855,7 +3856,7 @@ select {
 }
 @media (max-width: 767px) {
   .form__file-text {
-    padding: 0 6.4vw;
+    padding: 0 3.4vw;
     font-size: 3.7333333333vw;
   }
 }

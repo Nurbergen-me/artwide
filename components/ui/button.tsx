@@ -21,10 +21,11 @@ const buttonVariants = cva(
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
         slider: "bg-[#26272d99] backdrop-blur-sm text-white underline-offset-4 hover:underline",
+        filter: ""
       },
       size: {
         default: "h-[3vw] text-[0.83vw] uppercase tracking-widest rounded-[0.5vw] px-4",
-        sm: "h-8 rounded-md gap-1.5 px-3",
+        sm: "text-[1.25vw] py-[0.4vw] px-[1vw]",
         lg: "h-10 rounded-md px-6",
         icon: "size-9",
       },

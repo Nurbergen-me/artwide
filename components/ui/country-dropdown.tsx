@@ -192,24 +192,24 @@ const CountryDropdownComponent = (
                 <PopoverContent
                     collisionPadding={10}
                     side="bottom"
-                    className="min-w-[--radix-popper-anchor-width] p-0"
+                    className="min-w-[--radix-popper-anchor-width] p-0 rounded"
                 >
                     <Command className="w-full sm:max-h-[270px] max-h-[250px] overflow-y-auto">
-                        <CommandList>
+                        <CommandList className="border border-[#CCC] shadow-2xl rounded">
                             <div className="sticky top-0 z-10 bg-popover">
                                 <CommandInput placeholder="Search country..." />
                             </div>
                             <CommandEmpty>No country found.</CommandEmpty>
-                            <CommandGroup>
+                            <CommandGroup className="p-0">
                                 {options
                                     .filter((x) => x.name)
                                     .map((option, key: number) => (
                                         <CommandItem
-                                            className="flex items-center w-full gap-2 cursor-pointer"
+                                            className="flex items-center w-full gap-2 p-2 text-[0.83vw] cursor-pointer"
                                             key={key}
                                             onSelect={() => handleSelect(option)}
                                         >
-                                            <div className="flex flex-grow space-x-2 overflow-hidden">
+                                            <div className="flex flex-grow items-center space-x-2 overflow-hidden">
                                                 <div className="inline-flex items-center justify-center w-5 h-5 shrink-0 overflow-hidden rounded-full">
                                                     <CircleFlag
                                                         countryCode={option.alpha2.toLowerCase()}
@@ -217,7 +217,7 @@ const CountryDropdownComponent = (
                                                     />
                                                 </div>
                                                 <span className="overflow-hidden text-ellipsis whitespace-nowrap">
-                                                {option.name}
+                                                {option.name} {option.countryCallingCodes[0]}
                                               </span>
                                             </div>
                                             <CheckIcon

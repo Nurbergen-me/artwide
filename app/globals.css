@@ -52,6 +52,7 @@
   --primary-foreground: #fff;
   --input: #26272d;
   --muted: #8B939F;
+  --active: #9d9fa6;
   --destructive: #ff4242;
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);

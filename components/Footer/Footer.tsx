@@ -1,11 +1,12 @@
 import React from 'react'
 import styles from './Footer.module.css'
 import Link from "next/link";
+import {Button} from "@/components/ui/button";
 
 const Footer = () => {
     return (
         <footer className={styles.footer}>
-            <div className="container flex flex-wrap">
+            <div className="container flex flex-wrap max-sm:flex-col">
                 <div className={styles.footer__logo}>
                     <Link href="/" className={styles.logo}></Link>
                 </div>
@@ -52,11 +53,11 @@ const Footer = () => {
                         <div className={styles.footer__coingate}>
                             <Link
                                 href="https://coingate.com/supported-currencies"
-                                className={styles.footer__coingateLogo}
+                                className={styles.footer__coingate_logo}
                                 rel="nofollow"
                                 target="_blank"
                             ></Link>
-                            <div className={styles.footer__coingateText}>
+                            <div className={styles.footer__coingate_text}>
                                 Cryptocurrency Partner
                             </div>
                         </div>
@@ -72,10 +73,10 @@ const Footer = () => {
                                 placeholder="Email"
                                 className={styles.subscribeform__mail}
                             />
-                            <button
+                            <Button
                                 type="submit"
                                 className={`${styles.button} ${styles.button_small}`}
-                            ></button>
+                            ></Button>
                             <input type="hidden" name="formid" value="newsletter" />
                         </form>
 
