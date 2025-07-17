@@ -4,57 +4,7 @@ import styles from "./AuctionLots.module.css"
 import {cn} from "@/lib/utils";
 import Link from "next/link";
 
-const lots = [
-    {
-        id: 1,
-        lotNumber: "Lot 8",
-        imageSrc: "/uploads/a5bfc9e07964f8dddeb95fc584cd965d.jpeg",
-        artistName: "Janik Bürgin",
-        title: "From the series",
-        technique: "Print framed with 92UV Glass",
-        estimate: "4,500 - 9,000 EUR",
-        startingBid: "4,100 EUR",
-        lotId: "19",
-        link: "/auction/2025/indian-masters-of-color-and-spirit-1/from-the-series-19/",
-        timerEndUnix: 1752418860
-    },{
-        id: 2,
-        lotNumber: "Lot 8",
-        imageSrc: "/uploads/a5bfc9e07964f8dddeb95fc584cd965d.jpeg",
-        artistName: "Janik Bürgin",
-        title: "From the series",
-        technique: "Print framed with 92UV Glass",
-        estimate: "4,500 - 9,000 EUR",
-        startingBid: "4,100 EUR",
-        lotId: "19",
-        link: "/auction/2025/indian-masters-of-color-and-spirit-1/from-the-series-19/",
-        timerEndUnix: 1752418860
-    },{
-        id: 3,
-        lotNumber: "Lot 8",
-        imageSrc: "/uploads/a5bfc9e07964f8dddeb95fc584cd965d.jpeg",
-        artistName: "Janik Bürgin",
-        title: "From the series",
-        technique: "Print framed with 92UV Glass",
-        estimate: "4,500 - 9,000 EUR",
-        startingBid: "4,100 EUR",
-        lotId: "19",
-        link: "/auction/2025/indian-masters-of-color-and-spirit-1/from-the-series-19/",
-        timerEndUnix: 1752418860
-    },{
-        id: 4,
-        lotNumber: "Lot 8",
-        imageSrc: "/uploads/a5bfc9e07964f8dddeb95fc584cd965d.jpeg",
-        artistName: "Janik Bürgin",
-        title: "From the series",
-        technique: "Print framed with 92UV Glass",
-        estimate: "4,500 - 9,000 EUR",
-        startingBid: "4,100 EUR",
-        lotId: "19",
-        link: "/auction/2025/indian-masters-of-color-and-spirit-1/from-the-series-19/",
-        timerEndUnix: 1752418860
-    },
-]
+import {lots} from "@/constants";
 
 const AuctionLots = () => {
     return (

@@ -1,9 +1,11 @@
 'use client'
 
-import React from 'react'
+import React, {useState} from 'react'
 import styles from './MainBanner.module.css'
 import {cn} from "@/lib/utils";
 import style from "@/components/home/MainBanner/MainBanner.module.css";
+import {Button} from "@/components/ui/button";
+import SellWithModal from "@/components/modals/SellWithModal";
 const videos = [
     {
         href: "https://www.youtube.com/watch?v=2zU5tF6hHMI",
@@ -59,9 +61,7 @@ const videos = [
 ]
 
 const MainBanner = () => {
-    const openPopup = (id: string) => {
-        console.log(id)
-    }
+    const [isModalOpen, setIsModalOpen] = useState(false)
 
     return (
         <div className="container">
@@ -71,9 +71,9 @@ const MainBanner = () => {
                     Showcase your art to our global audience — sell with us
                 </div>
                 <div className={styles.sellwithartwide__button}>
-                    <div className="button" onClick={() => openPopup('#popupSell')}>
+                    <Button className="" size="lg" onClick={() => {setIsModalOpen(true)}}>
                         REQUEST
-                    </div>
+                    </Button>
                 </div>
                 <div
                     className={styles.sellwithartwide__img}
@@ -102,6 +102,7 @@ const MainBanner = () => {
                     </a>
                 ))}
             </div>
+            <SellWithModal open={isModalOpen} onOpenChange={setIsModalOpen} />
         </div>
     )
 }

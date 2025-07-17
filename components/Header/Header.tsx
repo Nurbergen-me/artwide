@@ -1,6 +1,6 @@
 'use client'
 
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import styles from './Header.module.css'
 import { cn } from "@/lib/utils"
 import Link from "next/link";
@@ -10,6 +10,10 @@ import {Button} from "@/components/ui/button";
 import LoginModal from "@/components/modals/LoginModal";
 import RegisterModal from "@/components/modals/RegisterModal";
 import ForgotPasswordModal from "@/components/modals/ForgotPasswordModal";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const menuItems = [
     {
@@ -76,9 +80,33 @@ const Header = () => {
     }, [pathname])
 
 
+    const headerRef = useRef<HTMLElement>(null);
+    useEffect(() => {
+        const header = headerRef.current;
+        const loginBtn = document.querySelector(".login-btn");
+        if (!header || !loginBtn) return;
+        if (pathname !== '/') return
+
+        ScrollTrigger.create({
+            start: () => `top+=${window.innerHeight}`,
+            onEnter: () => {
+                header.classList.remove(styles.light)
+                loginBtn.classList.remove('text-white')
+            },
+            onLeaveBack: () => {
+                header.classList.add(styles.light)
+                loginBtn.classList.add('text-white')
+            },
+        });
+
+        return () => {
+            ScrollTrigger.getAll().forEach((t) => t.kill());
+        };
+    }, [pathname]);
+
     return (
         <div className={cn(pathname === '/' && 'mainpage', "wrap")}>
-            <header className={cn(styles.header, pathname === '/' && styles.light)}>
+            <header ref={headerRef} className={cn(styles.header, pathname === '/' && styles.light)}>
                 <div className={cn(styles.container, 'container')}>
                     <div className={styles.header__logo}>
                         <Link href="/" className={styles.logo}>
@@ -104,7 +132,7 @@ const Header = () => {
                     <div className={styles.header__auth}>
                         <Button
                             variant="outline"
-                            className={cn(pathname === '/' && 'text-white')}
+                            className={cn(pathname === '/' && 'text-white', 'login-btn')}
                             onClick={() => setIsLoginModalOpen(true)}
                         >
                             Login

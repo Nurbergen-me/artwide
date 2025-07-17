@@ -28,6 +28,7 @@
 .header.light {
     background: rgba(38, 39, 45, 0.6);
     color: #EFEFEF;
+    /*transition: 0.3s ease;*/
 }
 .header.light .logo, .header.light .header__profile::before {
     filter: brightness(0) invert(1);
@@ -54,6 +55,11 @@
 @media (max-width: 767px) {
     .header .container {
         justify-content: space-between;
+    }
+
+    .header {
+        justify-content: space-between;
+        transition: all 0.3s ease;
     }
 }
 .header__logo .logo {

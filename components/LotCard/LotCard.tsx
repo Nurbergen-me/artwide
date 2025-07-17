@@ -6,10 +6,12 @@ import Link from "next/link";
 import Image from "next/image";
 import {cn} from "@/lib/utils";
 import EnquiryModal from "@/components/modals/EnquiryModal";
+import Timer from "@/components/ui/timer";
 
 interface AuctionCardProps {
     id: number;
     lotNumber?: string;
+    sold?: boolean;
     imageSrc: string;
     artistName: string;
     title: string;
@@ -18,16 +20,25 @@ interface AuctionCardProps {
     startingBid: string;
     lotId?: string;
     link: string;
-    timerEndUnix: number;
+    timerEnd: string;
     variant?: string;
     buttonText?: string;
 }
 
-const LotCard: React.FC<AuctionCardProps> = ({lotNumber, imageSrc, artistName, title, technique, estimate, startingBid, lotId, link, timerEndUnix, variant, buttonText}) => {
+const LotCard: React.FC<AuctionCardProps> = ({lotNumber, sold, imageSrc, artistName, title, technique, estimate, startingBid, lotId, link, timerEnd, variant, buttonText}) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
+    function isDeadlinePassed(deadline: string | number): boolean {
+        const now = Math.floor(Date.now() / 1000);
+        const deadlineUnix = typeof deadline === "number"
+            ? deadline
+            : Math.floor(new Date(deadline).getTime() / 1000);
+
+        return now > deadlineUnix;
+    }
+
     return (
-        <Link href={link || '/'}
+        <div
               className={cn(
                   variant === 'list' && styles.gallery__pop_list,
                   variant === 'main' && styles.gallery__pop_main,
@@ -37,14 +48,23 @@ const LotCard: React.FC<AuctionCardProps> = ({lotNumber, imageSrc, artistName, t
                   styles.gallery__item)}
               data-id={lotId}
         >
-            <div className={styles.gallery__item_img}>
+            <Link href={link || '/'} className={styles.gallery__item_img}>
                 {imageSrc && (
                     <Image src={imageSrc} alt={title} width={200} height={200} />
                 )}
-            </div>
+            </Link>
             <div className={styles.gallery__item_info}>
                 <div className={styles.gallery__item_num}>
-                    <span>{lotNumber}</span>
+                    <span>LOT {lotNumber}</span>
+                    {sold ? (
+                        <span className={cn(styles.gallery__item_label)}>
+                            Sold
+                        </span>
+                    ) : isDeadlinePassed(timerEnd) ? (
+                        <span className={cn(styles.gallery__item_label, styles.closed)}>
+                            Closed
+                        </span>
+                    ) : ''}
                 </div>
                 <div className={cn(styles.gallery__item_like, "hintpopupParent")} data-id={lotId}>
                     <div className={cn(styles.hintpopup, "hintpopup")}>
@@ -57,23 +77,19 @@ const LotCard: React.FC<AuctionCardProps> = ({lotNumber, imageSrc, artistName, t
             <div className={styles.gallery__item_technique}>{technique}</div>
             {variant !== "private" && (
                 <>
-
                     <div className={styles.gallery__item_estimate}>{`Estimate: ${estimate}`}</div>
                     <div className={styles.gallery__item_start}>
                         <span>Starting Bid:</span> <span>{startingBid}</span>
                     </div>
-                    <div
-                        className={cn(styles.lot__auction_time, "lot__auction-time timercount")}
-                        data-id={lotId}
-                        data-time={timerEndUnix}
-                    >
-                        <span
-                            className={cn(styles.gallery__item_time_text, "lot__auction-time__closes-text timer-text")}>Lot closes: </span>
-                        <span className="days">03</span><span className="days-numeral">d</span>
-                        <span className="hours">08</span><span className="hours-numeral">h</span>
-                        <span className="minutes">10</span><span className="minutes-numeral">m</span>
-                        <span className="seconds">47</span><span className="seconds-numeral">s</span>
-                    </div>
+                    {(!isDeadlinePassed(timerEnd) && !sold) && (
+                        <div
+                            className={cn(styles.lot__auction_time, "flex lot__auction-time timercount")}
+                            data-id={lotId}
+                            data-time={timerEnd}
+                        >
+                            <Timer deadline={timerEnd} />
+                        </div>
+                    )}
                 </>
             )}
             {buttonText && (
@@ -86,7 +102,7 @@ const LotCard: React.FC<AuctionCardProps> = ({lotNumber, imageSrc, artistName, t
                 </div>
             )}
             <EnquiryModal open={isModalOpen} onOpenChange={setIsModalOpen} />
-        </Link>
+        </div>
     );
 };
 

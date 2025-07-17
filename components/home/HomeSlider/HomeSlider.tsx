@@ -11,6 +11,7 @@ import Link from "next/link"
 import AuctionStarts from "@/components/home/AuctionStarts/AuctionStarts";
 import {cn} from "@/lib/utils";
 import Image from "next/image";
+import {Button} from "@/components/ui/button";
 
 const HomeSlider = () => {
     return (
@@ -49,11 +50,10 @@ const HomeSlider = () => {
                                 </div>
 
                                 <div className={cn(topimg.topimg__button)}>
-                                    <Link href="/auction/2025/indian-masters-of-color-and-spirit-1/"
-                                       className={cn("button button_white i1")} data-active="Accepting bids"
-                                       data-final="Accepting Bids" data-after="View results"
-                                       data-href="/auction/2025/indian-masters-of-color-and-spirit-1/">
-                                        Accepting bids
+                                    <Link href="/auctions/indian-masters-of-color-and-spirit-1/">
+                                        <Button variant="white" size="lg" className="font-medium">
+                                            Accepting bids
+                                        </Button>
                                     </Link>
                                     <div className={cn(topimg.artworkline)}>
 

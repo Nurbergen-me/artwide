@@ -11,6 +11,8 @@ const buttonVariants = cva(
       variant: {
         default:
           "bg-primary text-primary-foreground hover:shadow-xl",
+        white:
+            "bg-white text-foreground uppercase border font-medium px-[2.2vw] hover:shadow-xl",
         outline:
             "border bg-transparent text-input hover:shadow-xl",
         destructive:
@@ -26,7 +28,7 @@ const buttonVariants = cva(
       size: {
         default: "h-[3vw] text-[0.83vw] uppercase tracking-widest rounded-[0.5vw] px-4",
         sm: "text-[1.25vw] py-[0.4vw] px-[1vw]",
-        lg: "h-10 rounded-md px-6",
+        lg: "font-bold w-[16.5vw] h-[3.3vw] text-[1.1vw] max-sm:h-[12.8vw] max-sm:text-[4.2vw] max-sm:w-full max-sm:rounded-[2vw]",
         icon: "size-9",
       },
     },

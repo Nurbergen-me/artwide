@@ -12,50 +12,8 @@ import {
     SelectTrigger,
 } from "@/components/ui/select"
 import {Button} from "@/components/ui/button";
+import {lots} from "@/constants";
 
-const lots = [
-    {
-        id: 1,
-        imageSrc: "/uploads/3c59dc048e8850243be8079a5c74d079.jpg",
-        artistName: "Claudia Ginocchio",
-        title: "All in the same time, 2017",
-        technique: "Acrylic on canvas",
-        estimate: "1,500 - 3000 EUR",
-        startingBid: "1,200 EUR",
-        link: "/auction/2025/indian-masters-of-color-and-spirit-1/all-in-the-same-time-21/",
-        timerEndUnix: 1752418860
-    },{
-        id: 2,
-        imageSrc: "/uploads/3c59dc048e8850243be8079a5c74d079.jpg",
-        artistName: "Claudia Ginocchio",
-        title: "All in the same time, 2017",
-        technique: "Acrylic on canvas",
-        estimate: "1,500 - 3000 EUR",
-        startingBid: "1,200 EUR",
-        link: "/auction/2025/indian-masters-of-color-and-spirit-1/all-in-the-same-time-21/",
-        timerEndUnix: 1752418860
-    },{
-        id: 3,
-        imageSrc: "/uploads/3c59dc048e8850243be8079a5c74d079.jpg",
-        artistName: "Claudia Ginocchio",
-        title: "All in the same time, 2017",
-        technique: "Acrylic on canvas",
-        estimate: "1,500 - 3000 EUR",
-        startingBid: "1,200 EUR",
-        link: "/auction/2025/indian-masters-of-color-and-spirit-1/all-in-the-same-time-21/",
-        timerEndUnix: 1752418860
-    },{
-        id: 4,
-        imageSrc: "/uploads/1ff1de774005f8da13f42943881c655f.jpg",
-        artistName: "Claudia Ginocchio",
-        title: "All in the same time, 2017",
-        technique: "Acrylic on canvas",
-        estimate: "1,500 - 3000 EUR",
-        startingBid: "1,200 EUR",
-        link: "/auction/2025/indian-masters-of-color-and-spirit-1/all-in-the-same-time-21/",
-        timerEndUnix: 1752418860
-    },
-]
 const mediaTypes: Option[] = [
     { label: "Design", value: "design" },
     { label: "Film, video", value: "film" },

@@ -1,6 +1,6 @@
 import {
     Dialog,
-    DialogContent,
+    DialogContent, DialogDescription,
     DialogHeader,
     DialogTitle
 } from "@/components/ui/dialog";
@@ -67,6 +67,9 @@ const SellWithModal = ({ open, onOpenChange }: SellWithModalProps) => {
                     <DialogTitle className="popup__title popup__mtitle">
                         Sell With Artwide
                     </DialogTitle>
+                    <DialogDescription>
+                        Fill out the form, and we’ll guide you through the next steps shortly.
+                    </DialogDescription>
                 </DialogHeader>
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-[1.6vw] max-sm:px-[4.26vw] max-sm:gap-[6.4vw] overflow-auto max-sm:py-12 max-sm:h-[calc(100vh-15vw)]">
