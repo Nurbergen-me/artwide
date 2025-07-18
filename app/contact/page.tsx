@@ -1,36 +1,53 @@
-import React from 'react';
+'use client'
+
+import React, {useState} from 'react';
 import styles from './contact.module.css';
 import { cn } from '@/lib/utils';
-
-const contactBlocks = [
-    {
-        title: 'Have a question about the auction?',
-        text: 'Connect with support',
-        buttonText: 'SUBMIT TICKET',
-        popupId: '#popupSubmitTicket',
-    },
-    {
-        title: 'Looking for guidance?',
-        text: 'Connect with an Artwide expert',
-        buttonText: 'GET STARTED',
-        popupId: '#popupGetStarted',
-    },
-    {
-        title: 'Anything else',
-        text: 'Connect with our core team',
-        buttonText: 'SEND MESSAGE',
-        popupId: '#popupSendMessage',
-    },
-];
+import HaveAQuestionModal from "@/components/modals/HaveAQuestionModal";
+import {Guitar} from "lucide-react";
+import GuidanceModal from "@/components/modals/GuidanceModal";
+import AnythingElseModal from "@/components/modals/AnythingElseModal";
+import SuccessModal from "@/components/modals/SuccessModal";
 
 const locations = ['Hong Kong', 'Paris', 'Geneva', 'Dubai'];
 
 const Page = () => {
+    const [isQuestionModalOpen, setIsQuestionModalOpen] = useState(false)
+    const [isGuidanceModalOpen, setIsGuidanceModalOpen] = useState(false)
+    const [isAnythingModalOpen, setIsAnythingModalOpen] = useState(false)
+
+    const [isSuccessOpen, setIsSuccessOpen] = useState(false)
+
+    const contactBlocks = [
+        {
+            title: 'Have a question about the auction?',
+            text: 'Connect with support',
+            buttonText: 'SUBMIT TICKET',
+            popup: () => setIsQuestionModalOpen(true),
+        },
+        {
+            title: 'Looking for guidance?',
+            text: 'Connect with an Artwide expert',
+            buttonText: 'GET STARTED',
+            popup: () => setIsGuidanceModalOpen(true),
+        },
+        {
+            title: 'Anything else',
+            text: 'Connect with our core team',
+            buttonText: 'SEND MESSAGE',
+            popup: () => setIsAnythingModalOpen(true),
+        },
+    ];
+
     return (
         <div className="container">
             <div className={cn('content content_cabinet')}>
                 <div className="content__title">
                     <h1>How can we help?</h1>
+                    <button onClick={() => setIsSuccessOpen(true)}>
+                        button
+                    </button>
+
                 </div>
 
                 <div className={styles.contacts}>
@@ -42,7 +59,7 @@ const Page = () => {
                             </div>
                             <div
                                 className={cn('button', styles.contacts__button)}
-                                // onClick={() => openPopup(block.popupId)} // replace with modal logic
+                                onClick={block.popup}
                             >
                                 {block.buttonText}
                             </div>
@@ -55,13 +72,16 @@ const Page = () => {
                     <div className={styles.locations__list}>
                         {locations.map((location, index) => (
                             <div key={index}>
-                                <span className="icon location" />
+                                <span className="icon location mr-[0.5vw]" />
                                 <span>{location}</span>
                             </div>
                         ))}
                     </div>
                 </div>
             </div>
+            <HaveAQuestionModal open={isQuestionModalOpen} onOpenChange={setIsQuestionModalOpen} />
+            <GuidanceModal open={isGuidanceModalOpen} onOpenChange={setIsGuidanceModalOpen} />
+            <AnythingElseModal open={isAnythingModalOpen} onOpenChange={setIsAnythingModalOpen} />
         </div>
     );
 };

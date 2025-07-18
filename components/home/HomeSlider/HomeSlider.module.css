@@ -144,6 +144,7 @@
     background-size: cover;
     display: flex;
     align-items: center;
+    object-fit: cover;
 }
 @media (min-width: 768px) {
     .topimg__img {

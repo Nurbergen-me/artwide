@@ -152,7 +152,7 @@ export const PhoneInput = forwardRef<HTMLInputElement, PhoneInputProps>(
         };
 
         const inputClasses = cn(
-            "flex items-center gap-2 relative bg-transparent transition-colors text-base rounded-md border border-input pl-3 h-9 shadow-sm disabled:opacity-50 disabled:cursor-not-allowed md:text-sm has-[input:focus]:outline-none has-[input:focus]:ring-1 has-[input:focus]:ring-ring [interpolate-size:allow-keywords]",
+            "flex items-center gap-2 relative bg-transparent transition-colors text-base rounded-md border border-input pl-[1.1vw] max-sm:pl-[4.26vw] h-[3.3vw] max-sm:h-[12.8vw] shadow-sm disabled:opacity-50 disabled:cursor-not-allowed md:text-sm has-[input:focus]:outline-none has-[input:focus]:ring-1 has-[input:focus]:ring-ring [interpolate-size:allow-keywords]",
             inline && "rounded-l-none w-full",
             className
         );
@@ -160,11 +160,11 @@ export const PhoneInput = forwardRef<HTMLInputElement, PhoneInputProps>(
         return (
             <div className={inputClasses}>
                 {!inline && (
-                    <div className="w-4 h-4 rounded-full shrink-0">
+                    <div className="w-4 h-[3.3vw] rounded-full shrink-0">
                         {displayFlag ? (
                             <CircleFlag countryCode={displayFlag} height={16} />
                         ) : (
-                            <GlobeIcon size={16} />
+                            <GlobeIcon size={14} />
                         )}
                     </div>
                 )}
@@ -177,7 +177,7 @@ export const PhoneInput = forwardRef<HTMLInputElement, PhoneInputProps>(
                     autoComplete="tel"
                     name="phone"
                     className={cn(
-                        "flex w-full border-none bg-transparent text-base transition-colors placeholder:text-muted-foreground outline-none h-9 py-1 p-0 leading-none md:text-sm [interpolate-size:allow-keywords]",
+                        "flex w-full border-none bg-transparent text-[1.1vw] max-sm:text-[4.26vw] transition-colors placeholder:text-muted-foreground outline-none h-[3.3vw] py-1 p-0 leading-none [interpolate-size:allow-keywords]",
                         className
                     )}
                     {...props}
