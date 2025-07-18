@@ -6,6 +6,7 @@ import {cn} from "@/lib/utils";
 import style from "@/components/home/MainBanner/MainBanner.module.css";
 import {Button} from "@/components/ui/button";
 import SellWithModal from "@/components/modals/SellWithModal";
+import VideoModal from "@/components/modals/VideoModal";
 const videos = [
     {
         href: "https://www.youtube.com/watch?v=2zU5tF6hHMI",
@@ -62,7 +63,14 @@ const videos = [
 
 const MainBanner = () => {
     const [isModalOpen, setIsModalOpen] = useState(false)
+    const [isVideoOpen, setIsVideoOpen] = useState(false)
+    const [videoUrl, setVideoUrl] = useState('')
 
+    const openVideoModal = (url: string) => {
+        console.log('openVideoModal', url)
+        setVideoUrl(url)
+        setIsVideoOpen(true)
+    }
     return (
         <div className="container">
             <div className={styles.sellwithartwide}>
@@ -83,11 +91,11 @@ const MainBanner = () => {
 
             <div className={style.mainvideo}>
                 {videos.map((video, index) => (
-                    <a
+                    <button
                         key={index}
-                        href={video.href}
                         data-fancybox=""
                         className={cn(styles.mainvideo__item, index < 3 && style.mainvideo__item_short, `fancyvideo`)}
+                        onClick={() => {openVideoModal(video.href)}}
                     >
                         <div
                             className={styles.mainvideo__img}
@@ -99,10 +107,15 @@ const MainBanner = () => {
                         />
                         <div className={styles.mainvideo__label}>{video.label}</div>
                         <div className={styles.mainvideo__title}>{video.title}</div>
-                    </a>
+                    </button>
                 ))}
             </div>
             <SellWithModal open={isModalOpen} onOpenChange={setIsModalOpen} />
+            <VideoModal
+                open={isVideoOpen}
+                onOpenChange={setIsVideoOpen}
+                href={videoUrl}
+            />
         </div>
     )
 }

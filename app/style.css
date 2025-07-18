@@ -98,6 +98,10 @@ button {
   /*border: none;*/
 }
 
+button:focus {
+  box-shadow: none;
+}
+
 input,
 textarea,
 button,

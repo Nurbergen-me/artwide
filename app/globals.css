@@ -114,6 +114,19 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+.video-modal [data-slot] {
+  @apply size-6 top-0 -right-8 opacity-100 text-white
+}
+
+@media (max-width: 767px) {
+  .video-modal [data-slot] {
+    @apply size-8 rounded-full bg-[rgba(0,0,0,0.6)] flex items-center justify-center right-0 -top-8
+  }
+  .video-modal [data-slot] svg {
+    @apply size-5
+  }
+}
+
 
 
 

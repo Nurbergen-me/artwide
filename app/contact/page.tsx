@@ -4,10 +4,8 @@ import React, {useState} from 'react';
 import styles from './contact.module.css';
 import { cn } from '@/lib/utils';
 import HaveAQuestionModal from "@/components/modals/HaveAQuestionModal";
-import {Guitar} from "lucide-react";
 import GuidanceModal from "@/components/modals/GuidanceModal";
 import AnythingElseModal from "@/components/modals/AnythingElseModal";
-import SuccessModal from "@/components/modals/SuccessModal";
 
 const locations = ['Hong Kong', 'Paris', 'Geneva', 'Dubai'];
 
@@ -15,8 +13,6 @@ const Page = () => {
     const [isQuestionModalOpen, setIsQuestionModalOpen] = useState(false)
     const [isGuidanceModalOpen, setIsGuidanceModalOpen] = useState(false)
     const [isAnythingModalOpen, setIsAnythingModalOpen] = useState(false)
-
-    const [isSuccessOpen, setIsSuccessOpen] = useState(false)
 
     const contactBlocks = [
         {
@@ -44,9 +40,6 @@ const Page = () => {
             <div className={cn('content content_cabinet')}>
                 <div className="content__title">
                     <h1>How can we help?</h1>
-                    <button onClick={() => setIsSuccessOpen(true)}>
-                        button
-                    </button>
 
                 </div>
 
