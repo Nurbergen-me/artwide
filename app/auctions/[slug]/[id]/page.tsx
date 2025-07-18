@@ -9,9 +9,11 @@ import { cn } from '@/lib/utils';
 import styles from './lot.module.css';
 import Link from "next/link"; // CSS Module
 import {lots} from "@/constants";
+import BidIncrementModal from "@/components/modals/BidIncrementModal";
 
 const Page = () => {
     const [isCalcModalOpen, setIsCalcModalOpen] = useState(false);
+    const [isIncrementModalOpen, setIsIncrementModalOpen] = useState(false)
 
     return (
         <div className="container">
@@ -145,16 +147,15 @@ const Page = () => {
 
                             <div className={styles.lot__check}>
                                 <div>
-                                    Check <span className="openBinInc">Bid Increments Table</span>
+                                    Check <span className="openBinInc" onClick={() => setIsIncrementModalOpen(true)}>Bid Increments Table</span>
                                 </div>
                             </div>
 
                             <div className={styles.lot__calc}>
                                 <div>
-                                    Try{' '}
-                                    <span className="openCalc" onClick={() => setIsCalcModalOpen(true)}>
-                    Cost Calculator
-                  </span>
+                                    Try <span className="openCalc" onClick={() => setIsCalcModalOpen(true)}>
+                                        Cost Calculator
+                                    </span>
                                 </div>
                             </div>
 
@@ -181,6 +182,7 @@ const Page = () => {
             </div>
 
             <CostCalculatorModal open={isCalcModalOpen} onOpenChange={setIsCalcModalOpen} />
+            <BidIncrementModal open={isIncrementModalOpen} onOpenChange={setIsIncrementModalOpen} />
         </div>
     );
 };
