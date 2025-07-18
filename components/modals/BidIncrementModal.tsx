@@ -6,7 +6,7 @@ import {
     DialogHeader,
     DialogTitle
 } from "@/components/ui/dialog";
-import React, {useState} from "react";
+import React from "react";
 
 interface BidIncrementModalProps {
     open: boolean;

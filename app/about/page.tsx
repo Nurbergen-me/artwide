@@ -1,9 +1,120 @@
-import React from 'react';
+'use client'
+
+import React, {useEffect} from 'react';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import styles from './about.module.css';
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 const Page = () => {
+    useEffect(() => {
+        if (typeof window === 'undefined') return;
+
+        const isMobile = window.innerWidth < 768;
+        if (isMobile) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add(styles.animon);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            const elements = document.querySelectorAll('.anim');
+            elements.forEach(el => observer.observe(el));
+
+            return () => observer.disconnect();
+        }
+        const elements = gsap.utils.toArray<HTMLElement>('.anim');
+        const triggerStart = isMobile ? 'top 120%' : 'top 85%';
+
+        elements.forEach((el) => {
+            ScrollTrigger.create({
+                trigger: el,
+                start: triggerStart,
+                once: true, // animate once
+                onEnter: () => {
+                    el.classList.add(styles.animon);
+                },
+            });
+        });
+
+        return () => {
+            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+        };
+    }, []);
+
+    useEffect(() => {
+        if (window.innerWidth < 768) return
+        const section = document.querySelector('.horizontal-section')
+        const wrapper = document.querySelector('.horizontal-wrapper')
+        if (!section || !wrapper) return
+
+        const totalScroll = wrapper.scrollWidth - window.innerWidth
+
+        gsap.to(wrapper, {
+            x: -totalScroll,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: section,
+                start: 'top top',
+                end: () => `+=${totalScroll}`,
+                scrub: true,
+                pin: true,
+                anticipatePin: 1,
+            },
+        })
+
+        return () => ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+    }, [])
+
+    // rolling text
+    useEffect(() => {
+        const elements = document.querySelectorAll<HTMLElement>('.rolling-artist')
+
+        elements.forEach((el) => {
+            const data = el.dataset.names
+            if (!data) return
+
+            const names = data.split(',').map((n) => n.trim())
+            const typeSpeed = 0.1
+            const eraseSpeed = 0.05
+            const delayBetween = 1
+
+            const timeline = gsap.timeline({ repeat: -1, repeatDelay: 0.5 })
+
+            names.forEach((name) => {
+                const chars = name.split('')
+
+                chars.forEach((_, i) => {
+                    timeline.to(
+                        el,
+                        {
+                            textContent: name.slice(0, i + 1),
+                            duration: typeSpeed,
+                            ease: 'none',
+                        },
+                        `+=${i === 0 ? 0.5 : 0}`
+                    )
+                })
+
+                timeline.to({}, { duration: delayBetween })
+
+                chars.forEach((_, i) => {
+                    const remaining = name.slice(0, chars.length - i - 1)
+                    timeline.to(el, {
+                        textContent: remaining,
+                        duration: eraseSpeed,
+                        ease: 'none',
+                    })
+                })
+            })
+        })
+    }, [])
+
     return (
         <div className={styles.about}>
             <div className={styles.about__top}>
@@ -14,80 +125,80 @@ const Page = () => {
                 <div className={cn(styles.about__top_text, 'anim', 'animon')}>
                     Discover great art. Browse our auctions or contact our experienced Artwide experts.
                 </div>
-                <div className={cn(styles.about__top_img, styles.animon, 'anim', 'animon')}></div>
+                <div className={cn(styles.about__top_img, 'anim', 'animon')}></div>
             </div>
 
             <div className={styles.about__text}>
                 <div className={cn(styles.about__text_container, 'container')}>
-                    <div className={cn(styles.about__text_lfine, styles.animon, 'anim', 'animon')}>
+                    <div className={cn(styles.about__text_lfine, 'anim', 'animon')}>
                         We are Artwide.
                     </div>
-                    <div className={cn(styles.about__text_sline, styles.animon, 'anim', 'animon')}>
+                    <div className={cn(styles.about__text_sline, 'anim', 'animon')}>
                         A platform for Online Auctions and Private Sales, that combines the transparency and speed of
                         the digital world with the traditional experience of art professionals.
                     </div>
-                    <div className={cn(styles.about__text_tline, styles.animon, 'anim', 'animon')}>
+                    <div className={cn(styles.about__text_tline, 'anim', 'animon')}>
                         <div>Bringing together</div>
-                        <div className={cn(styles.about__text_blue, 'typed-words')}>cor</div>
+                        <div className={cn(styles.about__text_blue, 'rolling-artist')}
+                             data-names="family office, art gallery, corporations, banks, museums, artifacts, collectors"></div>
                         <div>to interact in a secured environment.</div>
                     </div>
                 </div>
             </div>
 
             <div className={styles.about__banner}>
-                <div className={cn(styles.about__banner_container, styles.animon, 'anim', 'animon')}>
+                <div className={cn(styles.about__banner_container, 'anim', 'animon')}>
                     Find what you are looking for
-                    <div className={cn(styles.about__banner_blue, 'rolling-artist')}>Mark Rothko</div>
+                    <div className={cn(styles.about__banner_blue, 'rolling-artist')}
+                         data-names="Henry Taylor,Jean-Michel Basquiat, Mark Rothko"></div>
                 </div>
             </div>
-            {/*<div className="pin-spacer"*/}
-            {/*     style="place-self: auto; grid-area: auto; z-index: auto; float: none; flex-shrink: 1; display: block; margin: 0px; inset: auto; position: relative; overflow: visible; box-sizing: border-box; width: 994px; height: 1055px; padding: 0px 0px 493px;">*/}
-            {/*    <div className="about__why horizontal-trigger"*/}
-            {/*         style="transform: translate(0px, 0px); left: 0px; top: -0.484375px; margin: 0px; max-width: 994px; width: 994px; max-height: 563px; height: 563px; padding: 84.0833px 0px; box-sizing: border-box; position: fixed;">*/}
-            {/*        <div className="horizontal-section">*/}
-            {/*            <div className="about__why-title">*/}
-            {/*                Why Artwide*/}
-            {/*            </div>*/}
-            {/*            <div className="about__why-container">*/}
-            {/*                <div className="about__why-list list" style="transform: translate(-193.012px, 0px);">*/}
-            {/*                    <div className="about__why-item">*/}
-            {/*                        <div>Find what you <br/>are seeking</div>*/}
-            {/*                        <div>Browse our auctions to access a wide range of works of art, from Impressionism*/}
-            {/*                            to Ultra-Contemporary.*/}
-            {/*                        </div>*/}
-            {/*                    </div>*/}
-            {/*                    <div className="about__why-item">*/}
-            {/*                        <div>Access our Blackbook</div>*/}
-            {/*                        <div>Built over the last decade, our vetted network includes trusted individuals,*/}
-            {/*                            experts, and institutions all active in the art world.*/}
-            {/*                        </div>*/}
-            {/*                    </div>*/}
-            {/*                    <div className="about__why-item">*/}
-            {/*                        <div>Curated and verified marketplace</div>*/}
-            {/*                        <div>All artworks are curated and verified by our team to ensure a comfortable and*/}
-            {/*                            safe experience.*/}
-            {/*                        </div>*/}
-            {/*                    </div>*/}
-            {/*                    <div className="about__why-item">*/}
-            {/*                        <div>Trusted <br/>Partner</div>*/}
-            {/*                        <div>Trusted team of experts available to guide you throughout your buying and*/}
-            {/*                            selling experience, and to offer assistance and advice.*/}
-            {/*                        </div>*/}
-            {/*                    </div>*/}
-            {/*                    <div className="about__why-item">*/}
-            {/*                        <div>Nothing to worry about</div>*/}
-            {/*                        <div>From the beginning to the end of a transaction, we can take care of everything.*/}
-            {/*                            We offer access to leading independent experts and solutions for art financing,*/}
-            {/*                            collection and inventory management, insurance, shipping and storage.*/}
-            {/*                        </div>*/}
-            {/*                    </div>*/}
-            {/*                </div>*/}
-            {/*            </div>*/}
-            {/*        </div>*/}
-            {/*    </div>*/}
-            {/*</div>*/}
+            <div className="pin-spacer">
+                <div className={cn(styles.about__why, 'horizontal-section overflow-hidden')}>
+                    <div className="horizontal-wrapper">
+                        <div className={styles.about__why_title}>
+                            Why Artwide
+                        </div>
+                        <div className={styles.about__why_container}>
+                            <div className={styles.about__why_list}>
+                                <div className={styles.about__why_item}>
+                                    <div>Find what you <br/>are seeking</div>
+                                    <div>Browse our auctions to access a wide range of works of art, from Impressionism
+                                        to Ultra-Contemporary.
+                                    </div>
+                                </div>
+                                <div className={styles.about__why_item}>
+                                    <div>Access our Blackbook</div>
+                                    <div>Built over the last decade, our vetted network includes trusted individuals,
+                                        experts, and institutions all active in the art world.
+                                    </div>
+                                </div>
+                                <div className={styles.about__why_item}>
+                                    <div>Curated and verified marketplace</div>
+                                    <div>All artworks are curated and verified by our team to ensure a comfortable and
+                                        safe experience.
+                                    </div>
+                                </div>
+                                <div className={styles.about__why_item}>
+                                    <div>Trusted <br/>Partner</div>
+                                    <div>Trusted team of experts available to guide you throughout your buying and
+                                        selling experience, and to offer assistance and advice.
+                                    </div>
+                                </div>
+                                <div className={styles.about__why_item}>
+                                    <div>Nothing to worry about</div>
+                                    <div>From the beginning to the end of a transaction, we can take care of everything.
+                                        We offer access to leading independent experts and solutions for art financing,
+                                        collection and inventory management, insurance, shipping and storage.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div className={styles.about__platform}>
-                <div className={cn(styles.about__platform_top, styles.animon, 'anim', 'animon')}>
+                <div className={cn(styles.about__platform_top, 'anim', 'animon')}>
                     <div className={styles.about__platform_topleft}>
                         The right platform <br />
                         for the <span className="typed-words2">corpora</span>
@@ -100,34 +211,34 @@ const Page = () => {
                         </div>
                     </div>
                 </div>
-                <div className={cn(styles.about__platform_list, styles.animon, 'anim', 'animon')}>
+                <div className={cn(styles.about__platform_list, 'anim', 'animon')}>
                     <div className={styles.about__platform_listin}>
-                        <div className={cn(styles.about__platform_item, styles.animon, 'anim', 'animon')}>
+                        <div className={cn(styles.about__platform_item, 'anim', 'animon')}>
                             <p>&quot;I was introduced to Artwide through acquaintances.</p>
                             <p>They have an amazing network and they helped me close a complicated private sale. They close deals as promised.&quot;</p>
                             <div className={styles.about__platform_author}>MR. B.W. / USA</div>
                         </div>
-                        <div className={cn(styles.about__platform_item, styles.animon, 'anim', 'animon')}>
+                        <div className={cn(styles.about__platform_item, 'anim', 'animon')}>
                             <div className={styles.about__platform_img} style={{ backgroundImage: 'url(/img/ball.webp)' }}></div>
                             <div className={styles.about__platform_imgtext}>
                                 Artwide has clients spread across <br />52 countries.
                             </div>
                         </div>
-                        <div className={cn(styles.about__platform_item, styles.animon, 'anim', 'animon')}>
+                        <div className={cn(styles.about__platform_item, 'anim', 'animon')}>
                             <p>&quot;They are very professional, confidential and have an amazing client network.&quot;</p>
                             <div className={styles.about__platform_author}>MR. S.S. / UK</div>
                         </div>
-                        <div className={cn(styles.about__platform_item, styles.animon, 'anim', 'animon')}>
+                        <div className={cn(styles.about__platform_item, 'anim', 'animon')}>
                             <p>&quot;Their scope and new technology angle makes them stand out for me.&quot;</p>
                             <div className={styles.about__platform_author}>MR. H.W. / GERMANY</div>
                         </div>
-                        <div className={cn(styles.about__platform_item, styles.animon, 'anim', 'animon')}>
+                        <div className={cn(styles.about__platform_item, 'anim', 'animon')}>
                             <div className={styles.about__platform_img} style={{ backgroundImage: 'url(/img/90.webp)' }}></div>
                             <div className={styles.about__platform_imgtext}>
                                 90% of clients return after a successful transaction.
                             </div>
                         </div>
-                        <div className={cn(styles.about__platform_item, styles.animon, 'anim', 'animon')}>
+                        <div className={cn(styles.about__platform_item, 'anim', 'animon')}>
                             <p>&quot;Artwide has become my essential tool to access the art market with its ample and varied inventory. I&apos;ve been very pleased with them. Whenever we&apos;ve had a situation that has gotten difficult, they have been able to resolve it.&quot;</p>
                             <div className={styles.about__platform_author}>MRS. P.R. / FRANCE</div>
                         </div>
@@ -136,7 +247,7 @@ const Page = () => {
             </div>
 
             <div className={styles.about__ourcom}>
-                <div className={cn(styles.about__ourcom_in, styles.animon, 'anim', 'animon')}>
+                <div className={cn(styles.about__ourcom_in, 'anim', 'animon')}>
                     <div className={styles.about__ourcom_container}>
                         <div className={styles.about__ourcom_title}>Our four commitments</div>
                         <div className={styles.about__ourcom_text}>
@@ -179,10 +290,9 @@ const Page = () => {
 
             <div className={styles.about__bottom}>
                 <div className={styles.about__bottom_container}>
-                    <div className={cn(styles.about__bottom_block, styles.animon, 'anim', 'animon')}>
+                    <div className={cn(styles.about__bottom_block, 'anim', 'animon')}>
                         <div className={styles.about__bottom_text}>
-                            Get started with Artwide
-                            <span>today</span>
+                            Get started with Artwide <span>today</span>
                         </div>
                         <div className={styles.about__bottom_buttons}>
                             <Link href="/" className="button">Auctions</Link>

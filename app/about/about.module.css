@@ -228,6 +228,7 @@
 .about__banner_container {
     transform: translateY(6.9444444444vw);
     transition: transform 1s;
+    text-align: center;
 }
 @media (max-width: 767px) {
     .about__banner_container {
@@ -794,6 +795,7 @@
     transform: translateY(100%);
     opacity: 100;
     transition: transform 0.7s, opacity 0.7s;
+    text-align: center;
 }
 .about__bottom_block.animon {
     opacity: 1;
@@ -835,11 +837,12 @@
     margin-top: 2.2222222222vw;
     display: flex;
     justify-content: center;
+    gap: 8px;
 }
 @media (max-width: 767px) {
     .about__bottom_buttons {
         margin-top: 4.2666666667vw;
-        display: block;
+        flex-direction: column;
     }
 }
 .about__bottom_buttons .button {
