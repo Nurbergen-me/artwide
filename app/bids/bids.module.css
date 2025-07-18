@@ -1,0 +1,639 @@
+
+.mybids__auctiontitle {
+    margin-top: 2.7777777778vw;
+    font-family: "Kings Caslon";
+    font-size: 2.2222222222vw;
+    line-height: 1.3;
+    letter-spacing: normal;
+    color: #9D9FA6;
+}
+@media (max-width: 767px) {
+    .mybids__auctiontitle {
+        margin-top: 4.2666666667vw;
+        font-size: 6.4vw;
+    }
+}
+
+@media (min-width: 768px) {
+
+    .mybids__block {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 2.2222222222vw;
+        width: 28.6805555556vw;
+        height: 100%;
+        color: #002EA3;
+        text-align: right;
+    }
+}
+.mybids__item {
+    position: relative;
+}
+
+.mybids__item .mybids__auction.mobile {
+    position: unset;
+    top: 0;
+    left: 0;
+    font-size: 12px;
+    text-align: center;
+    display: block;
+    border-bottom: 0;
+    padding-bottom: 0;
+    line-height: 20px;
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .mybids__item {
+        margin-top: 4.2666666667vw;
+        border: 1px solid #EFEFEF;
+        border-radius: 2.1333333333vw;
+        padding: 8.5333333333vw 4.2666666667vw;
+    }
+
+    .mybids__item .mybids__auction {
+        display: none;
+        position: absolute;
+        left: 4.2666666667vw;
+        right: 4.2666666667vw;
+        top: 64vw;
+        font-size: 3.2vw;
+        padding-bottom: 2.1333333333vw;
+        border-bottom: 1px solid #EFEFEF;
+    }
+    .mybids__item .mybids__auction.mobile {
+        display: block;
+    }
+    .mybids__item .mybids__auction .infoicon {
+        width: 20px;
+        height: 20px;
+    }
+    .mybids__item .mybids__bid {
+        padding-top: 0;
+        font-size: 4.2666666667vw;
+        text-align: right;
+        margin-top: -18.1333333333vw;
+    }
+    .mybids__item .mybids__timer {
+        margin-top: 14.9333333333vw;
+        font-size: 3.7333333333vw;
+        text-align: right;
+        color: #002EA3;
+    }
+    .mybids__item .mybids__timer span {
+        display: inline-block;
+    }
+    .mybids__item .mybids__button .hintpopup {
+        width: 64vw;
+    }
+}
+
+.mybids__item.red .mybids__bid {
+    color: #D04135;
+}
+
+.mybids__item.blue .mybids__bid {
+    color: #002EA3;
+}
+
+
+.mybids__item.final .mybids__button {
+    margin-top: 7.0138888889vw;
+}
+@media (max-width: 767px) {
+    .mybids__item.final .mybids__button {
+        margin-top: 4.2666666667vw;
+    }
+}
+@media (max-width: 767px) {
+
+    .mybids__item.final .mybids__auction {
+        height: 14.9333333333vw;
+    }
+    .mybids__item.final .mybids__auction a {
+        display: block;
+        position: relative;
+        right: 0;
+    }
+    .mybids__item.final .mybids__auction a:not([href]) {
+        color: #9D9FA6;
+        text-decoration: none;
+    }
+    .mybids__item.final .mybids__winner {
+        margin: 10.6666666667vw -6.4vw -8.5333333333vw;
+    }
+}
+@media (max-width: 767px) {
+
+    .mybids__item.closedlot .mybids__auction {
+        height: 14.9333333333vw;
+    }
+    .mybids__item.closedlot .mybids__auction a {
+        display: block;
+        position: relative;
+        right: 0;
+    }
+    .mybids__item.closedlot .mybids__auction a:not([href]) {
+        color: #9D9FA6;
+        text-decoration: none;
+    }
+    .mybids__item.closedlot .mybids__winner {
+        margin: 10.6666666667vw -6.4vw -8.5333333333vw;
+    }
+}
+.mybids .content__title {
+    margin-top: 2.7777777778vw;
+}
+@media (max-width: 767px) {
+    .mybids .content__title {
+        margin-top: 6.4vw;
+    }
+}
+.mybids__auction {
+    padding-top: 2.5347222222vw;
+    color: #9D9FA6;
+    font-size: 1.1111111111vw;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    position: relative;
+    display: inline-block;
+}
+.mybids__auction .infoicon {
+    vertical-align: bottom;
+    margin-left: 1.1111111111vw;
+}
+.mybids__auction a {
+    position: absolute;
+    right: 100%;
+    bottom: 0;
+    margin-right: 0.5555555556vw;
+    color: #002EA3;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.13em;
+}
+.mybids__auction a:hover {
+    text-decoration: none;
+}
+.mybids__bid {
+    margin-top: 1.1111111111vw;
+    font-size: 1.25vw;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+.mybids__bid div {
+    padding-top: 0.5555555556vw;
+}
+.mybids__bid.hidden {
+    opacity: 0;
+}
+.mybids__timer {
+    margin-top: 5vw;
+    font-size: 1.1111111111vw;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    font-weight: 500;
+    margin-bottom: 3px;
+}
+.mybids__timer.closing {
+    color: #FF4242;
+}
+.mybids__timer .hours, .mybids__timer .minutes, .mybids__timer .seconds {
+    display: inline-block;
+    text-align: center;
+}
+.mybids__timer .mybids__timer-text {
+    font-weight: normal;
+    display: inline;
+}
+.mybids__timer2 {
+    margin-top: 6.1111111111vw;
+    font-size: 1.1111111111vw;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    text-align: right;
+    color: #002EA3;
+}
+.mybids__timer2 .timercount {
+    font-weight: 500;
+}
+.mybids__timer2 .minutes, .mybids__timer2 .seconds {
+    width: 1.5972222222vw;
+    display: inline-block;
+    text-align: center;
+}
+@media (max-width: 767px) {
+    .mybids__timer2 {
+        margin-top: 17.0666666667vw;
+        font-size: 3.7333333333vw;
+    }
+    .mybids__timer2 .minutes, .mybids__timer2 .seconds {
+        width: 5.6vw;
+    }
+}
+.mybids__button {
+    margin-top: 0;
+    width: 100%;
+    position: relative;
+}
+.mybids__button .hintpopup {
+    left: auto;
+    right: 0;
+    width: 19.9305555556vw;
+    text-align: left;
+}
+.mybids__winner {
+    margin-top: 1.3888888889vw;
+}
+
+@media (min-width: 768px) {
+    .accbids .mybids__block, .finalbids .mybids__block {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+}
+@media (max-width: 767px) {
+
+    .accbids .mybids__item .mybids__auction, .finalbids .mybids__item .mybids__auction {
+        top: 58.6666666667vw;
+        white-space: normal;
+    }
+    .accbids .mybids__item.closing .mybids__auction, .finalbids .mybids__item.closing .mybids__auction {
+        white-space: nowrap;
+    }
+    .accbids .mybids__item .mybids__auction a, .finalbids .mybids__item .mybids__auction a {
+        position: relative;
+        right: 0;
+        display: block;
+    }
+}
+.gallery__item {
+    display: block;
+    padding: 0 1.1111111111vw;
+    font-size: 1.25vw;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+}
+@media (max-width: 767px) {
+    .gallery__item {
+        padding: 0 4.2666666667vw;
+    }
+}
+.gallery__item:hover .gallery__item_img img {
+    transform: scale(1.02);
+}
+.gallery__item_img {
+    height: 21.9444444444vw;
+    overflow: hidden;
+    position: relative;
+    display: block;
+}
+@media (max-width: 767px) {
+    .gallery__item_img {
+        height: 38.4vw;
+    }
+}
+.gallery__item_img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    will-change: transform;
+    transition: transform 0.3s;
+}
+.gallery__item_info {
+    margin-top: 1.1111111111vw;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+@media (max-width: 767px) {
+    .gallery__item_info {
+        margin-top: 4.2666666667vw;
+        position: relative;
+    }
+}
+.gallery__item_num {
+    color: #9D9FA6;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+}
+@media (max-width: 767px) {
+    .gallery__item_num {
+        font-size: 4.2666666667vw;
+    }
+}
+.gallery__item_like {
+    width: 1.6666666667vw;
+    height: 1.6666666667vw;
+    background-image: url(/img/like.svg);
+    background-size: contain;
+    transition: transform 0.3s;
+    will-change: transform;
+    position: relative;
+}
+@media (max-width: 767px) {
+    .gallery__item_like {
+        width: 6.4vw;
+        height: 6.4vw;
+    }
+}
+.gallery__item_like .hintpopup {
+    left: auto;
+    right: -1.3888888889vw;
+    width: 17.0138888889vw;
+}
+@media (max-width: 767px) {
+    .gallery__item_like .hintpopup {
+        right: -5.3333333333vw;
+        width: 65.3333333333vw;
+    }
+}
+.gallery__item_like.picked {
+    background-image: url(/img/liked.svg);
+}
+.gallery__item_like:hover {
+    transform: scale(1.2);
+}
+.gallery__item_addtime {
+    padding: 0;
+}
+@media (max-width: 767px) {
+    .gallery__item_addtime {
+        padding: 0;
+        position: absolute;
+        right: 0;
+        top: 2.9333333333vw;
+    }
+}
+.gallery__item_addtime a {
+    font-weight: 700;
+    font-size: 0.9722222222vw;
+    color: #f00;
+    border-bottom: 1px solid #f00;
+}
+@media (max-width: 767px) {
+    .gallery__item_addtime a {
+        font-size: 2.6666666667vw;
+    }
+}
+.gallery__item_addtime a:hover {
+    border: none;
+}
+.gallery__item_price {
+    font-size: 1.6666666667vw;
+    line-height: 1;
+    letter-spacing: 0.03em;
+}
+@media (max-width: 767px) {
+    .gallery__item_price {
+        font-size: 4.8vw;
+    }
+}
+.gallery__item_name {
+    font-family: "Kings Caslon";
+    font-size: 2.2222222222vw;
+    line-height: 1.3;
+    letter-spacing: normal;
+    margin-top: 0.5555555556vw;
+    position: relative;
+}
+@media (max-width: 767px) {
+    .gallery__item_name {
+        font-size: 6.4vw;
+        margin-top: 2.1333333333vw;
+    }
+}
+.gallery__item_label {
+    margin-left: 1.6666666667vw;
+    display: block;
+    width: fit-content;
+    border-radius: 0.6944444444vw 2.2222222222vw 2.2222222222vw 0.6944444444vw;
+    white-space: nowrap;
+    padding: 0.3472222222vw 0.5555555556vw;
+    border: 1px solid #26272D;
+    font-size: 0.8333333333vw;
+    line-height: 1.2;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #26272D;
+}
+@media (max-width: 767px) {
+    .gallery__item_label {
+        margin-left: 6.4vw;
+        padding: 1.3333333333vw 2.1333333333vw;
+        font-size: 2.6666666667vw;
+        border-radius: 1.3333333333vw 8.5333333333vw 8.5333333333vw 1.3333333333vw;
+    }
+}
+.gallery__item_label.closed {
+    background: #26272D;
+    color: #fff;
+}
+@media (max-width: 767px) {
+    .gallery__item_title {
+        font-size: 4.2666666667vw;
+    }
+}
+.gallery__item_title a {
+    border-bottom: 0.0694444444vw solid #212121;
+}
+.gallery__item_title a:hover {
+    color: #767575;
+    border-color: #b0b0b0;
+}
+.gallery__item_technique {
+    font-size: 1.1111111111vw;
+}
+@media (max-width: 767px) {
+    .gallery__item_technique {
+        font-size: 3.7333333333vw;
+    }
+}
+.gallery__item_estimate {
+    margin-top: 1.1111111111vw;
+    font-size: 1.1111111111vw;
+    color: #9D9FA6;
+}
+@media (max-width: 767px) {
+    .gallery__item_estimate {
+        font-size: 3.7333333333vw;
+        margin-top: 2.1333333333vw;
+    }
+}
+.gallery__item_you {
+    font-size: 1.1111111111vw;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+@media (max-width: 767px) {
+    .gallery__item_you {
+        font-size: 3.7333333333vw;
+    }
+}
+.gallery__item_you.red {
+    color: #D04135;
+}
+.gallery__item_you.blue {
+    color: #002EA3;
+}
+.gallery__item_start {
+    font-size: 1.1111111111vw;
+    margin-top: 1.1111111111vw;
+}
+@media (max-width: 767px) {
+    .gallery__item_start {
+        font-size: 3.7333333333vw;
+        margin-top: 2.1333333333vw;
+    }
+}
+.gallery__item_start div {
+    color: #9D9FA6;
+}
+.gallery__item_time {
+    font-size: 0.9722222222vw;
+}
+@media (max-width: 767px) {
+    .gallery__item_time {
+        font-size: 2.6666666667vw;
+    }
+}
+.gallery__item_time b {
+    font-weight: 600;
+}
+.gallery__item_right {
+    width: 45.4166666667vw;
+}
+
+.gallery__item_time {
+    font-size: 1.1vw;
+    font-weight: 500;
+    text-align: left;
+}
+
+.gallery__item_time_text {
+    font-weight: 400;
+}
+.mybids__item .gallery__item_num {
+    display: flex;
+    align-items: center;
+}
+.mybids__item.red .gallery__item_start > span:nth-child(2) {
+    color: #D04135;
+}
+.mybids__item.blue .gallery__item_start > span:nth-child(2) {
+    color: #002EA3;
+}
+@media (max-width: 767px) {
+    .mybids .gallery__item {
+        padding: 0;
+    }
+    .mybids__item .gallery__item_info {
+        border-color: #EFEFEF;
+        border-bottom: 1px solid #efefef;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+    }
+    .mybids__item .gallery__item_start {
+        margin-top: 10.6666666667vw;
+    }
+    .mybids__item .gallery__item_name {
+        margin-top: 0 !important;
+    }
+}
+@media (min-width: 768px) {
+    .mybids .gallery__item {
+        display: block;
+        border-radius: 0.5555555556vw;
+        border: 1px solid #EFEFEF;
+        padding: 2.2222222222vw 2.2222222222vw 6.1805555556vw 32.6388888889vw;
+        margin-top: 2.7777777778vw;
+        position: relative;
+        min-height: 22.2916666667vw;
+    }
+    .mybids .gallery__item .gallery__item_img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 32.6388888889vw;
+        height: 22.2916666667vw;
+        padding: 2.2222222222vw 2.2222222222vw 3.4027777778vw;
+    }
+    .mybids .gallery__item .gallery__item_info {
+        border-color: #EFEFEF;
+        margin-top: 0;
+    }
+    .mybids .gallery__item .gallery__item_like {
+        display: none;
+    }
+    .mybids .gallery__item .gallery__item_start {
+        position: absolute;
+        top: 7.1527777778vw;
+        right: 2.2222222222vw;
+        width: 28.6805555556vw;
+    }
+    .mybids .gallery__item .gallery__item_start .gallery__item_start {
+        right: 0;
+        position: relative;
+        top: 0;
+    }
+    .mybids__item.win .gallery__item {
+        min-height: 33.3333333333vw;
+    }
+}
+.mybids__item .gallery__item_start {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.mybids__item .gallery__item_start div {
+    width: 100%;
+}
+.mybids__item .gallery__item_start > span:nth-child(2) {
+    font-weight: 500;
+}
+.mybids__item.final .gallery__item_start {
+    top: 5.7638888889vw;
+    margin-top: 0;
+}
+@media (max-width: 767px) {
+    .mybids__item.final .gallery__item_start {
+        top: 0;
+        margin-top: 4.2666666667vw;
+    }
+    .mybids__item.final .gallery__item_name {
+        margin-top: 17.0666666667vw;
+    }
+    .mybids__item.closedlot .gallery__item_name {
+        margin-top: 17.0666666667vw;
+    }
+    .accbids .mybids__item.closedlot .gallery__item_name, .finalbids .mybids__item.closedlot .gallery__item_name {
+        margin-top: 17.0666666667vw;
+    }
+    .accbids .mybids__item.final .gallery__item_name, .finalbids .mybids__item.final .gallery__item_name {
+        margin-top: 17.0666666667vw;
+    }
+}
+.mybids__item.final .gallery__item_start .gallery__item_start {
+    position: relative;
+    top: 0;
+    right: 0;
+    color: #26272D;
+    margin-top: 1.1111111111vw;
+}

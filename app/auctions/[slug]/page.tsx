@@ -241,7 +241,7 @@ const Page = () => {
                     <input type="hidden" name="caf" value=""/>
                     <div className="pt-[6.6vw]">
 
-                        <div className="grid grid-cols-3 gap-4" id="gallerylist">
+                        <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-4" id="gallerylist">
                             {lots.map(lot => (
                                 <LotCard
                                     variant=""

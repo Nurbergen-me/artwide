@@ -66,6 +66,7 @@ const LotCard: React.FC<AuctionCardProps> = ({lotNumber, sold, imageSrc, artistN
                         </span>
                     ) : ''}
                 </div>
+                {/*add this class for liked styles.picked*/}
                 <div className={cn(styles.gallery__item_like, "hintpopupParent")} data-id={lotId}>
                     <div className={cn(styles.hintpopup, "hintpopup")}>
                         Please Log In or Register to add the lot to your favourites

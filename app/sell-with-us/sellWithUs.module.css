@@ -1,0 +1,347 @@
+
+.sell {
+    font-size: 1.1111111111vw;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    margin: 2.7777777778vw -2.7777777778vw 0;
+}
+@media (max-width: 767px) {
+    .sell {
+        margin-top: 3.7333333333vw;
+        font-size: 4.2666666667vw;
+        margin: 3.7333333333vw -4.2666666667vw 0;
+    }
+}
+@media (max-width: 767px) {
+    .sell br.desktop {
+        display: none;
+    }
+}
+.sell__gblock {
+    margin-top: 5.5555555556vw;
+    background: #EFEFEF;
+    padding: 8.3333333333vw 0;
+}
+@media (max-width: 767px) {
+    .sell__gblock {
+        margin-top: 14.9333333333vw;
+        padding: 19.2vw 4.2666666667vw;
+    }
+}
+.sell__gblock .content__title {
+    text-align: center;
+    color: #002EA3;
+}
+@media (max-width: 767px) {
+    .sell__gblock .content__title {
+        padding: 0 5.3333333333vw;
+        margin-top: 0;
+    }
+}
+.sell__gblock_list {
+    margin-top: 2.2222222222vw;
+    display: flex;
+    justify-content: center;
+}
+@media (max-width: 767px) {
+    .sell__gblock_list {
+        margin-top: 0;
+        display: block;
+    }
+}
+.sell__gblock_item {
+    width: 36.1111111111vw;
+    margin: 0 1.9444444444vw;
+    text-align: center;
+}
+@media (max-width: 767px) {
+    .sell__gblock_item {
+        margin: 8.5333333333vw 0 0;
+        width: 100%;
+    }
+}
+.sell__gblock_itemimg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 11.1111111111vw;
+}
+@media (max-width: 767px) {
+    .sell__gblock_itemimg {
+        height: 25.6vw;
+    }
+}
+.sell__gblock_itemimg img {
+    display: block;
+    height: 100%;
+}
+.sell__gblock_itemtitle {
+    margin-top: 1.6666666667vw;
+    font-family: "Kings Caslon";
+    font-size: 2.2222222222vw;
+    line-height: 1.3;
+    letter-spacing: normal;
+}
+@media (max-width: 767px) {
+    .sell__gblock_itemtitle {
+        margin-top: 4.2666666667vw;
+        font-size: 6.4vw;
+    }
+}
+.sell__gblock_itemtext {
+    margin-top: 0.5555555556vw;
+    font-size: 1.25vw;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+}
+@media (max-width: 767px) {
+    .sell__gblock_itemtext {
+        margin-top: 2.1333333333vw;
+        font-size: 4.2666666667vw;
+    }
+}
+.sell__howblock {
+    padding-top: 8.3333333333vw;
+}
+@media (max-width: 767px) {
+    .sell__howblock {
+        padding: 19.2vw 4.2666666667vw 0;
+    }
+}
+@media (max-width: 767px) {
+    .sell__howblock .content__title {
+        margin-top: 0;
+    }
+}
+.sell__howblock_list {
+    margin-top: 2.2222222222vw;
+    display: flex;
+    justify-content: space-between;
+}
+@media (max-width: 767px) {
+    .sell__howblock_list {
+        display: block;
+        margin-top: 8.5333333333vw;
+    }
+}
+.sell__howblock_item {
+    flex: 1;
+    margin-right: 2.2222222222vw;
+    border-radius: 2.2222222222vw;
+    padding: 2.7777777778vw 2.2222222222vw;
+    background: #fff;
+    border: 1px solid #D7D7DA;
+    box-shadow: 2px 2px 20px 2px rgba(38, 39, 45, 0.15);
+}
+@media (max-width: 767px) {
+    .sell__howblock_item {
+        margin: 4.2666666667vw 0 0;
+        border-radius: 8.5333333333vw;
+        padding: 8.5333333333vw 6.4vw;
+    }
+}
+.sell__howblock_item:last-child {
+    margin-right: 0;
+}
+.sell__howblock_itemimg {
+    height: 5.5555555556vw;
+    display: flex;
+    justify-content: center;
+}
+@media (max-width: 767px) {
+    .sell__howblock_itemimg {
+        height: 14.9333333333vw;
+    }
+}
+.sell__howblock_itemimg img {
+    display: block;
+    height: 100%;
+}
+.sell__howblock_itemtitle {
+    text-align: center;
+    margin-top: 1.6666666667vw;
+    font-family: "Kings Caslon";
+    font-size: 2.2222222222vw;
+    line-height: 1.3;
+    letter-spacing: normal;
+}
+@media (max-width: 767px) {
+    .sell__howblock_itemtitle {
+        margin-top: 4.2666666667vw;
+        font-size: 6.4vw;
+    }
+}
+.sell__howblock_itemtext {
+    margin-top: 2.2222222222vw;
+    font-size: 1.25vw;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+}
+@media (max-width: 767px) {
+    .sell__howblock_itemtext {
+        margin-top: 4.2666666667vw;
+        font-size: 4.8vw;
+    }
+}
+.sell__howblock_itemtextgrey {
+    margin-top: 2.2222222222vw;
+    font-size: 0.9722222222vw;
+    color: #9D9FA6;
+}
+@media (max-width: 767px) {
+    .sell__howblock_itemtextgrey {
+        margin-top: 4.2666666667vw;
+        font-size: 3.7333333333vw;
+    }
+}
+.sell__howblock_itemtext a {
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.13em;
+}
+.sell__howblock_itemtext p {
+    margin-bottom: 2.2222222222vw;
+}
+@media (max-width: 767px) {
+    .sell__howblock_itemtext p {
+        margin-bottom: 4.2666666667vw;
+    }
+}
+.sell__howblock_itemtext .download {
+    margin-top: 2.2222222222vw;
+    font-size: 1.1111111111vw;
+    display: flex;
+    align-items: flex-start;
+    color: #9D9FA6;
+}
+.sell__howblock_itemtext .download span {
+    flex: 1;
+}
+@media (max-width: 767px) {
+    .sell__howblock_itemtext .download {
+        margin-top: 4.2666666667vw;
+        align-items: flex-start;
+        font-size: 4.2666666667vw;
+    }
+}
+.sell__howblock_itemtext .download + .download {
+    margin-top: 1.1111111111vw;
+}
+@media (max-width: 767px) {
+    .sell__howblock_itemtext .download + .download {
+        margin-top: 4.2666666667vw;
+    }
+}
+.sell__howblock_itemtext .download:hover {
+    text-decoration: none;
+}
+.sell__howblock_itemtext .download::before {
+    content: "";
+    display: block;
+    margin-right: 0.5555555556vw;
+    width: 1.6666666667vw;
+    height: 1.6666666667vw;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(/img/download.svg);
+}
+@media (max-width: 767px) {
+    .sell__howblock_itemtext .download::before {
+        margin-right: 4.2666666667vw;
+        width: 6.4vw;
+        height: 6.4vw;
+    }
+}
+.sell__bottom {
+    margin-top: 2.7777777778vw;
+}
+@media (max-width: 767px) {
+    .sell__bottom {
+        padding: 0 8.5333333333vw;
+        margin-top: 8.5333333333vw;
+    }
+}
+.sell__bottom p {
+    margin: 1.33em 0 0;
+}
+.sell__bottom a {
+    color: #002EA3;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.13em;
+}
+.sell__bottom a:hover {
+    text-decoration: none;
+}
+.content__textpage .sellwithartwide__button {
+    width: unset;
+}
+.content__textpage .sellwithartwide__button .button {
+    display: inline-flex;
+    padding: 0 65px;
+}
+.content__sell {
+    width: 54.1666666667vw;
+    font-size: 1.1111111111vw;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    margin-top: 2.7777777778vw;
+}
+@media (max-width: 767px) {
+    .content__sell {
+        width: 100%;
+        margin-top: 3.7333333333vw;
+        font-size: 3.7333333333vw;
+    }
+}
+.content__sell p {
+    margin: 1.6666666667vw 0;
+}
+@media (max-width: 767px) {
+    .content__sell p {
+        margin: 6.4vw 0;
+    }
+}
+.content__sell_link {
+    margin-top: 2.7777777778vw;
+    color: #9D9FA6;
+    display: flex;
+    align-items: center;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.13em;
+}
+@media (max-width: 767px) {
+    .content__sell_link {
+        margin-top: 6.4vw;
+    }
+}
+.content__sell_link:hover {
+    text-decoration: none;
+}
+.content__sell_link::before {
+    content: "";
+    display: block;
+    margin-right: 0.5555555556vw;
+    width: 1.6666666667vw;
+    height: 1.6666666667vw;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(/img/download.svg);
+}
+@media (max-width: 767px) {
+    .content__sell_link::before {
+        margin-right: 2.1333333333vw;
+        width: 6.4vw;
+        height: 6.4vw;
+    }
+}
