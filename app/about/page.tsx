@@ -116,7 +116,7 @@ const Page = () => {
     }, [])
 
     return (
-        <div className={styles.about}>
+        <div className={cn(styles.about, 'overflow-hidden')}>
             <div className={styles.about__top}>
                 <div className={cn(styles.about__top_title, 'anim', 'animon')}>
                     <i>We</i> make it <br />
@@ -201,12 +201,12 @@ const Page = () => {
                 <div className={cn(styles.about__platform_top, 'anim', 'animon')}>
                     <div className={styles.about__platform_topleft}>
                         The right platform <br />
-                        for the <span className="typed-words2">corpora</span>
+                        for the <span className={cn('rolling-artist')} data-names="law firms, art gallery, family office, estates"></span>
                     </div>
                     <div className={styles.about__platform_topright}>
                         <div>
-                            Here just some of<br className="mobile" />
-                            the things people love<br className="mobile" />
+                            Here just some of<br className={styles.mobile} />
+                            the things people love <br className={styles.mobile} />
                             about Artwide
                         </div>
                     </div>
