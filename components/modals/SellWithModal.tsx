@@ -41,9 +41,7 @@ const FormSchema = z.object({
 
 const SellWithModal = ({ open, onOpenChange }: SellWithModalProps) => {
     const inputRef = useRef<HTMLInputElement | null>(null)
-    const [selectedCountry, setSelectedCountry] = React.useState<Country | null>(
-        null
-    );
+    const [selectedCountry, setSelectedCountry] = React.useState<Country | null>(null);
 
     const form = useForm<z.infer<typeof FormSchema>>({
         resolver: zodResolver(FormSchema),
