@@ -26,8 +26,8 @@ const buttonVariants = cva(
         filter: ""
       },
       size: {
-        default: "h-[3vw] text-[0.83vw] uppercase tracking-widest rounded-[0.5vw] px-4",
-        sm: "text-[1.25vw] py-[0.4vw] px-[1vw]",
+        default: "h-[3vw] text-[0.83vw] max-sm:text-[3.2vw] uppercase tracking-widest rounded-[0.5vw]  max-sm:rounded-[2vw] px-4 max-sm:h-auto max-sm:px-[2vw] max-sm:py-[1vw]",
+        sm: "text-[1.25vw] max-sm:text-[4.2vw] py-[0.4vw] px-[1vw] max-sm:p-[2vw]",
         lg: "font-bold w-[16.5vw] h-[3.3vw] text-[1.1vw] max-sm:h-[12.8vw] max-sm:text-[4.2vw] max-sm:w-full max-sm:rounded-[2vw]",
         icon: "size-9",
       },

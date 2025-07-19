@@ -46,7 +46,7 @@ export function MultiSelect({options, placeholder = "Select...", defaultValue = 
 
     return (
         <Popover open={open} onOpenChange={setOpen}>
-            <PopoverTrigger className="flex items-center gap-2 text-left text-[1.25vw] h-9">
+            <PopoverTrigger className="flex items-center gap-2 text-left text-[1.25vw] max-sm:text-[4.2vw] h-9">
                 {placeholder}
                 <ChevronDown size={16} />
             </PopoverTrigger>

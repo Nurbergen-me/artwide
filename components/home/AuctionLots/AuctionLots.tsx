@@ -26,7 +26,7 @@ const AuctionLots = () => {
             }, 500);
         }, 4000);
         return () => clearInterval(interval);
-    }, [lots.length]);
+    }, []);
 
     const currentItems = lots.slice(startIndex, startIndex + chunkSize);
     const currentMainItems = lots.slice(startMainIndex, startMainIndex + chunkMainSize);
