@@ -1,7 +1,7 @@
 export const lots = [
     {
         id: 1,
-        lotNumber: "8",
+        lotNumber: "1",
         sold: false,
         imageSrc: "/uploads/a5bfc9e07964f8dddeb95fc584cd965d.jpeg",
         artistName: "Janik Bürgin",
@@ -14,9 +14,9 @@ export const lots = [
         timerEnd: "2025-07-22T12:00:00Z"
     },{
         id: 2,
-        lotNumber: "9",
+        lotNumber: "2",
         sold: false,
-        imageSrc: "/uploads/a5bfc9e07964f8dddeb95fc584cd965d.jpeg",
+        imageSrc: "/uploads/1c383cd30b7c298ab50293adfecb7b18.jpg",
         artistName: "Janik Bürgin",
         title: "From the series",
         technique: "Print framed with 92UV Glass",
@@ -27,9 +27,9 @@ export const lots = [
         timerEnd: "2025-07-16T12:00:00Z"
     },{
         id: 3,
-        lotNumber: "10",
+        lotNumber: "3",
         sold: true,
-        imageSrc: "/uploads/a5bfc9e07964f8dddeb95fc584cd965d.jpeg",
+        imageSrc: "/uploads/1ff1de774005f8da13f42943881c655f.jpg",
         artistName: "Janik Bürgin",
         title: "From the series",
         technique: "Print framed with 92UV Glass",
@@ -40,9 +40,61 @@ export const lots = [
         timerEnd: "2025-07-26T12:00:00Z"
     },{
         id: 4,
-        lotNumber: "11",
+        lotNumber: "4",
         sold: false,
-        imageSrc: "/uploads/a5bfc9e07964f8dddeb95fc584cd965d.jpeg",
+        imageSrc: "/uploads/02e74f10e0327ad868d138f2b4fdd6f0.jpg",
+        artistName: "Janik Bürgin",
+        title: "From the series",
+        technique: "Print framed with 92UV Glass",
+        estimate: "4,500 - 9,000 EUR",
+        startingBid: "4,100 EUR",
+        lotId: "19",
+        link: "/auctions/indian-masters-of-color-and-spirit-1/from-the-series-19/",
+        timerEnd: "2025-07-20T12:00:00Z"
+    },{
+        id: 5,
+        lotNumber: "5",
+        sold: false,
+        imageSrc: "/uploads/3c59dc048e8850243be8079a5c74d079.jpg",
+        artistName: "Janik Bürgin",
+        title: "From the series",
+        technique: "Print framed with 92UV Glass",
+        estimate: "4,500 - 9,000 EUR",
+        startingBid: "4,100 EUR",
+        lotId: "19",
+        link: "/auctions/indian-masters-of-color-and-spirit-1/from-the-series-19/",
+        timerEnd: "2025-07-22T12:00:00Z"
+    },{
+        id: 6,
+        lotNumber: "6",
+        sold: false,
+        imageSrc: "/uploads/4e732ced3463d06de0ca9a15b6153677.jpg",
+        artistName: "Janik Bürgin",
+        title: "From the series",
+        technique: "Print framed with 92UV Glass",
+        estimate: "4,500 - 9,000 EUR",
+        startingBid: "4,100 EUR",
+        lotId: "19",
+        link: "/auctions/indian-masters-of-color-and-spirit-1/from-the-series-19/",
+        timerEnd: "2025-07-16T12:00:00Z"
+    },{
+        id: 7,
+        lotNumber: "7",
+        sold: true,
+        imageSrc: "/uploads/33e75ff09dd601bbe69f351039152189.jpg",
+        artistName: "Janik Bürgin",
+        title: "From the series",
+        technique: "Print framed with 92UV Glass",
+        estimate: "4,500 - 9,000 EUR",
+        startingBid: "4,100 EUR",
+        lotId: "19",
+        link: "/auctions/indian-masters-of-color-and-spirit-1/from-the-series-19/",
+        timerEnd: "2025-07-26T12:00:00Z"
+    },{
+        id: 8,
+        lotNumber: "8",
+        sold: false,
+        imageSrc: "/uploads/6364d3f0f495b6ab9dcf8d3b5c6e0b01.jpg",
         artistName: "Janik Bürgin",
         title: "From the series",
         technique: "Print framed with 92UV Glass",

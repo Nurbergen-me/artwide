@@ -13,21 +13,21 @@ const Page = () => {
         if (typeof window === 'undefined') return;
 
         const isMobile = window.innerWidth < 768;
-        if (isMobile) {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add(styles.animon);
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.3 });
-
-            const elements = document.querySelectorAll('.anim');
-            elements.forEach(el => observer.observe(el));
-
-            return () => observer.disconnect();
-        }
+        // if (isMobile) {
+        //     const observer = new IntersectionObserver((entries) => {
+        //         entries.forEach((entry) => {
+        //             if (entry.isIntersecting) {
+        //                 entry.target.classList.add(styles.animon);
+        //                 observer.unobserve(entry.target);
+        //             }
+        //         });
+        //     }, { threshold: 0.3 });
+        //
+        //     const elements = document.querySelectorAll('.anim');
+        //     elements.forEach(el => observer.observe(el));
+        //
+        //     return () => observer.disconnect();
+        // }
         const elements = gsap.utils.toArray<HTMLElement>('.anim');
         const triggerStart = isMobile ? 'top 120%' : 'top 85%';
 

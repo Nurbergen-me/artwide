@@ -4576,6 +4576,19 @@ body.mybidstab .mybids.finalbids .mybids__item:not(.mine):not(.finalbids__top) {
   }
 }
 
+.gallery__title {
+  font-family: "Kings Caslon";
+  font-size: 3.0555555556vw;
+  line-height: 1.3;
+  letter-spacing: normal;
+}
+@media (max-width: 767px) {
+  .gallery__title {
+    font-size: 7.4666666667vw;
+    margin-bottom: 4.2666666667vw;
+  }
+}
+
 .gallery__titletop {
   display: flex;
   justify-content: space-between;

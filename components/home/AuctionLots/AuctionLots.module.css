@@ -26,17 +26,18 @@
 
 .gallery__pop {
     margin-top: 2.2222222222vw;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     height: 95.6944444444vw;
 }
 @media (max-width: 767px) {
     .gallery__pop {
         margin-top: 0;
         margin-bottom: 0;
-        padding: 0;
         display: block;
         height: auto;
         padding-bottom: 6.4vw;
+        grid-template-columns: 1fr;
     }
     .gallery__pop::-webkit-scrollbar {
         display: none;

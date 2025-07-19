@@ -584,6 +584,7 @@
     font-size: 1.1111111111vw;
     line-height: 1.5;
     letter-spacing: -0.01em;
+    border: none;
     border-top: 0.0694444444vw solid #D7D7DA;
     border-bottom: 0.0694444444vw solid #D7D7DA;
     color: #9D9FA6;
@@ -637,6 +638,7 @@
     font-size: 1.1111111111vw;
     line-height: 1.5;
     letter-spacing: -0.01em;
+    border: none;
     border-top: 0.0694444444vw solid #D7D7DA;
     border-bottom: 0.0694444444vw solid #D7D7DA;
     color: #9D9FA6;
@@ -1060,6 +1062,7 @@
 
 .lot__rules {
     position: relative;
+    border: none;
 }
 .lot__rules .currency {
     position: absolute;

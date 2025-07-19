@@ -81,7 +81,7 @@ const Page = () => {
                                     <span>Agata Che Pensa In Un Prato In Islanda</span>, 2024
                                 </div>
                                 <div className={cn(styles.lot__like, 'hintpopupParent')} data-id="8">
-                                    <div className="hintpopup">Please Log In or Register to add the lot to your favourites</div>
+                                    <div className={cn(styles.hintpopup, 'hintpopup')} >Please Log In or Register to add the lot to your favourites</div>
                                 </div>
                             </div>
 
@@ -104,14 +104,14 @@ const Page = () => {
                             <div className={styles.lot__estimate}>
                                 <span>Estimate: 5,500 - 7,000 EUR</span>
                                 <div className={cn(styles.lot__estimate_question, 'hintpopupParent')}>
-                                    <div className="hintpopup">
+                                    <div className={cn(styles.hintpopup, "hintpopup")}>
                                         Estimates do not include Buyer&apos;s Premium, taxes, or artist resale rights.
                                     </div>
                                 </div>
-                                <div className="currency">
+                                <div className={cn(styles.currency, "currency")}>
                                     {['shield', 'dollar', 'crypto', 'vat'].map((type) => (
                                         <div key={type} className={cn('currency__item', `currency__${type}`, 'hintpopupParent')}>
-                                            <div className="hintpopup">Hint for {type}</div>
+                                            <div className={cn(styles.hintpopup, "hintpopup")}>Hint for {type}</div>
                                         </div>
                                     ))}
                                 </div>
@@ -174,7 +174,7 @@ const Page = () => {
 
             <div className="gallery gallery_add">
                 <div className="gallery__title">View additional lots</div>
-                <div className="grid gap-2 grid-cols-3 max-sm:grid-cols-1">
+                <div className="grid gap-2 grid-cols-3 mt-[2.2vw] max-sm:mt-[8.5vw] max-sm:grid-cols-1">
                     {lots.map((lot) => (
                         <LotCard key={lot.id} {...lot} variant="list" />
                     ))}
