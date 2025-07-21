@@ -10,10 +10,15 @@ import styles from './lot.module.css';
 import Link from "next/link"; // CSS Module
 import {lots} from "@/constants";
 import BidIncrementModal from "@/components/modals/BidIncrementModal";
+import BiddingGuidelineModal from "@/components/modals/BiddingGuidelineModal";
 
 const Page = () => {
     const [isCalcModalOpen, setIsCalcModalOpen] = useState(false);
     const [isIncrementModalOpen, setIsIncrementModalOpen] = useState(false)
+    const [isGuidelineModalOpen, setIsGuidelineModalOpen] = useState(false)
+    const isLogin = true
+
+    const currentLot = lots[0];
 
     return (
         <div className="container">
@@ -28,12 +33,12 @@ const Page = () => {
 
                 <div className="content__path">
                     <Link href="/auctions/indian-masters-of-color-and-spirit-1/" className="next">
-                        Indian Masters of Color and Spirit
+                        {currentLot.title}
                     </Link>
-                    <i>/</i> <span>LOT 1</span>
+                    <i>/</i> <span>LOT {currentLot.lotNumber}</span>
                 </div>
 
-                <div className={styles.lot} data-cover="/uploads/4e732ced3463d06de0ca9a15b6153677.jpg">
+                <div className={styles.lot}>
                     <div className={styles.lot__left}>
                         <div className={cn(styles.lot__img, 'f-carousel is-ltr is-horizontal')} id="myCarousel">
                             <div className="f-carousel__viewport">
@@ -46,7 +51,7 @@ const Page = () => {
                                         data-index="0"
                                     >
                                         <Image
-                                            src="/uploads/1ff1de774005f8da13f42943881c655f.jpg"
+                                            src={currentLot.imageSrc}
                                             alt="image"
                                             width={100}
                                             height={100}
@@ -56,8 +61,24 @@ const Page = () => {
                             </div>
                         </div>
 
-                        <div className={cn(styles.lot__description2, 'hidden')}>
+                        <div className={cn(styles.lot__description2)}>
                             <div className={styles.lot__description2_title}>Lot Details</div>
+                            <div className={styles.lot__description_text}>
+                                <p>
+                                    Janik Bürgin lives and works in Basel. Since his training at the School of Design in
+                                    Zurich, he has been accompanied by the photographer Christian Scholz as part of
+                                    the “Live Your Dream Foundation” mentoring program. In 2019 he completed an
+                                    internship at the Patrick Fuchs studio. After receiving his diploma in 2020, Bürgin
+                                    was part of various group exhibitions in Switzerland, Germany and the Netherlands.
+                                    His first solo exhibition took place in the Network of Arts (NoA) showroom in Horw
+                                    in 2021. In the same year he was nominated as a “Fresh Eyes Talent” (GUP Magazine,
+                                    Rotterdam) and for the “André Evard Prize” (Kunsthalle Messmer, Riegel am Kaiserstuhl).
+                                    This year Janik Bürgin will be seen at the Regionale in the Kunsthalle Palazzo
+                                    Liestal and in 2023 in solo exhibitions at the Urs Meile Gallery, Lucerne.
+                                </p>
+                                <br/>
+                                <a href="https://www.arttalkmagazine.com/janik-brgin-rome" target="_blank">More About Lot</a>
+                            </div>
                         </div>
                     </div>
 
@@ -72,25 +93,34 @@ const Page = () => {
 
                         <div className={styles.lot__infoblock}>
                             <div className={styles.lot__num}>
-                                <span>Lot 1</span>
+                                <span>Lot {currentLot.lotNumber}</span>
                             </div>
 
                             <div className={styles.lot__info}>
-                                <div className={styles.lot__author}>Mirko Leuzzi</div>
+                                <div className={styles.lot__author}>
+                                    {currentLot.artistName}
+                                </div>
                                 <div className={styles.lot__title}>
-                                    <span>Agata Che Pensa In Un Prato In Islanda</span>, 2024
+                                    <span>
+                                        {currentLot.title}
+                                    </span>, {currentLot.year}
                                 </div>
                                 <div className={cn(styles.lot__like, 'hintpopupParent')} data-id="8">
-                                    <div className={cn(styles.hintpopup, 'hintpopup')} >Please Log In or Register to add the lot to your favourites</div>
+                                    {!isLogin && (
+                                        <div className={cn(styles.hintpopup, 'hintpopup')}>Please Log In or Register to add the lot to your favourites</div>
+                                    )}
                                 </div>
                             </div>
 
                             <div className={styles.lot__text}>
-                                Oil on canvas with 3 cm thick wooden frame <br /> 100 x 140 cm
+                                {currentLot.technique}
+                                <br/> 100 x 140 cm
                             </div>
 
                             <div className={styles.lot__location}>
-                                <div className={styles.lot__location_name}>Rome, Italy</div>
+                                <div className={styles.lot__location_name}>
+                                    Rome, Italy
+                                </div>
                                 <div className={styles.lot__location_text}>
                                     For a private viewing at the above location, please email{' '}
                                     <a href="mailto:info@artwide.com">info@artwide.com</a>
@@ -102,7 +132,8 @@ const Page = () => {
                             </div>
 
                             <div className={styles.lot__estimate}>
-                                <span>Estimate: 5,500 - 7,000 EUR</span>
+                                <span>Estimate: {currentLot.estimate}
+                                </span>
                                 <div className={cn(styles.lot__estimate_question, 'hintpopupParent')}>
                                     <div className={cn(styles.hintpopup, "hintpopup")}>
                                         Estimates do not include Buyer&apos;s Premium, taxes, or artist resale rights.
@@ -118,7 +149,15 @@ const Page = () => {
                             </div>
 
                             <div className={styles.lot__start}>
-                                <div className={cn(styles.lot__yourbid, 'hidden')}>hidden</div>
+                                {isLogin && (
+                                    <div className={cn(styles.lot__yourbid,
+                                        currentLot.userBidStatus === 'highest' && styles.blue,
+                                        currentLot.userBidStatus === 'outbid' && styles.red)}
+                                    >
+                                        {currentLot.userBidStatus === 'highest' && 'You are the highest bidder'}
+                                        {currentLot.userBidStatus === 'outbid' && 'You were outbid'}
+                                    </div>
+                                )}
                                 <div>Current Bid:</div>
                                 <span id="lastbid">9,000</span> EUR
                             </div>
@@ -133,15 +172,17 @@ const Page = () => {
                                 </div>
 
                                 <div className={styles.lot__auction_button}>
-                                    <div className="button button_disabled">
+                                    <div className={cn("button", !isLogin && 'button_disabled')}>
                                         <span>Place a bid</span>
                                     </div>
-                                    <div className="hintpopup">Please Log In or Register to place a bid</div>
+                                    {!isLogin && (
+                                        <div className="hintpopup">Please Log In or Register to place a bid</div>
+                                    )}
                                 </div>
 
                                 <div className={styles.lot__auction_info}>
                                     <span>Closes 13 July 2025</span> • <span>03:54 PM UK time</span> • Online
-                                    <i className="infoicon infoicon_pop" />
+                                    <i className="infoicon infoicon_pop" onClick={() => setIsGuidelineModalOpen(true)} />
                                 </div>
                             </div>
 
@@ -183,6 +224,7 @@ const Page = () => {
 
             <CostCalculatorModal open={isCalcModalOpen} onOpenChange={setIsCalcModalOpen} />
             <BidIncrementModal open={isIncrementModalOpen} onOpenChange={setIsIncrementModalOpen} />
+            <BiddingGuidelineModal open={isGuidelineModalOpen} onOpenChange={setIsGuidelineModalOpen} />
         </div>
     );
 };

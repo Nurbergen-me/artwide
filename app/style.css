@@ -79,15 +79,28 @@ body {
   flex-direction: column;
 }
 
-body[data-scroll-locked] header {
-  width: calc(100% - 15px);
+html body[data-scroll-locked] {
+  margin-right: 0 !important;
 }
+
+/*body[data-scroll-locked] header {*/
+/*  width: calc(100% - 15px);*/
+/*}*/
 
 @media (width <= 767px) {
   body[data-scroll-locked] header {
     width: calc(100%);
   }
 }
+
+.font-caslon {
+  @apply font-['Kings_Caslon']
+}
+
+.tracking-shortest {
+  @apply -tracking-[0.01em]
+}
+
 
 footer {
   margin-top: auto;

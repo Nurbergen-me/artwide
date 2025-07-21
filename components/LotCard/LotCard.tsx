@@ -18,6 +18,7 @@ interface AuctionCardProps {
     technique: string;
     estimate: string;
     startingBid: string;
+    userBidStatus?: string;
     lotId?: string;
     link: string;
     timerEnd: string;
@@ -25,8 +26,9 @@ interface AuctionCardProps {
     buttonText?: string;
 }
 
-const LotCard: React.FC<AuctionCardProps> = ({lotNumber, sold, imageSrc, artistName, title, technique, estimate, startingBid, lotId, link, timerEnd, variant, buttonText}) => {
+const LotCard: React.FC<AuctionCardProps> = ({lotNumber, sold, imageSrc, artistName, title, technique, estimate, startingBid, userBidStatus, lotId, link, timerEnd, variant, buttonText}) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const isLogin = true
 
     function isDeadlinePassed(deadline: string | number): boolean {
         const now = Math.floor(Date.now() / 1000);
@@ -80,6 +82,19 @@ const LotCard: React.FC<AuctionCardProps> = ({lotNumber, sold, imageSrc, artistN
                 <>
                     <div className={styles.gallery__item_estimate}>{`Estimate: ${estimate}`}</div>
                     <div className={styles.gallery__item_start}>
+                        {isLogin && (
+                            <div
+                                className={cn(
+                                    styles.gallery__item_you,
+                                    userBidStatus === 'highest' && styles.blue,
+                                    userBidStatus === 'outbid' && styles.red
+                                )}
+                            >
+                                {userBidStatus === 'highest' && 'You are the highest bidder'}
+                                {userBidStatus === 'outbid' && 'You were outbid'}
+                            </div>
+                        )}
+
                         <span>Starting Bid:</span> <span>{startingBid}</span>
                     </div>
                     {(!isDeadlinePassed(timerEnd) && !sold) && (

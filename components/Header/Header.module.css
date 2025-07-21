@@ -30,7 +30,7 @@
     color: #EFEFEF;
     /*transition: 0.3s ease;*/
 }
-.header.light .logo, .header.light .header__profile::before {
+.header.light .logo, .header.light .header__profile_logo {
     filter: brightness(0) invert(1);
 }
 .header.light .header__icon {
@@ -229,18 +229,13 @@
     }
 }
 .header__usermenu {
-    display: none;
-    position: absolute;
-    z-index: 10;
-    right: 0;
-    top: 100%;
     width: 13.8888888889vw;
     padding: 0.9722222222vw 0;
     background: #fff;
     color: #26272D;
     box-shadow: 0.1388888889vw 0.1388888889vw 1.3888888889vw 0.1388888889vw rgba(38, 39, 45, 0.15);
     text-transform: none;
-    font-size: 0.9722222222vw;
+    font-size: 1vw;
     font-weight: 400;
     line-height: 1.5;
     letter-spacing: -0.01em;
@@ -375,14 +370,14 @@
     font-weight: 400;
     margin-bottom: 4.2666666667vw;
 }
-.mobmenu__account-content {
+.mobmenu__account_content {
     padding: 6.4vw 4.2666666667vw;
 }
-.mobmenu__account-content .mobmenu__bottom {
+.mobmenu__account_content .mobmenu__bottom {
     padding-top: 2.1333333333vw;
     padding-bottom: 0;
 }
-.mobmenu__account-content .mobmenu__bottom a {
+.mobmenu__account_content .mobmenu__bottom a {
     padding-bottom: 0;
 }
 .mobmenu__title {

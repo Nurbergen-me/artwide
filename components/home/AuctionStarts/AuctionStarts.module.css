@@ -256,6 +256,7 @@
 @media (max-width: 767px) {
     .auctionstarts__form {
         margin-top: 4.2666666667vw;
+        display: none;
     }
 }
 .auctionstarts__form.hidden {

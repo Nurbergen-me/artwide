@@ -1098,7 +1098,7 @@
     }
 }
 
-.lot__location-name::before {
+.lot__location_name::before {
     content: "";
     position: absolute;
     left: 0;
@@ -1111,7 +1111,7 @@
     background-image: url(/img/location.svg);
 }
 @media (max-width: 767px) {
-    .lot__location-name::before {
+    .lot__location_name::before {
         top: 0;
         width: 6.4vw;
         height: 6.4vw;
@@ -1119,24 +1119,24 @@
     }
 }
 
-.lot__location-text {
+.lot__location_text {
     font-size: 0.875em;
     color: #9D9FA6;
     margin-top: 0.5555555556vw;
 }
 @media (max-width: 767px) {
-    .lot__location-text {
+    .lot__location_text {
         font-size: 1em;
         margin-top: 2.1333333333vw;
     }
 }
 
-.lot__location-text a {
+.lot__location_text a {
     text-decoration: underline;
     text-decoration-skip-ink: none;
     text-decoration-thickness: 1px;
     text-underline-offset: 0.13em;
 }
-.lot__location-text a:hover {
+.lot__location_text a:hover {
     text-decoration: none;
 }

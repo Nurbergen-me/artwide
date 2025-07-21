@@ -65,7 +65,7 @@ const RegisterModal = ({ open, onOpenChange, onLogin }: RegisterModalProps) => {
                     </DialogTitle>
                 </DialogHeader>
                 <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-[1.6vw] max-sm:px-[4.26vw] max-sm:gap-[6.4vw] overflow-auto py-12 max-sm:h-[calc(100vh-15vw)]">
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-[1.6vw] max-sm:px-[4.26vw] max-sm:gap-[6.4vw] overflow-auto max-sm:py-12 max-sm:h-[calc(100vh-15vw)]">
                         <FormField
                             control={form.control}
                             name="first_name"

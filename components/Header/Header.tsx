@@ -5,13 +5,14 @@ import styles from './Header.module.css'
 import { cn } from "@/lib/utils"
 import Link from "next/link";
 import Image from "next/image";
-import {usePathname} from "next/navigation";
+import {usePathname, useSearchParams} from "next/navigation";
 import {Button} from "@/components/ui/button";
 import LoginModal from "@/components/modals/LoginModal";
 import RegisterModal from "@/components/modals/RegisterModal";
 import ForgotPasswordModal from "@/components/modals/ForgotPasswordModal";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import {Popover, PopoverContent, PopoverTrigger} from "@/components/ui/popover";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -49,10 +50,13 @@ const menuItems = [
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const [isAccountMenuOpen, setIsAccountMenuOpen] = useState(false)
     const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
     const [isRegModalOpen, setIsRegModalOpen] = useState(false)
     const [isForgotPass, setIsForgotPass] = useState(false)
     const pathname = usePathname();
+    const searchParams = useSearchParams()
+    const isLogin = searchParams.get('login') === 'true'
 
     const toggleMenu = () => {
         setIsMenuOpen(prev => !prev)
@@ -130,35 +134,93 @@ const Header = () => {
                         </nav>
                     </div>
                     <div className={styles.header__auth}>
-                        <Button
-                            variant="outline"
-                            className={cn(pathname === '/' && 'text-white', 'login-btn')}
-                            onClick={() => setIsLoginModalOpen(true)}
-                        >
-                            Login
-                        </Button>
-                        <Button onClick={() => setIsRegModalOpen(true)}>
-                            Register
-                        </Button>
+                        {isLogin ? (
+                            <Popover>
+                                <PopoverTrigger asChild>
+                                    <Button variant="ghost">
+                                        <Image src="/img/profile.svg" alt="Profile" className={styles.header__profile_logo} width={16} height={16} />
+                                        My Account
+                                    </Button>
+                                </PopoverTrigger>
+                                <PopoverContent className="w-auto p-0">
+                                    <div className={styles.header__usermenu}>
+                                        <Link href="/sell-with-us/">Sell with Us</Link>
+                                        <Link href="/bids/">Bids</Link>
+                                        <Link href="/favorites/">Favourites</Link>
+                                        <Link href="/settings/">Settings</Link>
+                                        <div></div>
+                                        <Link className={styles.exit} href="./">
+                                            <span>Log out</span>
+                                        </Link>
+                                    </div>
+                                </PopoverContent>
+                            </Popover>
+                        ): (
+                            <>
+                                <Button
+                                    variant="outline"
+                                    className={cn(pathname === '/' && 'text-white', 'login-btn')}
+                                    onClick={() => setIsLoginModalOpen(true)}
+                                >
+                                    Login
+                                </Button>
+                                <Button onClick={() => setIsRegModalOpen(true)}>
+                                    Register
+                                </Button>
+                            </>
+                        )}
+
                     </div>
-                    <div className={cn(styles.header__icon, { [styles.open]: isMenuOpen }) } onClick={toggleMenu}></div>
+                    <div className={cn(styles.header__icon, isMenuOpen && styles.open) } onClick={toggleMenu}></div>
                 </div>
-                <div className={cn(styles.mobmenu, { [styles.open]: isMenuOpen })}>
-                    <div className={cn(styles.mobmenu__main, styles.open)}>
+                <div className={cn(styles.mobmenu, {[styles.open]: isMenuOpen})}>
+                    <div className={cn(styles.mobmenu__main, isMenuOpen && !isAccountMenuOpen && styles.open)}>
                         {menuItems.map((item, i) => (
-                            <Link key={"mob-menu"+i} href={item.link} className={cn(pathname === item.link && styles.active)}>
+                            <Link key={"mob-menu" + i} href={item.link}
+                                  className={cn(pathname === item.link && styles.active)}>
                                 {item.title}
                             </Link>
                         ))}
-                        <div className={styles.mobmenu__bottom}>
-                            <div onClick={() => {
-                                setIsLoginModalOpen(true)
-                                setIsMenuOpen(false)
-                            }}>Login</div>
-                            <div onClick={() => {
-                                setIsLoginModalOpen(true)
-                                setIsMenuOpen(false)
-                            }}>Register</div>
+                        {isLogin ? (
+                            <>
+                                <div className={styles.mobmenu__bottom}>
+                                    <a className={styles.profile} onClick={() => setIsAccountMenuOpen(true)}>
+                                        My account
+                                    </a>
+                                </div>
+                                <div className={styles.mobmenu__bottom}>
+                                    <Link className={styles.exit} href="./">
+                                        <span>Log out</span>
+                                    </Link>
+                                </div>
+                            </>
+                        ) : (
+                            <div className={styles.mobmenu__bottom}>
+                                <div onClick={() => {
+                                    setIsLoginModalOpen(true)
+                                    setIsMenuOpen(false)
+                                }}>Login
+                                </div>
+                                <div onClick={() => {
+                                    setIsLoginModalOpen(true)
+                                    setIsMenuOpen(false)
+                                }}>Register
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                    <div className={cn(styles.mobmenu__account, isAccountMenuOpen && styles.open)}>
+                        <div className={styles.mobmenu__title}>
+                            <div className={styles.mobmenu__back} onClick={() => setIsAccountMenuOpen(false)}></div>
+                            <span>My account</span>
+                        </div>
+                        <div className={styles.mobmenu__account_content}>
+                            <Link href="/sell-with-us/">Sell with Us</Link>
+                            <Link href="/bids/">Bids</Link>
+                            <Link href="/favorites/">Favourites</Link>
+                            <div className={styles.mobmenu__bottom}>
+                                <Link href="/settings/">Settings</Link>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -5,9 +5,10 @@ import { cn } from "@/lib/utils";
 
 type TimerProps = {
     deadline: number | string; // Accepts timestamp or ISO string
+    variant?: string;
 };
 
-const Timer: React.FC<TimerProps> = ({ deadline }) => {
+const Timer: React.FC<TimerProps> = ({ deadline, variant }) => {
     const [timeLeft, setTimeLeft] = useState(getRemainingTime(deadline));
 
     useEffect(() => {
@@ -23,14 +24,44 @@ const Timer: React.FC<TimerProps> = ({ deadline }) => {
         days < 5 || (days === 5 && (hours < 24 || minutes < 60 || seconds < 60));
 
     return (
-        <div
-            className={cn(
-                "text-[1.1vw] max-sm:text-[3.5vw] font-medium mt-[1.1vw] max-sm:mt-[4.26vw]",
-                isLessThan5Days ? "text-destructive" : "text-primary"
-            )}
-        >
-            {isLessThan5Days ? "Lot closes" : "Lot closing"} {`${pad(days)}d ${pad(hours)}h ${pad(minutes)}m ${pad(seconds)}s`}
-        </div>
+        <>
+            {variant === "banner" ? (
+                <div className="flex items-start text-center">
+                    <div className="w-[6.6vw] max-md:w-[21vw]">
+                        <span className="text-[4.4vw] max-md:text-[8.5vw] font-caslon leading-none">
+                            {pad(days)}
+                        </span><div className="text-[1.25vw] max-md:text-[3.2vw] tracking-shortest">days</div>
+                    </div>
+                    <span className="text-[4.4vw] max-md:text-[8.5vw] font-caslon leading-none -mt-1">:</span>
+                    <div className="w-[6.6vw] max-md:w-[21vw]">
+                        <span className="text-[4.4vw] max-md:text-[8.5vw] font-caslon leading-none">
+                            {pad(hours)}
+                        </span><div className="text-[1.25vw] max-md:text-[3.2vw] tracking-shortest">hours</div>
+                    </div>
+                    <span className="text-[4.4vw] max-md:text-[8.5vw] font-caslon leading-none -mt-1">:</span>
+                    <div className="w-[6.6vw] max-md:w-[21vw]">
+                        <span className="text-[4.4vw] max-md:text-[8.5vw] font-caslon leading-none">
+                            {pad(minutes)}
+                        </span><div className="text-[1.25vw] max-md:text-[3.2vw] tracking-shortest">minutes</div>
+                    </div>
+                    <span className="text-[4.4vw] max-md:text-[8.5vw] font-caslon leading-none -mt-1">:</span>
+                    <div className="w-[6.6vw] max-md:w-[21vw]">
+                        <span className="text-[4.4vw] max-md:text-[8.5vw] font-caslon leading-none">
+                            {pad(seconds)}
+                        </span><div className="text-[1.25vw] max-md:text-[3.2vw] tracking-shortest">seconds</div>
+                    </div>
+                </div>
+            ) : (
+                <div
+                    className={cn(
+                    "text-[1.1vw] max-sm:text-[3.5vw] font-medium mt-[1.1vw] max-sm:mt-[4.26vw]",
+                    isLessThan5Days ? "text-destructive" : "text-primary"
+                    )}
+                >
+                    {isLessThan5Days ? "Lot closes" : "Lot closing"} {`${pad(days)}d ${pad(hours)}h ${pad(minutes)}m ${pad(seconds)}s`}
+                </div>
+                )}
+        </>
     );
 };
 
