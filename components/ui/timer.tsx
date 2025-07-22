@@ -6,9 +6,11 @@ import { cn } from "@/lib/utils";
 type TimerProps = {
     deadline: number | string; // Accepts timestamp or ISO string
     variant?: string;
+    color?: string;
+    extended?: boolean;
 };
 
-const Timer: React.FC<TimerProps> = ({ deadline, variant }) => {
+const Timer: React.FC<TimerProps> = ({ deadline, color, variant, extended }) => {
     const [timeLeft, setTimeLeft] = useState(getRemainingTime(deadline));
 
     useEffect(() => {
@@ -54,11 +56,12 @@ const Timer: React.FC<TimerProps> = ({ deadline, variant }) => {
             ) : (
                 <div
                     className={cn(
-                    "text-[1.1vw] max-sm:text-[3.5vw] font-medium mt-[1.1vw] max-sm:mt-[4.26vw]",
-                    isLessThan5Days ? "text-destructive" : "text-primary"
+                    "text-[1.1vw] max-sm:text-[3.5vw] mt-[1.1vw] max-sm:mt-[4.26vw] font-normal",
+                        color === 'red' ? "text-destructive" : color === 'blue' ? "text-primary" : isLessThan5Days ? "text-destructive" : "text-primary"
                     )}
                 >
-                    {isLessThan5Days ? "Lot closes" : "Lot closing"} {`${pad(days)}d ${pad(hours)}h ${pad(minutes)}m ${pad(seconds)}s`}
+                    {extended ? "Extended: " : isLessThan5Days ? "Lot closes: " : "Lot closing: "}
+                    <span className="font-medium">{`${pad(days)}d ${pad(hours)}h ${pad(minutes)}m ${pad(seconds)}s`}</span>
                 </div>
                 )}
         </>

@@ -543,6 +543,7 @@
     font-size: 1.1111111111vw;
     line-height: 1.5;
     letter-spacing: -0.01em;
+    border: none;
     border-bottom: 0.0694444444vw solid #D7D7DA;
     color: #9D9FA6;
 }
@@ -1062,7 +1063,6 @@
 
 .lot__rules {
     position: relative;
-    border: none;
 }
 .lot__rules .currency {
     position: absolute;
@@ -1138,5 +1138,108 @@
     text-underline-offset: 0.13em;
 }
 .lot__location_text a:hover {
+    text-decoration: none;
+}
+
+.winner {
+    background: #002EA3;
+    color: #fff;
+    border-radius: 0.5555555556vw;
+    padding: 1.6666666667vw;
+    font-size: 0.9722222222vw;
+}
+@media (max-width: 767px) {
+    .winner {
+        border-radius: 0 0 2.1333333333vw 2.1333333333vw;
+        padding: 8.5333333333vw 6.4vw;
+        font-size: 3.7333333333vw;
+    }
+}
+.winner__title {
+    text-align: center;
+    font-size: 1.25vw;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+@media (max-width: 767px) {
+    .winner__title {
+        font-size: 4.2666666667vw;
+        line-height: 1.5;
+    }
+}
+.winner__text {
+    text-align: center;
+    padding: 0 1.6666666667vw;
+}
+@media (max-width: 767px) {
+    .winner__text {
+        font-size: 3.7333333333vw;
+        padding: 0;
+    }
+}
+@media (min-width: 768px) {
+    .winner__text .mobile {
+        display: none;
+    }
+}
+.winner__results {
+    margin-top: 1.6666666667vw;
+}
+@media (max-width: 767px) {
+    .winner__results {
+        margin-top: 6.4vw;
+    }
+}
+.winner__results div {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.winner__total {
+    margin-top: 1.6666666667vw;
+    padding-top: 0.5555555556vw;
+    font-size: 1.25vw;
+    font-weight: 500;
+    border-top: 1px solid #fff;
+}
+@media (max-width: 767px) {
+    .winner__total {
+        margin-top: 6.4vw;
+        padding-top: 2.1333333333vw;
+        font-size: 3.7333333333vw;
+    }
+}
+.winner__total div {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.winner__stat {
+    text-align: left;
+}
+.winner__bottomtext {
+    font-size: 0.8333333333vw;
+    text-align: center;
+    border-top: 1px solid #fff;
+    margin-top: 0.5555555556vw;
+    padding-top: 1.1111111111vw;
+}
+@media (max-width: 767px) {
+    .winner__bottomtext {
+        font-size: 2.6666666667vw;
+        margin-top: 2.1333333333vw;
+        padding-top: 4.2666666667vw;
+    }
+}
+.winner__bottomtext b {
+    font-weight: 500;
+}
+.winner__bottomtext a {
+    text-decoration-line: underline;
+    text-decoration-skip-ink: none;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+}
+.winner__bottomtext a:hover {
     text-decoration: none;
 }

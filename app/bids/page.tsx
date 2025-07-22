@@ -1,44 +1,18 @@
 "use client"
 
-import React from "react";
+import React, {useState} from "react";
 import styles from "./bids.module.css";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import Image from "next/image";
-
-interface BidItem {
-    id: number;
-    lotNumber: string;
-    sold: boolean;
-    imageSrc: string;
-    artistName: string;
-    title: string;
-    technique: string;
-    estimate: string;
-    startingBid: string;
-    lotId: string;
-    link: string;
-    timerEnd: string;
-}
-
-const data: BidItem[] = [
-    {
-        id: 1,
-        lotNumber: "3",
-        sold: true,
-        imageSrc: "/uploads/33e75ff09dd601bbe69f351039152189.jpg",
-        artistName: "DICÒ",
-        title: "Marilyn Orange",
-        technique: "Acrylic, resin, LED neon, combustion",
-        estimate: "5,000 - 10,000 EUR",
-        startingBid: "4,950 EUR",
-        lotId: "10",
-        link: "/auctions/indian-masters-of-color-and-spirit-1/marilyn-orange-10/",
-        timerEnd: "2025-07-13T14:56:00Z",
-    },
-];
+import BiddingGuidelineModal from "@/components/modals/BiddingGuidelineModal";
+import Timer from "@/components/ui/timer";
+import {Button} from "@/components/ui/button";
+import {lots} from "@/constants";
 
 const Page = () => {
+    const [isGuidelineModalOpen, setIsGuidelineModalOpen] = useState(false)
+
     return (
         <div className="container">
             <div className="content content_cabinet">
@@ -61,18 +35,21 @@ const Page = () => {
                     <h1>Bids</h1>
                 </div>
 
-                <div className={cn(styles.mybids, "accbids")}>
+                <div className={cn(styles.mybids, styles.accbids)}>
                     <div className={styles.mybids__auctiontitle}>Indian Masters of Color and Spirit</div>
 
-                    {data.map((item) => (
+                    {lots.filter(x => x.userBidStatus !== '').map((item) => (
                         <div
                             key={item.id}
-                            className={styles.mybids__item}
+                            className={cn(styles.mybids__item,
+                                (item.userBidStatus === 'highest' || item.userBidStatus === 'winner') && styles.blue,
+                                item.userBidStatus === 'outbid' && styles.red
+                            )}
                             data-id={item.lotId}
                         >
-                            <Link href={item.link} className={styles.gallery__item} data-id={item.lotId}>
+                            <Link href={item.link} className={cn(styles.gallery__item, 'pb-7')} data-id={item.lotId}>
                                 <div className={styles.gallery__item_img}>
-                                    <Image width={200} height={200} src={item.imageSrc} alt={item.title} />
+                                    <Image width={200} height={200} src={item.imageSrc} alt={item.title}/>
                                 </div>
                                 <div className={styles.gallery__item_info}>
                                     <div className={styles.gallery__item_num}>
@@ -86,20 +63,50 @@ const Page = () => {
                                 <div className={styles.gallery__item_technique}>{item.technique}</div>
                                 <div className={styles.gallery__item_estimate}>Estimate: {item.estimate}</div>
                                 <div className={styles.gallery__item_start}>
-                                    <span>Your Last Bid:</span> <span>{item.startingBid}</span>
+                                    <span>Current Bid:</span> <span>{item.startingBid}</span>
+                                    <div><span>2</span> bids | <span>Reserve not met</span></div>
                                 </div>
                             </Link>
 
+
                             <div className={styles.mybids__block}>
                                 <div className={styles.mybids__auction}>
-                                    <a>Lot closed:</a> <span>13 July 2025</span> • <span>03:56 PM UK time</span> • Online
-                                    <i className="infoicon infoicon_pop"></i>
+                                    Closes <span>24 July 2025</span> • <span>03:55 PM UK time</span> • Online<i
+                                    className="infoicon infoicon_pop" onClick={() => setIsGuidelineModalOpen(true)}></i>
+                                </div>
+
+                                <div className={styles.mybids__bid}>
+                                    {item.userBidStatus === 'highest' ? (
+                                        <div>You are the highest bidder</div>
+                                    ) : item.userBidStatus === 'outbid' && (
+                                        <div>You were outbid</div>
+                                    )}
+                                </div>
+                                <div className={styles.mybids__timer}>
+                                    <Timer
+                                        deadline={item.timerEnd}
+                                        color={item.userBidStatus === 'highest' ? 'blue' : 'red'}
+                                        extended={item.extended}
+                                    />
+                                </div>
+                                <Button
+                                    size="lg"
+                                    className={cn(styles.mybids__button,
+                                        'text-[1.1vw] uppercase font-medium')}
+                                    disabled={item.userBidStatus === 'highest'}
+                                >
+                                    <span>Place bid: <span>7,500</span> EUR</span>
+                                </Button>
+                                <div className={cn(styles.mybids__auction, styles.mobile)}>
+                                    Closes <span>24 July 2025</span> • <span>03:55 PM UK time</span> • Online<i
+                                    className={cn(styles.infoicon, "infoicon infoicon_pop")}></i>
                                 </div>
                             </div>
                         </div>
                     ))}
                 </div>
             </div>
+            <BiddingGuidelineModal open={isGuidelineModalOpen} onOpenChange={setIsGuidelineModalOpen}/>
         </div>
     );
 };
