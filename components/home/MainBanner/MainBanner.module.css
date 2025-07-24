@@ -85,6 +85,7 @@
     padding: 1.1111111111vw 5.5555555556vw 1.6666666667vw 2.7777777778vw;
     margin-top: 2.2222222222vw;
     overflow: hidden;
+    text-align: left;
 }
 .mainvideo__item .mobile {
     display: none;

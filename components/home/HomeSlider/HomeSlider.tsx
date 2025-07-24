@@ -15,8 +15,8 @@ import {Button} from "@/components/ui/button";
 
 const HomeSlider = () => {
     return (
-        <div className={topimg.sliderWrapper}>
-            <Carousel>
+        <div className={cn(topimg.sliderWrapper, "topimg")}>
+            <Carousel opts={{ loop: true }}>
                 <CarouselContent>
                     {Array.from({ length: 5 }).map((_, index) => (
                         <CarouselItem key={index} className="w-full h-screen flex items-center justify-center relative">

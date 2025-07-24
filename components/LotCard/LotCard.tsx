@@ -7,6 +7,7 @@ import Image from "next/image";
 import {cn} from "@/lib/utils";
 import EnquiryModal from "@/components/modals/EnquiryModal";
 import Timer from "@/components/ui/timer";
+import {useRouter} from "next/navigation";
 
 interface AuctionCardProps {
     id: number;
@@ -28,7 +29,9 @@ interface AuctionCardProps {
 
 const LotCard: React.FC<AuctionCardProps> = ({lotNumber, sold, imageSrc, artistName, title, technique, estimate, startingBid, userBidStatus, lotId, link, timerEnd, variant, buttonText}) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [justClosedModal, setJustClosedModal] = useState(false)
     const isLogin = true
+    const router = useRouter();
 
     function isDeadlinePassed(deadline: string | number): boolean {
         const now = Math.floor(Date.now() / 1000);
@@ -39,6 +42,17 @@ const LotCard: React.FC<AuctionCardProps> = ({lotNumber, sold, imageSrc, artistN
         return now > deadlineUnix;
     }
 
+    const openLotPage = (link: string) => {
+        if (isModalOpen || justClosedModal) return
+        router.push(link)
+    }
+
+    const handleModalClose = () => {
+        setIsModalOpen(false)
+        setJustClosedModal(true)
+        setTimeout(() => setJustClosedModal(false), 300) // prevent click for 300ms
+    }
+
     return (
         <div
               className={cn(
@@ -47,8 +61,9 @@ const LotCard: React.FC<AuctionCardProps> = ({lotNumber, sold, imageSrc, artistN
                   variant === 'private' && styles.gallery__ps,
                   styles.gallery__list,
                   styles.gallery__pop,
-                  styles.gallery__item)}
+                  styles.gallery__item, "cursor-pointer")}
               data-id={lotId}
+              onClick={() => {openLotPage(link)}}
         >
             <Link href={link || '/'} className={styles.gallery__item_img}>
                 {imageSrc && (
@@ -111,13 +126,13 @@ const LotCard: React.FC<AuctionCardProps> = ({lotNumber, sold, imageSrc, artistN
             {buttonText && (
                 <div className="gallery__ps-button mt-[1.1vw]">
                     <button type="button" className="button"
-                         onClick={(e) => {e.preventDefault(); setIsModalOpen(true)}}
+                         onClick={(e) => {e.preventDefault(); e.stopPropagation(); setIsModalOpen(true)}}
                     >
                         {buttonText}
                     </button>
                 </div>
             )}
-            <EnquiryModal open={isModalOpen} onOpenChange={setIsModalOpen} />
+            <EnquiryModal open={isModalOpen} onOpenChange={handleModalClose} />
         </div>
     );
 };

@@ -20,7 +20,7 @@ const Page = () => {
                         <div className="lot__img f-carousel is-ltr is-horizontal" id="myCarousel">
                             <div className="f-carousel__viewport">
                                 <div className="f-carousel__track" aria-live="polite"
-                                     style={{transform: "matrix(1, 0, 0, 1, 0, 0);"}}>
+                                     style={{transform: "matrix(1, 0, 0, 1, 0, 0)"}}>
                                     <div className="f-carousel__slide is-selected" data-thumb-src="/uploads/ps2/03.webp"
                                          data-fancybox="gallery" data-src="/uploads/ps2/03.webp" data-index="0">
                                         <Image className="" src="/uploads/1c383cd30b7c298ab50293adfecb7b18.jpg" alt="image" width={100} height={100} />

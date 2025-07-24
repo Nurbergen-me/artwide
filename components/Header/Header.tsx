@@ -113,7 +113,7 @@ const Header = () => {
             <header ref={headerRef} className={cn(styles.header, pathname === '/' && styles.light)}>
                 <div className={cn(styles.container, 'container')}>
                     <div className={styles.header__logo}>
-                        <Link href="/" className={styles.logo}>
+                        <Link href="/" className={cn(styles.logo, 'logo')}>
                             <Image src="/img/logo.svg" alt="Artwide logo" width={130} height={20} />
                         </Link>
                     </div>

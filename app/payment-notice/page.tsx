@@ -14,7 +14,7 @@ const Page = () => {
                     <p><strong>PAYMENT BY BANK TRANSFER</strong> <br/>Payment for a lot purchased from us in an Artwide
                         Auction or Artwide Private Sale must be made in the currency stated on the invoice via wire
                         transfer directly to:</p>
-                    <p style={{paddingLeft: "40px;"}}>HSBC&nbsp;(The Hongkong &amp; Shanghai Banking Corporation
+                    <p style={{paddingLeft: "40px"}}>HSBC&nbsp;(The Hongkong &amp; Shanghai Banking Corporation
                         Limited)<br/>
                         Unit 803-806, 8/F, Low Block, Grand Millennium Plaza&nbsp;<br/>
                         181 Queen’s Road Central, Hong Kong&nbsp;<br/>

@@ -4,10 +4,10 @@ import * as React from "react"
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from "embla-carousel-react"
-import {ChevronLeft, ChevronRight} from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
+import Image from "next/image";
 
 type CarouselApi = UseEmblaCarouselType[1]
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>
@@ -178,7 +178,7 @@ function CarouselDots({ className, ...props }: React.ComponentProps<"div">) {
       <div
           role="tablist"
           className={cn(
-              "absolute bottom-8 w-full flex items-center justify-center gap-2",
+              "absolute bottom-8 w-full flex items-center justify-center gap-[1vw]",
               className
           )}
           {...props}
@@ -192,8 +192,8 @@ function CarouselDots({ className, ...props }: React.ComponentProps<"div">) {
                 aria-controls="carousel-item"
                 aria-label={`Slide ${index + 1}`}
                 className={cn(
-                    "size-2.5 rounded-full border border-ring cursor-pointer",
-                    index === selectedIndex ? "bg-gray-500" : "bg-gray-300"
+                    "size-[1.1vw] rounded-full cursor-pointer",
+                    index === selectedIndex ? "bg-[#767575]" : "bg-[#cdc9c9]"
                 )}
                 onClick={() => scrollTo(index)}
             />
@@ -234,7 +234,7 @@ function CarouselPrevious({
       variant={variant}
       size={size}
       className={cn(
-        "absolute size-10 rounded-full",
+        "carousel-previous absolute size-[5vw] rounded-full",
         orientation === "horizontal"
           ? "top-1/2 left-6 -translate-y-1/2"
           : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
@@ -244,7 +244,7 @@ function CarouselPrevious({
       onClick={scrollPrev}
       {...props}
     >
-      <ChevronLeft />
+      <Image src="/img/toparrow.svg" width={72} height={72} className="rotate-180" alt="arrow-left" />
       <span className="sr-only">Previous slide</span>
     </Button>
   )
@@ -264,7 +264,7 @@ function CarouselNext({
       variant={variant}
       size={size}
       className={cn(
-        "absolute size-10 rounded-full",
+        "carousel-next absolute size-[5vw] rounded-full",
         orientation === "horizontal"
           ? "top-1/2 right-6 -translate-y-1/2"
           : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
@@ -274,7 +274,7 @@ function CarouselNext({
       onClick={scrollNext}
       {...props}
     >
-      <ChevronRight />
+      <Image src="/img/toparrow.svg" width={72} height={72} alt="arrow-right" />
       <span className="sr-only">Next slide</span>
     </Button>
   )

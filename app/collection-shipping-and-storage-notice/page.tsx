@@ -24,8 +24,8 @@ const Page = () => {
                         Artwide, our affiliated companies, or third-party service providers. This also includes any
                         outstanding storage and insurance charges, shipping fees, and applicable import duties and
                         taxes.</p>
-                    <p style={{fontSize: "1.125em;"}}><b>COLLECTION</b></p>
-                    <p style={{color: "#9D9FA6;"}}><b>ARTWIDE AUCTION</b></p>
+                    <p style={{fontSize: "1.125em"}}><b>COLLECTION</b></p>
+                    <p style={{color: "#9D9FA6"}}><b>ARTWIDE AUCTION</b></p>
                     <p>Following an Artwide Auction, all purchased Lots will be transferred to our nominated fine art
                         shipping and storage partner, <a href="https://www.fd-platinum.com/" rel="nofollow"
                                                          target="_blank">FD Platinum</a>. Complimentary storage is
@@ -45,7 +45,7 @@ const Page = () => {
                         bring appropriate packing material to re-pack and re-seal the lot(s).</p>
                     <p>Buyers should arrive prior to the scheduled appointment time and bring identification. The buyer
                         or their representative will not be admitted into the facility without an appointment.</p>
-                    <p style={{color: "#9D9FA6;"}}><b>ARTWIDE PRIVATE SALE</b></p>
+                    <p style={{color: "#9D9FA6"}}><b>ARTWIDE PRIVATE SALE</b></p>
                     <p>Following an Artwide Private Sale, you must collect the purchased property within fifteen (15)
                         days of the date of payment, unless otherwise agreed in writing. If you fail to collect the
                         property within this period, Artwide may charge handling, removal and storage costs at the then
@@ -66,7 +66,7 @@ const Page = () => {
                             href="mailto:auctions@artwide.com">auctions@artwide.com</a>; or (ii) in case of Artwide
                         Private Sale, <a href="mailto:privatesales@artwide.com">privatesales@artwide.com</a>.</p>
                     <p>Buyers who choose to ship their purchases with FD Platinum will receive preferential rates.</p>
-                    <p style={{color: "#9D9FA6;"}}><b>INSURANCE COVERAGE</b></p>
+                    <p style={{color: "#9D9FA6"}}><b>INSURANCE COVERAGE</b></p>
                     <p>Please refer to our Online Auctions Terms and Conditions and Private Sales Terms and Conditions
                         for terms relating to transfers of risk and ownership of the purchased property.</p>
                     <p>It is the buyer’s sole responsibility to arrange for their own insurance coverage, including but
@@ -88,7 +88,7 @@ const Page = () => {
                         provider, FD Platinum, will establish a storage account in your name and will invoice you for
                         the applicable storage charges. These charges will accrue and continue until you either collect
                         the Property or arrange for its transfer to another storage provider or storage account.</p>
-                    <p style={{color: "#9D9FA6;"}}><b>FURTHER ASSISTANCE</b></p>
+                    <p style={{color: "#9D9FA6"}}><b>FURTHER ASSISTANCE</b></p>
                     <p>If you have any questions, relating to the above please contact Artwide at <a
                         href="mailto:support@artwide.com">support@artwide.com</a>.</p>
                     <a href="/uploads/Collection,_Shipping,_Storage_Form.pdf" className="download" download=""><span>Download Collection, Storage and Shipping Form*</span></a>

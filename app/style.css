@@ -126,6 +126,14 @@ select {
   user-select: auto;
 }
 
+ul, ol {
+  padding-left: 40px;
+}
+
+ol, ul, menu {
+  list-style: revert;
+}
+
 .wrap {
   overflow: hidden;
   padding-top: 4.4444444444vw;
@@ -7651,4 +7659,8 @@ html.with-fancybox body.hide-scrollbar {
     top: -38px;
     right: 0;
   }
+}
+.topimg:hover .carousel-previous, .topimg:hover .carousel-next {
+  background-color: #26272d99;
+  backdrop-filter: blur(7px);
 }

@@ -243,7 +243,7 @@ const SellWithModal = ({ open, onOpenChange }: SellWithModalProps) => {
                         />
                         <div>
                             <Button type="submit" className="w-full mt-[1.2vw] font-medium text-[1.1vw] max-sm:h-[12.8vw] max-sm:rounded-[2.1vw] max-sm:text-[4.26vw]">
-                                Login
+                                Request
                             </Button>
                         </div>
                     </form>
