@@ -1,5 +1,8 @@
-import React from 'react'
+'use client'
+
+import React, {useEffect} from 'react'
 import PageContent from "@/components/PageContent/PageContent";
+import {useAuthModals} from "@/components/AuthModalManager";
 const pageInfo = {
     title: "Guidelines",
     text: `
@@ -69,10 +72,8 @@ const rulesList = [
         any local taxes. Additionally, in certain locations, Artwide is required to collect a resale
         royalty (&apos;droit de suite&apos;).
     </p><p>Missed out this time? We appreciate your participation in our online auction.
-        {/*onClick="openPopup('#popupReg')"*/}
-        <Link href="">
-            Sign up
-        </Link> to get notified about
+        <a href="#" data-modal="signup" style="white-space: nowrap">
+            Sign up</a> to get notified about
         upcoming auctions, or contact our team to discuss private sales opportunities.</p>
         `
     },{
@@ -91,14 +92,32 @@ const rulesList = [
 ]
 
 const Page = () => {
+    const { openLoginModal } = useAuthModals()
+    useEffect(() => {
+        const container = document.getElementById('ruleslist');
+        if (!container) return;
+
+        const handleClick = (e: MouseEvent) => {
+            const target = e.target as HTMLElement;
+            if (target.tagName === 'A' && target.dataset.modal === 'signup') {
+                e.preventDefault();
+                openLoginModal()
+            }
+        };
+
+        container.addEventListener('click', handleClick);
+        return () => container.removeEventListener('click', handleClick);
+    });
+
+
     return (
         <div className="container">
             <PageContent
                 {...pageInfo}
             />
-            <div className="content content_cabinet">
+            <div className="content">
                 <div className="mybids__auctiontitle">Online Auction</div>
-                <div className="ruleslist">
+                <div className="ruleslist" id="ruleslist">
                     {rulesList.map((rule, index) => (
                         <div className="ruleslist__item" key={index}>
                             <div className="ruleslist__num">{index + 1}</div>

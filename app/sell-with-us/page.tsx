@@ -75,19 +75,19 @@ const Page = () => {
                                     <p>
                                         Complete the form found at the link below. Provide us with as much detail as possible.
                                     </p>
-                                    <a href="../pdf/Online_Auction_Consignement_Agreement.pdf" className="download" download>
+                                    <a href="../pdf/Online_Auction_Consignement_Agreement.pdf" className={styles.download} download>
                                         <span>Download Online Auction Consignment Agreement*</span>
                                     </a>
-                                    <a href="../pdf/Private_Sale_Consignment_Agreement.pdf" className="download" download>
+                                    <a href="../pdf/Private_Sale_Consignment_Agreement.pdf" className={styles.download} download>
                                         <span>Download Private Sale Consignment Agreement*</span>
                                     </a>
                                     <p>
                                         To submit more than one artwork, complete one Consignment Agreement and a separate Property Schedule for each artwork.
                                     </p>
-                                    <a href="../pdf/Property_Schedule_for_Online_Auction.pdf" className="download" download>
+                                    <a href="../pdf/Property_Schedule_for_Online_Auction.pdf" className={styles.download} download>
                                         <span>Download Property Schedule for Online Auction*</span>
                                     </a>
-                                    <a href="../pdf/Property_Schedule_for_Private_Sale.pdf" className="download" download>
+                                    <a href="../pdf/Property_Schedule_for_Private_Sale.pdf" className={styles.download} download>
                                         <span>Download Property Schedule for Private Sale*</span>
                                     </a>
                                     <div className={styles.sell__howblock_itemtextgrey}>

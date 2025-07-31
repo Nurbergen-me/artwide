@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/select"
 import {Button} from "@/components/ui/button";
 import {lots} from "@/constants";
+import BiddingGuidelineModal from "@/components/modals/BiddingGuidelineModal";
 
 const mediaTypes: Option[] = [
     { label: "Design", value: "design" },
@@ -54,7 +55,8 @@ const Page = () => {
         size?: string[];
         bid?: string;
         sort?: string;
-    }>({});
+    }>({sort: "id"});
+    const [isGuidelineModalOpen, setIsGuidelineModalOpen] = useState(false)
 
     const setSort = (val: string) =>
         setFilters((prev) => ({ ...prev, sort: val }));
@@ -94,8 +96,10 @@ const Page = () => {
                             <i className="infoicon infoicon_pop"></i>
                         </div>
                         <div className="auction__date-full">
-                            <span>13 July 2025</span> <i>•</i> <span>03:53 PM UK time</span> • Online<i
-                            className="infoicon infoicon_pop"></i>
+                            <span>13 July 2025</span> <i>•</i> <span>03:53 PM UK time</span> • Online
+                            <i className="infoicon infoicon_pop"
+                               onClick={() => {setIsGuidelineModalOpen(true)}}
+                            ></i>
                             <div>Lots close independently at one-minute intervals; closure times are subject to change
                             </div>
                         </div>
@@ -241,7 +245,7 @@ const Page = () => {
                     <input type="hidden" name="caf" value=""/>
                     <div className="pt-[6.6vw]">
 
-                        <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-4" id="gallerylist">
+                        <div className="grid grid-cols-3 max-md:grid-cols-1 gap-4" id="gallerylist">
                             {lots.map(lot => (
                                 <LotCard
                                     variant=""
@@ -249,50 +253,11 @@ const Page = () => {
                                     {...lot}
                                 />
                             ))}
-
-                            {/*<a href="/auction/2025/indian-masters-of-color-and-spirit-1/agata-che-pensa-in-un-prato-in--islanda-8/"*/}
-                            {/*   className="gallery__item" data-id="8">*/}
-                            {/*    <div className="gallery__item-img">*/}
-                            {/*        <Image*/}
-                            {/*            src="/uploads/4e732ced3463d06de0ca9a15b6153677.jpg" alt="image" width={100}*/}
-                            {/*            height={100}/></div>*/}
-                            {/*    <div className="gallery__item-info">*/}
-                            {/*        <div className="gallery__item-num"><span>Lot 1</span></div>*/}
-                            {/*        <div className="gallery__item-like hintpopupParent" data-id="8">*/}
-                            {/*            <div className="hintpopup">Please Log In or Register to add the lot to your*/}
-                            {/*                favourites*/}
-                            {/*            </div>*/}
-                            {/*        </div>*/}
-                            {/*    </div>*/}
-                            {/*    <div className="gallery__item-name">Mirko Leuzzi</div>*/}
-                            {/*    <div className="gallery__item-title">Agata Che Pensa In Un Prato In Islanda</div>*/}
-                            {/*    <div className="gallery__item-technique">Oil on canvas with 3 cm thick wooden frame*/}
-                            {/*    </div>*/}
-                            {/*    <div className="gallery__item-estimate">Estimate: 5,500 - 7,000 EUR</div>*/}
-                            {/*    <div className="gallery__item-start">*/}
-
-                            {/*        <span>Current Bid:</span> <span>9,000 EUR</span>*/}
-                            {/*        <div><span>9</span> bids | <span>Reserve met</span></div>*/}
-                            {/*    </div>*/}
-
-                            {/*    <div className="lot__auction-time timercount closing" data-id="8"*/}
-                            {/*         data-time="1752418440">*/}
-                            {/*        <span className="lot__auction-time__closes-text timer-text">Extended: </span>*/}
-                            {/*        <span className="days">04</span><span className="days-numeral">d</span>*/}
-                            {/*        <span className="hours">05</span><span className="hours-numeral">h</span>*/}
-                            {/*        <span className="minutes">26</span><span className="minutes-numeral">m</span> <span*/}
-                            {/*        className="seconds">10</span><span className="seconds-numeral">s</span>*/}
-                            {/*    </div>*/}
-
-                            {/*</a>*/}
-
                         </div>
-                    </div>
-                    <div className="auction__mybids mybids accbids">
-
                     </div>
                 </div>
             </div>
+            <BiddingGuidelineModal open={isGuidelineModalOpen} onOpenChange={setIsGuidelineModalOpen}/>
         </div>
     )
 }

@@ -81,8 +81,8 @@ const HomeSlider = () => {
                         </CarouselItem>
                     ))}
                 </CarouselContent>
-                <CarouselPrevious className="max-sm:hidden"/>
-                <CarouselNext className="max-sm:hidden"/>
+                <CarouselPrevious className="max-md:hidden"/>
+                <CarouselNext className="max-md:hidden"/>
                 <CarouselDots />
             </Carousel>
         </div>

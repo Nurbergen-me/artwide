@@ -2,7 +2,7 @@ export const lots = [
     {
         id: 1,
         lotNumber: "1",
-        sold: false,
+        sold: true,
         extended: false,
         imageSrc: "/uploads/a5bfc9e07964f8dddeb95fc584cd965d.jpeg",
         artistName: "Janik Bürgin",

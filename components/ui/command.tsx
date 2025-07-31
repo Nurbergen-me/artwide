@@ -67,13 +67,13 @@ function CommandInput({
   return (
     <div
       data-slot="command-input-wrapper"
-      className="flex h-[3.3vw] max-sm:h-[12.8vw] items-center gap-2 border-b px-3"
+      className="flex h-[3.3vw] max-md:h-[12.8vw] items-center gap-2 border-b px-3"
     >
       <SearchIcon className="size-4 shrink-0 opacity-50" />
       <CommandPrimitive.Input
         data-slot="command-input"
         className={cn(
-          "placeholder:text-muted-foreground flex h-10 w-full rounded-md bg-transparent py-3 text-[1.1vw] max-sm:text-[1em] outline-hidden disabled:cursor-not-allowed disabled:opacity-50",
+          "placeholder:text-muted-foreground flex h-10 w-full rounded-md bg-transparent py-3 text-[1.1vw] max-md:text-[1em] outline-hidden disabled:cursor-not-allowed disabled:opacity-50",
           className
         )}
         {...props}
@@ -147,7 +147,7 @@ function CommandItem({
     <CommandPrimitive.Item
       data-slot="command-item"
       className={cn(
-        "data-[selected=true]:bg-accent data-[selected=true]:text-accent-foreground [&_svg:not([class*='text-'])]:text-muted-foreground relative flex cursor-default items-center gap-2 px-[1.6vw] py-[0.7vw] text-[1.25vw] outline-hidden select-none data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 max-sm:text-[1em]",
+        "data-[selected=true]:bg-accent data-[selected=true]:text-accent-foreground [&_svg:not([class*='text-'])]:text-muted-foreground relative flex cursor-default items-center gap-2 px-[1.6vw] py-[0.7vw] text-[1.25vw] outline-hidden select-none data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 max-md:text-[1em]",
         className
       )}
       {...props}

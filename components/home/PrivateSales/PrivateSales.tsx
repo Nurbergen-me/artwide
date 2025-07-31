@@ -18,7 +18,7 @@ const PrivateSales = () => {
                     </Link>
                 </div>
                 <div className={styles.privsales__list}>
-                    <div className="grid grid-cols-4 gap-4 max-sm:grid-cols-[repeat(4,_minmax(250px,_1fr))]">
+                    <div className="grid grid-cols-4 gap-4 max-md:grid-cols-[repeat(4,_minmax(250px,_1fr))]">
                         {lots.map(lot => (
                             <LotCard variant="private" key={lot.id} {...lot}/>
                         ))}

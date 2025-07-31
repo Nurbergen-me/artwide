@@ -28,11 +28,11 @@ const Page = () => {
                     You don&apos;t have any favourite artworks. <br/>
                     Have a look at our <a href="/auction/2025/indian-masters-of-color-and-spirit-1/">auctions</a>.
                 </div>
-                <div className="gallery gallery_fav">
-                    <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-4" id="gallerylist">
+                <div className="gallery gallery_fav pt-[6.6vw]">
+                    <div className="grid grid-cols-3 max-md:grid-cols-1 gap-4" id="gallerylist">
                         {lots.map(lot => (
                             <LotCard
-                                variant=""
+                                variant="favourite"
                                 key={lot.id}
                                 {...lot}
                             />

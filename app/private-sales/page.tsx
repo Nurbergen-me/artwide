@@ -40,7 +40,7 @@ const Page = () => {
             />
             <div className="content content_cabinet">
                 <div className="gallery">
-                    <div className="grid grid-cols-3 gap-4 max-sm:grid-cols-1">
+                    <div className="grid grid-cols-3 gap-4 max-md:grid-cols-1">
 
                         {lots.map(lot => (
                             <LotCard

@@ -38,7 +38,7 @@ const VideoModal = ({ open, onOpenChange, href }: VideoModalProps) => {
     return (
         <Dialog open={open} onOpenChange={onOpenChange}>
             <DialogContent
-                className="bg-transparent video-modal max-w-full h-[94vh] max-h-[94vh] max-sm:max-h-[90vh] p-0 aspect-[9/16] w-auto overflow-hidden overflow-visible"
+                className="bg-transparent video-modal max-w-full h-[94vh] max-h-[94vh] max-md:max-h-[90vh] p-0 aspect-[9/16] w-auto overflow-hidden overflow-visible"
             >
                 <DialogClose asChild>
                     <button

@@ -75,6 +75,7 @@
 .sell__gblock_itemimg img {
     display: block;
     height: 100%;
+    width: auto;
 }
 .sell__gblock_itemtitle {
     margin-top: 1.6666666667vw;
@@ -205,6 +206,7 @@
 }
 .sell__howblock_itemtext p {
     margin-bottom: 2.2222222222vw;
+    margin-top: 1em;
 }
 @media (max-width: 767px) {
     .sell__howblock_itemtext p {

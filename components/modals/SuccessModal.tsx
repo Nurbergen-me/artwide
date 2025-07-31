@@ -28,8 +28,8 @@ const HaveAQuestionModal = ({ open, onOpenChange, title, text }: HaveAQuestionMo
                     <DialogDescription>
                         {text}
                     </DialogDescription>
-                    <div className="max-sm:px-[4.26vw]">
-                        <Button type="submit" className="w-full mt-[1.2vw] font-medium text-[1.1vw] max-sm:h-[12.8vw] max-sm:rounded-[2.1vw] max-sm:text-[4.26vw]" onClick={() => onOpenChange(false)}>
+                    <div className="max-md:px-[4.26vw]">
+                        <Button type="submit" className="w-full mt-[1.2vw] font-medium text-[1.1vw] max-md:h-[12.8vw] max-md:rounded-[2.1vw] max-md:text-[4.26vw]" onClick={() => onOpenChange(false)}>
                             Close
                         </Button>
                     </div>

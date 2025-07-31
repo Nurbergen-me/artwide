@@ -44,16 +44,16 @@ const LoginModal = ({ open, onOpenChange, onRegister, onLogin }: LoginModalProps
     return (
         <Dialog {...form} open={open} onOpenChange={onOpenChange}>
             <DialogContent>
-                <DialogHeader className="max-sm:px-[4.26vw]">
+                <DialogHeader className="max-md:px-[4.26vw]">
                     <DialogTitle className="popup__title popup__mtitle">
                         Reset your password
                     </DialogTitle>
-                    <DialogDescription className="max-sm:text-[3vw] max-sm:mb-[6.4vw]">
+                    <DialogDescription className="max-md:text-[3vw] max-md:mb-[6.4vw]">
                         Enter the email address you provided during registration. We will send a new password to this email address.
                     </DialogDescription>
                 </DialogHeader>
                 <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-[1.6vw] max-sm:px-[4.26vw] max-sm:gap-[6.4vw]">
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-[1.6vw] max-md:px-[4.26vw] max-md:gap-[6.4vw]">
                         <FormField
                             control={form.control}
                             name="email"
@@ -67,10 +67,10 @@ const LoginModal = ({ open, onOpenChange, onRegister, onLogin }: LoginModalProps
                             )}
                         />
                         <div>
-                            <Button type="submit" className="w-full mt-[1.2vw] font-medium text-[1.1vw] max-sm:h-[12.8vw] max-sm:rounded-[2.1vw] max-sm:text-[4.26vw]">
-                                Login
+                            <Button type="submit" className="w-full mt-[1.2vw] font-medium text-[1.1vw] max-md:h-[12.8vw] max-md:rounded-[2.1vw] max-md:text-[4.26vw]">
+                                Reset Password
                             </Button>
-                            <div className="mt-[1.1vw] text-[0.83vw] text-center -tracking-[0.01em] text-[0.83vw] text-center -tracking-[0.01em] max-sm:text-[3.2vw] max-sm:mt-[4.26vw]">
+                            <div className="mt-[1.1vw] text-[0.83vw] text-center -tracking-[0.01em] text-[0.83vw] text-center -tracking-[0.01em] max-md:text-[3.2vw] max-md:mt-[4.26vw]">
                                 Don&apos;t need to reset your password? <span onClick={onRegister} className="underline cursor-pointer">
                                     Register
                                 </span> or <span onClick={onLogin} className="underline cursor-pointer">

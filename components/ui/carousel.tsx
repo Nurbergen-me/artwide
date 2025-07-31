@@ -178,7 +178,7 @@ function CarouselDots({ className, ...props }: React.ComponentProps<"div">) {
       <div
           role="tablist"
           className={cn(
-              "absolute bottom-8 w-full flex items-center justify-center gap-[1vw]",
+              "absolute bottom-8 w-full flex items-center justify-center gap-[1vw] max-md:gap-[2vw]",
               className
           )}
           {...props}
@@ -192,7 +192,7 @@ function CarouselDots({ className, ...props }: React.ComponentProps<"div">) {
                 aria-controls="carousel-item"
                 aria-label={`Slide ${index + 1}`}
                 className={cn(
-                    "size-[1.1vw] rounded-full cursor-pointer",
+                    "size-[1.1vw] max-md:size-[2.1vw] rounded-full cursor-pointer",
                     index === selectedIndex ? "bg-[#767575]" : "bg-[#cdc9c9]"
                 )}
                 onClick={() => scrollTo(index)}

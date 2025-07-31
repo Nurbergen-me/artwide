@@ -97,7 +97,7 @@ const LotCard: React.FC<AuctionCardProps> = ({lotNumber, sold, imageSrc, artistN
                 <>
                     <div className={styles.gallery__item_estimate}>{`Estimate: ${estimate}`}</div>
                     <div className={styles.gallery__item_start}>
-                        {isLogin && (
+                        {isLogin && variant !== 'favourite' && (
                             <div
                                 className={cn(
                                     styles.gallery__item_you,
@@ -110,7 +110,16 @@ const LotCard: React.FC<AuctionCardProps> = ({lotNumber, sold, imageSrc, artistN
                             </div>
                         )}
 
-                        <span>Starting Bid:</span> <span>{startingBid}</span>
+                        {sold ? (
+                            <>
+                                <span>Lot sold:</span> <span>{startingBid}</span>
+                                <div>9 bids | Reserve met</div>
+                            </>
+                        ) : (
+                            <>
+                                <span>Starting Bid:</span> <span>{startingBid}</span>
+                            </>
+                        )}
                     </div>
                     {(!isDeadlinePassed(timerEnd) && !sold) && (
                         <div
@@ -125,7 +134,7 @@ const LotCard: React.FC<AuctionCardProps> = ({lotNumber, sold, imageSrc, artistN
             )}
             {buttonText && (
                 <div className="gallery__ps-button mt-[1.1vw]">
-                    <button type="button" className="button"
+                    <button type="button" className="button w-full"
                          onClick={(e) => {e.preventDefault(); e.stopPropagation(); setIsModalOpen(true)}}
                     >
                         {buttonText}

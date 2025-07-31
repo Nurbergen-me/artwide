@@ -475,3 +475,8 @@ main {
         margin-bottom: 1.0666666667vw;
     }
 }
+
+.f-title {
+    width: auto;
+    padding: 0 20px;
+}

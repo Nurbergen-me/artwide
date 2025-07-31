@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import {Suspense} from "react";
+import {AuthModalProvider} from "@/components/AuthModalManager";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,11 +18,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Suspense fallback={<div>Loading header</div>}>
-          <Header />
-        </Suspense>
-        {children}
-        <Footer />
+        <AuthModalProvider>
+          <Suspense fallback={<div>Loading header</div>}>
+            <Header />
+          </Suspense>
+          {children}
+          <Footer />
+        </AuthModalProvider>
       </body>
     </html>
   );

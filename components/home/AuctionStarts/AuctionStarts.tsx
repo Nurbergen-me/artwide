@@ -18,7 +18,7 @@ const getAuctionStatus = (deadline: string) => {
 }
 
 const AuctionStarts = () => {
-    const deadline = '2025-07-25T12:00:00Z'
+    const deadline = '2025-08-05T12:00:00Z'
     const status = getAuctionStatus(deadline)
 
     const statusText = {
@@ -29,16 +29,19 @@ const AuctionStarts = () => {
 
     return (
         <Link href="#" className={cn(styles.auctionstarts)}>
-            <div className={cn(styles.container, 'container')}>
+            {status === 'closed' ? (
+                <div className={cn(styles.container, 'container')}>
+                    <div className={styles.auctionstarts__ftitle}>AUCTION CLOSED</div>
+                </div>
+            ) : (
+                <div className={cn(styles.container, 'container')}>
                 <div
                     className={styles.auctionstarts__title}
                     dangerouslySetInnerHTML={{ __html: statusText }}
                 />
-                {status !== 'closed' && (
-                    <div className={styles.auctionstarts__timer}>
-                        <Timer deadline={deadline} variant="banner" />
-                    </div>
-                )}
+                <div className={styles.auctionstarts__timer}>
+                    <Timer deadline={deadline} variant="banner" />
+                </div>
                 <div className={cn('footer__mailing', styles.auctionstarts__form)}>
                     <div className={styles.auctionstarts__formtitle}>
                         Be the first to know when bidding starts
@@ -48,14 +51,14 @@ const AuctionStarts = () => {
                             type="email"
                             name="mail"
                             placeholder="Email"
-                            className="bg-white"
+                            className="bg-white text-black"
                             required
                         />
                         <Button
                             type="submit"
                             variant="outline"
                             size="sm"
-                            className={cn('ml-2 border-white text-white size-[3.3vw]', styles.subscribeform__button)}
+                            className={cn('ml-2 border-white bg-transparent text-white size-[3.3vw]', styles.subscribeform__button)}
                         >
                             <Image src="/img/arrow_white.svg"  alt="arrow" width={37} height={37} />
                         </Button>
@@ -64,12 +67,7 @@ const AuctionStarts = () => {
                     </form>
                 </div>
             </div>
-
-            {status === 'closed' && (
-                <div className={cn(styles.container, 'container')}>
-                    <div className={styles.auctionstarts__ftitle}>AUCTION CLOSED</div>
-                </div>
-            )}
+                )}
         </Link>
     )
 }

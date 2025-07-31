@@ -70,8 +70,8 @@ const SellWithModal = ({ open, onOpenChange }: SellWithModalProps) => {
                     </DialogDescription>
                 </DialogHeader>
                 <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-[1.6vw] max-sm:px-[4.26vw] max-sm:gap-[6.4vw] overflow-auto max-sm:py-12 max-sm:h-[calc(100vh-15vw)]">
-                        <div className="grid grid-cols-2 gap-[1.6vw] max-sm:grid-cols-1 items-start">
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-[1.6vw] max-md:px-[4.26vw] max-md:gap-[6.4vw] overflow-auto max-md:py-12 max-md:h-[calc(100vh-15vw)]">
+                        <div className="grid grid-cols-2 gap-[1.6vw] max-md:grid-cols-1 items-start">
                             <FormField
                                 control={form.control}
                                 name="first_name"
@@ -99,7 +99,7 @@ const SellWithModal = ({ open, onOpenChange }: SellWithModalProps) => {
                                 )}
                             />
                         </div>
-                        <div className="grid grid-cols-2 gap-[1.6vw] max-sm:grid-cols-1 items-start">
+                        <div className="grid grid-cols-2 gap-[1.6vw] max-md:grid-cols-1 items-start">
                             <FormField
                                 control={form.control}
                                 name="email"
@@ -242,7 +242,7 @@ const SellWithModal = ({ open, onOpenChange }: SellWithModalProps) => {
                             )}
                         />
                         <div>
-                            <Button type="submit" className="w-full mt-[1.2vw] font-medium text-[1.1vw] max-sm:h-[12.8vw] max-sm:rounded-[2.1vw] max-sm:text-[4.26vw]">
+                            <Button type="submit" className="w-full mt-[1.2vw] font-medium text-[1.1vw] max-md:h-[12.8vw] max-md:rounded-[2.1vw] max-md:text-[4.26vw]">
                                 Request
                             </Button>
                         </div>

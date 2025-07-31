@@ -22,7 +22,7 @@ const BiddingGuidelineModal = ({ open, onOpenChange }: BiddingGuidelineModalProp
                         Final Bidding - Guidelines
                     </DialogTitle>
                 </DialogHeader>
-                <div className="popupinfo mt-[1vw] max-sm:px-[4.26vw] max-sm:py-12">
+                <div className="popupinfo mt-[1vw] max-md:px-[4.26vw] max-md:py-12">
                     <div className="popupinfo__list">
                         <div className="popupinfo__item">
                             <div>Lots begin closing at the designated time on the auction page. Final bidding for all

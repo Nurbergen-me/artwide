@@ -49,7 +49,7 @@ const EnquiryModal = ({ open, onOpenChange }: EnquiryModalProps) => {
             last_name: "",
             email: "",
             phone: "",
-            message: "Hello, I’m interested in selling my artwork with Artwide. Please provide more information about the process. Thank you."
+            message: "Hello, I’m interested in learning more about this artwork. Please provide additional details. Thank you."
         },
     })
     function onSubmit(data: z.infer<typeof FormSchema>) {
@@ -68,8 +68,8 @@ const EnquiryModal = ({ open, onOpenChange }: EnquiryModalProps) => {
                     </DialogDescription>
                 </DialogHeader>
                 <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-[1.6vw] max-sm:px-[4.26vw] max-sm:gap-[6.4vw] overflow-auto py-1 max-sm:h-[calc(100vh-15vw)]">
-                        <div className="grid grid-cols-2 gap-[1.6vw] max-sm:grid-cols-1 items-start">
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-[1.6vw] max-md:px-[4.26vw] max-md:gap-[6.4vw] overflow-auto py-1 max-md:h-[calc(100vh-15vw)]">
+                        <div className="grid grid-cols-2 gap-[1.6vw] max-md:grid-cols-1 items-start">
                             <FormField
                                 control={form.control}
                                 name="first_name"
@@ -97,7 +97,7 @@ const EnquiryModal = ({ open, onOpenChange }: EnquiryModalProps) => {
                                 )}
                             />
                         </div>
-                        <div className="grid grid-cols-2 gap-[1.6vw] max-sm:grid-cols-1 items-start">
+                        <div className="grid grid-cols-2 gap-[1.6vw] max-md:grid-cols-1 items-start">
                             <FormField
                                 control={form.control}
                                 name="email"
@@ -181,8 +181,8 @@ const EnquiryModal = ({ open, onOpenChange }: EnquiryModalProps) => {
                             )}
                         />
                         <div>
-                            <Button type="submit" className="w-full mt-[1.2vw] font-medium text-[1.1vw] max-sm:h-[12.8vw] max-sm:rounded-[2.1vw] max-sm:text-[4.26vw]">
-                                Login
+                            <Button type="submit" className="w-full mt-[1.2vw] font-medium text-[1.1vw] max-md:h-[12.8vw] max-md:rounded-[2.1vw] max-md:text-[4.26vw]">
+                                Enquire
                             </Button>
                         </div>
                     </form>

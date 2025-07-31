@@ -35,7 +35,7 @@ const ArticleList = () => {
                     </Link>
                 </div>
                 <div className={styles.press__list_wrap}>
-                    <div className="grid grid-cols-2 max-sm:grid-cols-1 gap-4 gap-y-12">
+                    <div className="grid grid-cols-2 max-md:grid-cols-1 gap-4 gap-y-12">
                         {articles.map(article => (
                             <ArticleCard key={article.id} {...article} />
                         ))}

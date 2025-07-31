@@ -46,7 +46,7 @@ const Page = () => {
                 {...pageInfo}
             />
             <div className="mt-6">
-                <div className="grid grid-cols-2 max-sm:grid-cols-1 gap-4 gap-y-12">
+                <div className="grid grid-cols-2 max-md:grid-cols-1 gap-4 gap-y-12">
                     {articles.map(article => (
                         <ArticleCard key={article.id} {...article} />
                     ))}

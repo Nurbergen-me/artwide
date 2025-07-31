@@ -5,7 +5,7 @@ import {cn} from "@/lib/utils";
 const MainChairman = () => {
     return (
         <div className={cn(styles.chairman, "mt-[5vw]")}>
-            <div className="container flex items-center max-sm:flex-col">
+            <div className="container flex items-center max-md:flex-col">
                 <div className={styles.chairman__photo} style={{backgroundImage: `url(img/pierre.png)`}}></div>
                 <div className={styles.chairman__content}>
                     <div className={styles.chairman__title}>

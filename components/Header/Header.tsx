@@ -3,18 +3,16 @@
 import React, {useEffect, useRef, useState} from 'react'
 import styles from './Header.module.css'
 import { cn } from "@/lib/utils"
-import Link from "next/link";
-import Image from "next/image";
-import {usePathname, useSearchParams} from "next/navigation";
-import {Button} from "@/components/ui/button";
-import LoginModal from "@/components/modals/LoginModal";
-import RegisterModal from "@/components/modals/RegisterModal";
-import ForgotPasswordModal from "@/components/modals/ForgotPasswordModal";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
-import {Popover, PopoverContent, PopoverTrigger} from "@/components/ui/popover";
+import Link from "next/link"
+import Image from "next/image"
+import {usePathname, useSearchParams} from "next/navigation"
+import {Button} from "@/components/ui/button"
+import gsap from "gsap"
+import ScrollTrigger from "gsap/ScrollTrigger"
+import {Popover, PopoverContent, PopoverTrigger} from "@/components/ui/popover"
+import { useAuthModals } from '../AuthModalManager'
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger)
 
 const menuItems = [
     {
@@ -51,44 +49,25 @@ const menuItems = [
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [isAccountMenuOpen, setIsAccountMenuOpen] = useState(false)
-    const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
-    const [isRegModalOpen, setIsRegModalOpen] = useState(false)
-    const [isForgotPass, setIsForgotPass] = useState(false)
-    const pathname = usePathname();
+    const pathname = usePathname()
     const searchParams = useSearchParams()
     const isLogin = searchParams.get('login') === 'true'
+
+    const { openLoginModal, openRegisterModal } = useAuthModals()
 
     const toggleMenu = () => {
         setIsMenuOpen(prev => !prev)
     }
 
-    const openRegister = () => {
-        setIsLoginModalOpen(false);
-        setIsForgotPass(false)
-        setIsRegModalOpen(true);
-    };
-
-    const openLogin= () => {
-        setIsRegModalOpen(false);
-        setIsForgotPass(false);
-        setIsLoginModalOpen(true);
-    };
-
-    const openForgotPassFromLogin = () => {
-        setIsLoginModalOpen(false);
-        setIsForgotPass(true);
-    };
-
     useEffect(() => {
         setIsMenuOpen(false)
     }, [pathname])
 
-
-    const headerRef = useRef<HTMLElement>(null);
+    const headerRef = useRef<HTMLElement>(null)
     useEffect(() => {
-        const header = headerRef.current;
-        const loginBtn = document.querySelector(".login-btn");
-        if (!header || !loginBtn) return;
+        const header = headerRef.current
+        const loginBtn = document.querySelector(".login-btn")
+        if (!header || !loginBtn) return
         if (pathname !== '/') return
 
         ScrollTrigger.create({
@@ -101,12 +80,12 @@ const Header = () => {
                 header.classList.add(styles.light)
                 loginBtn.classList.add('text-white')
             },
-        });
+        })
 
         return () => {
-            ScrollTrigger.getAll().forEach((t) => t.kill());
-        };
-    }, [pathname]);
+            ScrollTrigger.getAll().forEach((t) => t.kill())
+        }
+    }, [pathname])
 
     return (
         <div className={cn(pathname === '/' && 'mainpage', "wrap")}>
@@ -160,16 +139,15 @@ const Header = () => {
                                 <Button
                                     variant="outline"
                                     className={cn(pathname === '/' && 'text-white', 'login-btn')}
-                                    onClick={() => setIsLoginModalOpen(true)}
+                                    onClick={openLoginModal}
                                 >
                                     Login
                                 </Button>
-                                <Button onClick={() => setIsRegModalOpen(true)}>
+                                <Button onClick={openRegisterModal}>
                                     Register
                                 </Button>
                             </>
                         )}
-
                     </div>
                     <div className={cn(styles.header__icon, isMenuOpen && styles.open) } onClick={toggleMenu}></div>
                 </div>
@@ -197,12 +175,12 @@ const Header = () => {
                         ) : (
                             <div className={styles.mobmenu__bottom}>
                                 <div onClick={() => {
-                                    setIsLoginModalOpen(true)
+                                    openLoginModal()
                                     setIsMenuOpen(false)
                                 }}>Login
                                 </div>
                                 <div onClick={() => {
-                                    setIsLoginModalOpen(true)
+                                    openRegisterModal()
                                     setIsMenuOpen(false)
                                 }}>Register
                                 </div>
@@ -225,23 +203,6 @@ const Header = () => {
                     </div>
                 </div>
             </header>
-            <LoginModal
-                open={isLoginModalOpen}
-                onOpenChange={setIsLoginModalOpen}
-                onRegister={openRegister}
-                onForgotPassword={openForgotPassFromLogin}
-            />
-            <RegisterModal
-                open={isRegModalOpen}
-                onOpenChange={setIsRegModalOpen}
-                onLogin={openLogin}
-            />
-            <ForgotPasswordModal
-                open={isForgotPass}
-                onOpenChange={setIsForgotPass}
-                onRegister={openRegister}
-                onLogin={openLogin}
-            />
         </div>
     )
 }

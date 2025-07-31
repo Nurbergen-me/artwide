@@ -51,7 +51,7 @@ export const RangeSelect = ({onSubmit, currency = "EUR", minValue = 1500, maxVal
 
     return (
         <Popover open={open} onOpenChange={setOpen}>
-            <PopoverTrigger className="flex items-center gap-2 text-left text-[1.25vw]  max-sm:text-[4.2vw]">
+            <PopoverTrigger className="flex items-center gap-2 text-left text-[1.25vw]  max-md:text-[4.2vw]">
                 {placeholder}
                 <ChevronDown size={16} />
             </PopoverTrigger>

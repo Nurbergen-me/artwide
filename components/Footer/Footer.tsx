@@ -6,7 +6,7 @@ import {Button} from "@/components/ui/button";
 const Footer = () => {
     return (
         <footer className={styles.footer}>
-            <div className="container flex flex-wrap max-sm:flex-col">
+            <div className="container flex flex-wrap max-md:flex-col">
                 <div className={styles.footer__logo}>
                     <Link href="/" className={styles.logo}></Link>
                 </div>

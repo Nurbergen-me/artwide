@@ -10,6 +10,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import {Country, CountryDropdown} from "@/components/ui/country-dropdown";
 import {PhoneInput} from "@/components/ui/phone-input";
 import {cn} from "@/lib/utils";
+import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select";
 
 const FormSchema = z.object({
     number: z.string(),
@@ -25,8 +26,26 @@ const FormSchema = z.object({
     country: z.string(),
     business_reg_file: z.any().nullable(),
     bank_detail_file: z.any().nullable(),
-
 })
+
+const profileOptions = [
+    { value: "Art Fund", label: "Art Fund" },
+    { value: "Artist", label: "Artist" },
+    { value: "Bank", label: "Bank" },
+    { value: "Collector", label: "Collector" },
+    { value: "Corporation", label: "Corporation" },
+    { value: "Curator", label: "Curator" },
+    { value: "Dealer", label: "Dealer" },
+    { value: "Estate", label: "Estate" },
+    { value: "Family Office", label: "Family Office" },
+    { value: "Foundation", label: "Foundation" },
+    { value: "Gallery", label: "Gallery" },
+    { value: "Government", label: "Government" },
+    { value: "Museum", label: "Museum" },
+    { value: "Private Bank", label: "Private Bank" },
+    { value: "Private Museum", label: "Private Museum" },
+    { value: "Other", label: "Other" },
+]
 
 const Page = () => {
     const [selectedCountry, setSelectedCountry] = React.useState<Country | null>(null);
@@ -87,7 +106,7 @@ const Page = () => {
                             <Form {...form}>
                                 <form
                                     onSubmit={form.handleSubmit(onSubmit)}
-                                    className="flex flex-col gap-[1.45vw] max-w-[48vw] max-sm:max-w-full max-sm:gap-[5vw]"
+                                    className="flex flex-col gap-[1.45vw] max-w-[48vw] max-md:max-w-full max-md:gap-[5vw]"
                                 >
                                     <FormField
                                         control={form.control}
@@ -98,8 +117,11 @@ const Page = () => {
                                                     Paddle number
                                                 </FormLabel>
                                                 <FormControl>
-                                                    <Input placeholder="144679" disabled={true} {...field} />
+                                                    <Input placeholder="144679" disabled {...field} />
                                                 </FormControl>
+                                                <div className="hintpopup form__popup">
+                                                    Need to update your details? Contact us at info@artwide.com.
+                                                </div>
                                                 <FormMessage/>
                                             </FormItem>
                                         )}
@@ -113,8 +135,11 @@ const Page = () => {
                                                     First name
                                                 </FormLabel>
                                                 <FormControl>
-                                                    <Input placeholder="John" {...field} />
+                                                    <Input placeholder="John" disabled {...field} />
                                                 </FormControl>
+                                                <div className="hintpopup form__popup">
+                                                    Need to update your details? Contact us at info@artwide.com.
+                                                </div>
                                                 <FormMessage/>
                                             </FormItem>
                                         )}
@@ -128,9 +153,36 @@ const Page = () => {
                                                     Last name
                                                 </FormLabel>
                                                 <FormControl>
-                                                    <Input placeholder="Doe" {...field} />
+                                                    <Input placeholder="Doe" disabled {...field} />
                                                 </FormControl>
+                                                <div className="hintpopup form__popup">
+                                                    Need to update your details? Contact us at info@artwide.com.
+                                                </div>
                                                 <FormMessage/>
+                                            </FormItem>
+                                        )}
+                                    />
+                                    <FormField
+                                        control={form.control}
+                                        name="profile"
+                                        render={({ field }) => (
+                                            <FormItem>
+                                                <FormLabel>User Profile</FormLabel>
+                                                <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                                    <FormControl className="w-full rounded-[0.5vw] border-[0.14vw] bg-transparent px-[1.1vw] py-1 text-[1.1vw] max-md:h-[12.8vw] max-md:text-[4.26vw] max-md:p-[4.26vw] max-md:rounded-[2.13vw]">
+                                                        <SelectTrigger>
+                                                            <SelectValue placeholder="Choose your profile type" />
+                                                        </SelectTrigger>
+                                                    </FormControl>
+                                                    <SelectContent>
+                                                        {profileOptions.map((option) => (
+                                                            <SelectItem key={option.value} value={option.value}>
+                                                                {option.label}
+                                                            </SelectItem>
+                                                        ))}
+                                                    </SelectContent>
+                                                </Select>
+                                                <FormMessage />
                                             </FormItem>
                                         )}
                                     />
@@ -143,8 +195,11 @@ const Page = () => {
                                                     Email
                                                 </FormLabel>
                                                 <FormControl>
-                                                    <Input placeholder="Email" {...field} />
+                                                    <Input placeholder="Email" disabled {...field} />
                                                 </FormControl>
+                                                <div className="hintpopup form__popup">
+                                                    Need to update your details? Contact us at info@artwide.com.
+                                                </div>
                                                 <FormMessage/>
                                             </FormItem>
                                         )}
@@ -206,7 +261,7 @@ const Page = () => {
                                         render={({field}) => (
                                             <FormItem>
                                                 <FormLabel>
-                                                    Address Line 2
+                                                    Address Line 2 (Apartment, suite, etc.)
                                                 </FormLabel>
                                                 <FormControl>
                                                     <Input placeholder="" {...field} />
@@ -395,7 +450,7 @@ const Page = () => {
                                     </div>
                                     <Button
                                         type="submit"
-                                        className="w-full mt-[1.2vw] font-medium text-[1.1vw] max-sm:h-[12.8vw] max-sm:rounded-[2.1vw] max-sm:text-[4.26vw]"
+                                        className="w-full mt-[1.2vw] font-medium text-[1.1vw] max-md:h-[12.8vw] max-md:rounded-[2.1vw] max-md:text-[4.26vw]"
                                     >
                                         Save changes
                                     </Button>
@@ -454,7 +509,7 @@ const Page = () => {
                     </form>
                     <form className={cn("form form_mobblock passform", currentTab === 4 && 'open')}>
                         <div className="form__title" onClick={() => toggleTab(4)}>Password</div>
-                        <div className="form__mobcontainer">
+                        <div className="form__mobcontainer flex flex-col gap-[1.45vw] max-md:gap-[5vw]">
                             <div className="form__input">
                                 <label>Current Password</label>
                                 <Input type="password" name="password"/>

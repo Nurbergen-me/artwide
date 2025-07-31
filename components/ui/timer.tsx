@@ -56,7 +56,7 @@ const Timer: React.FC<TimerProps> = ({ deadline, color, variant, extended }) => 
             ) : (
                 <div
                     className={cn(
-                    "text-[1.1vw] max-sm:text-[3.5vw] mt-[1.1vw] max-sm:mt-[4.26vw] font-normal",
+                    "text-[1.1vw] max-md:text-[3.5vw] mt-[1.1vw] max-md:mt-[4.26vw] font-normal",
                         color === 'red' ? "text-destructive" : color === 'blue' ? "text-primary" : isLessThan5Days ? "text-destructive" : "text-primary"
                     )}
                 >

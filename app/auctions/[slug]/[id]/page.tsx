@@ -11,6 +11,7 @@ import Link from "next/link"; // CSS Module
 import {lots} from "@/constants";
 import BidIncrementModal from "@/components/modals/BidIncrementModal";
 import BiddingGuidelineModal from "@/components/modals/BiddingGuidelineModal";
+import Fancybox from "@/lib/fancybox"
 
 const Page = () => {
     const [isCalcModalOpen, setIsCalcModalOpen] = useState(false);
@@ -18,8 +19,37 @@ const Page = () => {
     const [isGuidelineModalOpen, setIsGuidelineModalOpen] = useState(false)
     const [isHistoryOpen, setIsHistoryOpen] = useState(false)
     const isLogin = true
-
     const currentLot = lots[2];
+    const [fancyboxRef] = Fancybox({
+        theme: "light",
+        mainStyle: {
+            "--f-toolbar-padding": "0",
+        },
+        Carousel: {
+            Toolbar: {
+                absolute: false,
+                items: {
+                    myTitle: {
+                        tpl: '<div style="background: #ffffffd9; width: auto; padding: 0 20px"> ' + currentLot.title +'</div>',
+                    },
+                },
+                display: {
+                    left: ["myTitle"],
+                    right: ["zoomIn", "zoomOut", "close"],
+                },
+            },
+        },
+    });
+
+    function isDeadlinePassed(deadline: string | number): boolean {
+        const now = Math.floor(Date.now() / 1000);
+        const deadlineUnix = typeof deadline === "number"
+            ? deadline
+            : Math.floor(new Date(deadline).getTime() / 1000);
+
+        return now > deadlineUnix;
+    }
+
 
     return (
         <div className="container">
@@ -42,22 +72,22 @@ const Page = () => {
                 <div className={styles.lot}>
                     <div className={styles.lot__left}>
                         <div className={cn(styles.lot__img, 'f-carousel is-ltr is-horizontal')} id="myCarousel">
-                            <div className="f-carousel__viewport">
+                            <div className="f-carousel__viewport" ref={fancyboxRef}>
                                 <div className="f-carousel__track" style={{ transform: 'matrix(1, 0, 0, 1, 0.203, 0)' }}>
-                                    <div
-                                        className="f-carousel__slide is-selected"
-                                        data-thumb-src="/uploads/8/08.webp"
-                                        data-fancybox="gallery"
-                                        data-src="/uploads/8/08.webp"
-                                        data-index="0"
-                                    >
-                                        <Image
-                                            src={currentLot.imageSrc}
-                                            alt="image"
-                                            width={100}
-                                            height={100}
-                                        />
-                                    </div>
+                                        <a
+                                            data-fancybox="gallery"
+                                            className="f-carousel__slide is-selected"
+                                            data-thumb-src={currentLot.imageSrc}
+                                            data-src={currentLot.imageSrc}
+                                            data-index="0"
+                                        >
+                                            <Image
+                                                src={currentLot.imageSrc}
+                                                alt="image"
+                                                width={100}
+                                                height={100}
+                                            />
+                                        </a>
                                 </div>
                             </div>
                         </div>
@@ -95,6 +125,15 @@ const Page = () => {
                         <div className={styles.lot__infoblock}>
                             <div className={styles.lot__num}>
                                 <span>Lot {currentLot.lotNumber}</span>
+                                {currentLot.sold ? (
+                                    <span className={cn(styles.lot__label)}>
+                                        Sold
+                                    </span>
+                                            ) : isDeadlinePassed(currentLot.timerEnd) ? (
+                                                <span className={cn(styles.lot__label, styles.closed)}>
+                                        Closed
+                                    </span>
+                                ) : ''}
                             </div>
 
                             <div className={styles.lot__info}>
@@ -312,7 +351,7 @@ const Page = () => {
 
             <div className="gallery gallery_add">
                 <div className="gallery__title">View additional lots</div>
-                <div className="grid gap-2 grid-cols-3 mt-[2.2vw] max-sm:mt-[8.5vw] max-sm:grid-cols-1">
+                <div className="grid gap-2 grid-cols-3 mt-[2.2vw] max-md:mt-[8.5vw] max-md:grid-cols-1">
                     {lots.map((lot) => (
                         <LotCard key={lot.id} {...lot} variant="list"/>
                     ))}
