@@ -1,13 +1,8 @@
 import React from 'react'
-import PageContent from "@/components/PageContent/PageContent"
 import Image from "next/image"
 import styles from './sellWithUs.module.css'
 import { cn } from '@/lib/utils'
 
-const pageInfo = {
-    title: "Sell with Us",
-    text: `Selling your artwork with Artwide is a smooth and straightforward experience. <br> To get started, simply follow the steps below.`,
-};
 
 const Page = () => {
     return (
