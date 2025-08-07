@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils'
 
 const pageInfo = {
     title: "Sell with Us",
-    text: `Selling your artwork with Artwide is a smooth and straightforward experience. To get started, simply follow the steps below.`,
+    text: `Selling your artwork with Artwide is a smooth and straightforward experience. <br> To get started, simply follow the steps below.`,
 };
 
 const Page = () => {
@@ -28,9 +28,15 @@ const Page = () => {
                     </div>
                 </div>
 
-                <PageContent {...pageInfo} />
+                <div className="content__title desktop">
+                    <h1>Sell with Us</h1>
+                </div>
 
                 <div className={styles.sell}>
+                    <div className="container">
+                        Selling your artwork with Artwide is a smooth and straightforward experience. <br/>
+                        To get started, simply follow the steps below.
+                    </div>
                     <div className={styles.sell__gblock}>
                         <div className={cn(styles.content__title, "content__title")} id="howto">
                             How to Sell with&nbsp;Artwide
@@ -66,54 +72,63 @@ const Page = () => {
                         <div className={styles.sell__howblock_list}>
                             <div className={styles.sell__howblock_item}>
                                 <div className={styles.sell__howblock_itemimg}>
-                                    <Image alt="paint" width={60} height={52} src="/img/sell_icon_1.svg" />
+                                    <Image alt="paint" width={60} height={52} src="/img/sell_icon_1.svg"/>
                                 </div>
                                 <div className={styles.sell__howblock_itemtitle}>
-                                    Share details about <br /> your artwork
+                                    Share details about <br/> your artwork
                                 </div>
                                 <div className={styles.sell__howblock_itemtext}>
                                     <p>
-                                        Complete the form found at the link below. Provide us with as much detail as possible.
+                                        Complete the form found at the link below. Provide us with as much detail as
+                                        possible.
                                     </p>
-                                    <a href="../pdf/Online_Auction_Consignement_Agreement.pdf" className={styles.download} download>
+                                    <a href="../pdf/Online_Auction_Consignement_Agreement.pdf"
+                                       className={styles.download} download>
                                         <span>Download Online Auction Consignment Agreement*</span>
                                     </a>
-                                    <a href="../pdf/Private_Sale_Consignment_Agreement.pdf" className={styles.download} download>
+                                    <a href="../pdf/Private_Sale_Consignment_Agreement.pdf" className={styles.download}
+                                       download>
                                         <span>Download Private Sale Consignment Agreement*</span>
                                     </a>
                                     <p>
-                                        To submit more than one artwork, complete one Consignment Agreement and a separate Property Schedule for each artwork.
+                                        To submit more than one artwork, complete one Consignment Agreement and a
+                                        separate Property Schedule for each artwork.
                                     </p>
-                                    <a href="../pdf/Property_Schedule_for_Online_Auction.pdf" className={styles.download} download>
+                                    <a href="../pdf/Property_Schedule_for_Online_Auction.pdf"
+                                       className={styles.download} download>
                                         <span>Download Property Schedule for Online Auction*</span>
                                     </a>
-                                    <a href="../pdf/Property_Schedule_for_Private_Sale.pdf" className={styles.download} download>
+                                    <a href="../pdf/Property_Schedule_for_Private_Sale.pdf" className={styles.download}
+                                       download>
                                         <span>Download Property Schedule for Private Sale*</span>
                                     </a>
                                     <div className={styles.sell__howblock_itemtextgrey}>
-                                        * Please <a href="https://get.adobe.com/reader/" target="_blank">update</a> your Adobe Reader to latest version for opening the PDF file correctly
+                                        * Please <a href="https://get.adobe.com/reader/" target="_blank">update</a> your
+                                        Adobe Reader to latest version for opening the PDF file correctly
                                     </div>
                                 </div>
                             </div>
 
                             <div className={styles.sell__howblock_item}>
                                 <div className={styles.sell__howblock_itemimg}>
-                                    <Image alt="photo" width={60} height={52} src="/img/sell_icon_2.svg" />
+                                    <Image alt="photo" width={60} height={52} src="/img/sell_icon_2.svg"/>
                                 </div>
                                 <div className={styles.sell__howblock_itemtitle}>
                                     Include photos and any relevant documentation
                                 </div>
                                 <div className={styles.sell__howblock_itemtext}>
-                                    Attach high-quality images of the artwork, including both the front and back, as well as any artist or maker signatures or marks. Additionally, include relevant documentation such as certificates of authenticity and condition reports.
+                                    Attach high-quality images of the artwork, including both the front and back, as
+                                    well as any artist or maker signatures or marks. Additionally, include relevant
+                                    documentation such as certificates of authenticity and condition reports.
                                 </div>
                             </div>
 
                             <div className={styles.sell__howblock_item}>
                                 <div className={styles.sell__howblock_itemimg}>
-                                    <Image alt="check" width={60} height={52} src="/img/sell_icon_3.svg" />
+                                    <Image alt="check" width={60} height={52} src="/img/sell_icon_3.svg"/>
                                 </div>
                                 <div className={styles.sell__howblock_itemtitle}>
-                                    Review and <br className="desktop" /> submit
+                                    Review and <br className="desktop"/> submit
                                 </div>
                                 <div className={styles.sell__howblock_itemtext}>
                                     We will review your submission and respond to you within 10 business days.
@@ -125,7 +140,9 @@ const Page = () => {
                     <div className={cn("container", styles.sell__bottom)}>
                         <p>We look forward finding the ideal solution for you.</p>
                         <p>
-                            If you have any questions or need further information, please feel free to contact us <a href="../contact/">here</a> or email <a href="mailto:support@artwide.com">support@artwide.com</a>
+                            If you have any questions or need further information, please feel free to contact us <a
+                            href="../contact/">here</a> or email <a
+                            href="mailto:support@artwide.com">support@artwide.com</a>
                         </p>
                     </div>
                 </div>

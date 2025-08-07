@@ -51,6 +51,14 @@ const Page = () => {
     const [selectedCountry, setSelectedCountry] = React.useState<Country | null>(null);
     const inputRef = useRef<HTMLInputElement | null>(null)
     const [currentTab, setCurrentTab] = useState(0)
+    const [newPassword, setNewPassword] = useState("");
+
+    const rules = {
+        length: newPassword.length >= 8,
+        lowercase: /[a-z]/.test(newPassword),
+        uppercase: /[A-Z]/.test(newPassword),
+        number: /[0-9]/.test(newPassword),
+    };
 
     const toggleTab = (id: number) => {
         if (currentTab === id) return setCurrentTab(0)
@@ -518,16 +526,50 @@ const Page = () => {
                             </div>
                             <div className="form__input">
                                 <label>New Password</label>
-                                <Input type="password" name="newpassword"/>
+                                <input
+                                    type="password"
+                                    name="newpassword"
+                                    value={newPassword}
+                                    onChange={(e) => setNewPassword(e.target.value)}
+                                />
                                 <div className="form__eye"></div>
                                 <div className="form__message"></div>
-                                <div className="form__hint hint hint8"><span>At least 8 characters in length</span>
+
+                                <div
+                                    className={cn("form__hint", "hint", "hint8", {
+                                        show: newPassword,
+                                        correct: rules.length,
+                                    })}
+                                >
+                                    <span>At least 8 characters in length</span>
                                 </div>
-                                <div className="form__hint hint hint_lowercase">
-                                    <span>Contains lower case letters (a-z)</span></div>
-                                <div className="form__hint hint hint_uppercase">
-                                    <span>Contains upper case letters (A-Z)</span></div>
-                                <div className="form__hint hint hint_numbers"><span>Contains numbers (0-9)</span></div>
+
+                                <div
+                                    className={cn("form__hint", "hint", "hint_lowercase", {
+                                        show: newPassword,
+                                        correct: rules.lowercase,
+                                    })}
+                                >
+                                    <span>Contains lower case letters (a-z)</span>
+                                </div>
+
+                                <div
+                                    className={cn("form__hint", "hint", "hint_uppercase", {
+                                        show: newPassword,
+                                        correct: rules.uppercase,
+                                    })}
+                                >
+                                    <span>Contains upper case letters (A-Z)</span>
+                                </div>
+
+                                <div
+                                    className={cn("form__hint", "hint", "hint_numbers", {
+                                        show: newPassword,
+                                        correct: rules.number,
+                                    })}
+                                >
+                                    <span>Contains numbers (0-9)</span>
+                                </div>
                             </div>
                             <div className="form__input">
                                 <label>Repeat New Password</label>

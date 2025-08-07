@@ -20,7 +20,7 @@ const Page = () => {
                     </div>
                 </div>
 
-                <div className="content__title">
+                <div className="content__title desktop">
                     <h1>Favourites</h1>
                 </div>
 
