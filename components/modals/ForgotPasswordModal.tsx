@@ -44,7 +44,7 @@ const LoginModal = ({ open, onOpenChange, onRegister, onLogin }: LoginModalProps
     return (
         <Dialog {...form} open={open} onOpenChange={onOpenChange}>
             <DialogContent>
-                <DialogHeader className="max-md:px-[4.26vw]">
+                <DialogHeader className="">
                     <DialogTitle className="popup__title popup__mtitle">
                         Reset your password
                     </DialogTitle>

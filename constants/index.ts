@@ -43,7 +43,7 @@ export const lots = [
         technique: "Print framed with 92UV Glass",
         estimate: "4,500 - 9,000 EUR",
         startingBid: "4,100 EUR",
-        userBidStatus: "winner",
+        userBidStatus: "outbid",
         lotId: "19",
         link: "/auctions/indian-masters-of-color-and-spirit-1/from-the-series-19/",
         timerEnd: "2025-07-26T12:00:00Z"

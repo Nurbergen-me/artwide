@@ -35,10 +35,10 @@ const AuctionLots = () => {
         <div className="container">
             <div className={cn(styles.gallery, styles.gallery_pop)}>
                 <div className={styles.gallery__titletop}>
-                    <Link href="/public" className={styles.gallery__title}>
+                    <Link href="/auctions" className={styles.gallery__title}>
                         Auction Lots
                     </Link>
-                    <Link href="/public" className={styles.gallery__link}>
+                    <Link href="/auctions" className={styles.gallery__link}>
                         View All
                     </Link>
                 </div>
@@ -52,9 +52,9 @@ const AuctionLots = () => {
                         ))}
                     </div>
                 </div>
-                <a className={styles.gallery__link2} href="#">
+                <Link className={styles.gallery__link2} href="/auctions">
                     VIEW ALL
-                </a>
+                </Link>
             </div>
         </div>
     )

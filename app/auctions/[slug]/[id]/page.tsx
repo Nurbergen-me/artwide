@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, {useMemo, useState} from 'react';
 import Image from 'next/image';
 import CostCalculatorModal from '@/components/modals/CostCalculatorModal';
 import Timer from '@/components/ui/timer';
@@ -18,6 +18,10 @@ const Page = () => {
     const [isIncrementModalOpen, setIsIncrementModalOpen] = useState(false)
     const [isGuidelineModalOpen, setIsGuidelineModalOpen] = useState(false)
     const [isHistoryOpen, setIsHistoryOpen] = useState(false)
+    const [openTabs, setOpenTabs] = useState({
+        provenance: true,
+        notes: true,
+    });
     const isLogin = true
     const currentLot = lots[2];
     const [fancyboxRef] = Fancybox({
@@ -50,6 +54,26 @@ const Page = () => {
         return now > deadlineUnix;
     }
 
+    const { formattedDate, formattedTime } = useMemo(() => {
+        const date = new Date(currentLot.timerEnd);
+
+        const formattedDate = new Intl.DateTimeFormat('en-GB', {
+            day: '2-digit',
+            month: 'long',
+            year: 'numeric',
+        }).format(date);
+
+        const formattedTime = `${date.toLocaleTimeString('en-US', { hour12: true })}.${String(date.getMilliseconds()).padStart(3, '0')}`;
+
+        return { formattedDate, formattedTime };
+    }, [currentLot.timerEnd]);
+
+    const toggleTab = (tab: keyof typeof openTabs) => {
+        setOpenTabs((prev) => ({
+            ...prev,
+            [tab]: !prev[tab],
+        }));
+    }
 
     return (
         <div className="container">
@@ -96,26 +120,56 @@ const Page = () => {
                             <div className={styles.lot__description2_title}>Lot Details</div>
                             <div className={styles.lot__description_text}>
                                 <p>
-                                    Janik Bürgin lives and works in Basel. Since his training at the School of Design in
+                                    Janik Bürgin lives and works in Basel. Since his training at the School of Design
+                                    in
                                     Zurich, he has been accompanied by the photographer Christian Scholz as part of
                                     the “Live Your Dream Foundation” mentoring program. In 2019 he completed an
                                     internship at the Patrick Fuchs studio. After receiving his diploma in 2020, Bürgin
                                     was part of various group exhibitions in Switzerland, Germany and the Netherlands.
                                     His first solo exhibition took place in the Network of Arts (NoA) showroom in Horw
                                     in 2021. In the same year he was nominated as a “Fresh Eyes Talent” (GUP Magazine,
-                                    Rotterdam) and for the “André Evard Prize” (Kunsthalle Messmer, Riegel am Kaiserstuhl).
+                                    Rotterdam) and for the “André Evard Prize” (Kunsthalle Messmer, Riegel am
+                                    Kaiserstuhl).
                                     This year Janik Bürgin will be seen at the Regionale in the Kunsthalle Palazzo
                                     Liestal and in 2023 in solo exhibitions at the Urs Meile Gallery, Lucerne.
                                 </p>
                                 <br/>
-                                <a href="https://www.arttalkmagazine.com/janik-brgin-rome" target="_blank">More About Lot</a>
+                                <a href="https://www.arttalkmagazine.com/janik-brgin-rome" target="_blank">More About
+                                    Lot</a>
                             </div>
+
+                            <div
+                                className={cn(styles.lot__description2_block, {
+                                    [styles.open]: openTabs.provenance,
+                                })}
+                                onClick={() => toggleTab("provenance")}
+                            >
+                                <div className={styles.lot__description2_block_title}>Provenance</div>
+                                <div className={styles.lot__description2_block_text}>
+                                    Private Collection
+                                </div>
+                            </div>
+
+                            <div
+                                className={cn(styles.lot__description2_block, {
+                                    [styles.open]: openTabs.notes,
+                                })}
+                                onClick={() => toggleTab("notes")}
+                            >
+                                <div className={styles.lot__description2_block_title}>Notes</div>
+                                <div className={styles.lot__description2_block_text}>
+                                    The large hands are placed on either side of the abdomen, which features a cavity intended to hold a
+                                    &quot;magical&quot; or medicinal charge.<br />
+                                    Signs of wear from use.
+                                </div>
+                            </div>
+
                         </div>
                     </div>
 
                     <div className={styles.lot__right}>
                         <div className="content__nav">
-                            <a className="prev disabled" />
+                            <a className="prev disabled"/>
                             <Link
                                 href="/auctions/indian-masters-of-color-and-spirit-1/liquid-project-9/"
                                 className="next"
@@ -129,8 +183,8 @@ const Page = () => {
                                     <span className={cn(styles.lot__label)}>
                                         Sold
                                     </span>
-                                            ) : isDeadlinePassed(currentLot.timerEnd) ? (
-                                                <span className={cn(styles.lot__label, styles.closed)}>
+                                ) : isDeadlinePassed(currentLot.timerEnd) ? (
+                                    <span className={cn(styles.lot__label, styles.closed)}>
                                         Closed
                                     </span>
                                 ) : ''}
@@ -158,6 +212,13 @@ const Page = () => {
                                 <br/> 100 x 140 cm
                             </div>
 
+                            {isDeadlinePassed(currentLot.timerEnd) && (
+                                <div className={styles.lot__start}>
+                                    <div>Lot closed:</div>
+                                    <span>{formattedDate}</span> • <span>{formattedTime}</span> • Online
+                                </div>
+                            )}
+
                             <div className={styles.lot__location}>
                                 <div className={styles.lot__location_name}>
                                     Rome, Italy
@@ -177,16 +238,38 @@ const Page = () => {
                                 </span>
                                 <div className={cn(styles.lot__estimate_question, 'hintpopupParent')}>
                                     <div className={cn(styles.hintpopup, "hintpopup")}>
-                                        Estimates do not include Buyer&apos;s Premium, taxes, or artist resale rights.
+                                        The Low Estimate and High Estimate do not reflect the potential final Hammer
+                                        Price and do not include Buyer&apos;s Premium, as well as any applicable taxes or
+                                        artist&apos;s resale rights.
                                     </div>
                                 </div>
                                 <div className={cn(styles.currency, "currency")}>
-                                    {['shield', 'dollar', 'crypto', 'vat'].map((type) => (
-                                        <div key={type}
-                                             className={cn('currency__item', `currency__${type}`, 'hintpopupParent')}>
-                                            <div className={cn(styles.hintpopup, "hintpopup")}>Hint for {type}</div>
+                                    <div
+                                        className={cn('currency__item', `currency__shield`, 'hintpopupParent')}>
+                                        <div className={cn(styles.hintpopup, "hintpopup")}>
+                                            Guaranteed sale
                                         </div>
-                                    ))}
+                                    </div>
+                                    <div
+                                        className={cn('currency__item', `currency__dollar`, 'hintpopupParent')}>
+                                        <div className={cn(styles.hintpopup, "hintpopup")}>
+                                            Payment is accepted in multiple currencies. Please see the Payment Notice
+                                            for full details
+                                        </div>
+                                    </div>
+                                    <div
+                                        className={cn('currency__item', `currency__crypto`, 'hintpopupParent')}>
+                                        <div className={cn(styles.hintpopup, "hintpopup")}>
+                                            Payment is accepted in cryptocurrencies. Please see the Payment Notice for
+                                            full details
+                                        </div>
+                                    </div>
+                                    <div
+                                        className={cn('currency__item', `currency__vat`, 'hintpopupParent')}>
+                                        <div className={cn(styles.hintpopup, "hintpopup")}>
+                                            (VAT) and other applicable taxes are not included in the listing price
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -202,31 +285,41 @@ const Page = () => {
                                                 {currentLot.userBidStatus === 'outbid' && 'You were outbid'}
                                             </div>
                                         )}
-                                        <div>Current Bid:</div>
+                                        {currentLot.sold ? (
+                                            <div>Lot sold:</div>
+                                        ) : (
+                                            <div>Current Bid:</div>
+                                        )}
                                         <span id="lastbid">9,000</span> EUR
                                     </div>
                                     <div className={styles.lot__stat}>
                                         <span>9</span> bids | <span>Reserve met</span>
                                     </div>
-                                    <div className={cn(styles.lot__auction, 'hintpopupParent')}>
-                                        <div className={cn(styles.lot__auction_time, styles.timercount, 'timercount closing')}>
-                                            <Timer deadline={1753418440}/>
-                                        </div>
-
-                                        <div className={styles.lot__auction_button}>
-                                            <div className={cn("button", !isLogin && 'button_disabled')}>
-                                                <span>Place a bid</span>
+                                    {!isDeadlinePassed(currentLot.timerEnd) && (
+                                        <div className={cn(styles.lot__auction, 'hintpopupParent')}>
+                                            <div
+                                                className={cn(styles.lot__auction_time, styles.timercount, 'timercount closing')}>
+                                                <Timer deadline={1753418440}/>
                                             </div>
-                                            {!isLogin && (
-                                                <div className="hintpopup">Please Log In or Register to place a bid</div>
-                                            )}
-                                        </div>
 
-                                        <div className={styles.lot__auction_info}>
-                                            <span>Closes 13 July 2025</span> • <span>03:54 PM UK time</span> • Online
-                                            <i className="infoicon infoicon_pop" onClick={() => setIsGuidelineModalOpen(true)}/>
+                                            <div className={styles.lot__auction_button}>
+                                                <div className={cn("button", !isLogin && 'button_disabled')}>
+                                                    <span>Place a bid</span>
+                                                </div>
+                                                {!isLogin && (
+                                                    <div className="hintpopup">Please Log In or Register to place a
+                                                        bid</div>
+                                                )}
+                                            </div>
+
+                                            <div className={styles.lot__auction_info}>
+                                                <span>Closes 13 July 2025</span> • <span>03:54 PM UK time</span> •
+                                                Online
+                                                <i className="infoicon infoicon_pop"
+                                                   onClick={() => setIsGuidelineModalOpen(true)}/>
+                                            </div>
                                         </div>
-                                    </div>
+                                    )}
                                 </>
                             )}
 
@@ -235,7 +328,8 @@ const Page = () => {
                                 <div className={cn(styles.lot__winner, styles.winner)}>
                                     <div className={styles.winner__title}>CONGRATULATIONS!</div>
                                     <div className={styles.winner__text}>
-                                        You won Lot 1. <br className="mobile"/>At the conclusion of the auction an Artwide
+                                        You won Lot 1. <br className="mobile"/>At the conclusion of the auction an
+                                        Artwide
                                         representative will be in touch to finalise your acquisition.
                                     </div>
                                     <div className={styles.winner__results}>
@@ -259,7 +353,8 @@ const Page = () => {
                                     </div>
                                     <div className={styles.winner__bottomtext}>
                                         Your primary payment method is set to <b>Cryptocurrency</b>. To switch to
-                                        International Wire Transfer, please visit <a href="/settings/">Settings</a> and make
+                                        International Wire Transfer, please visit <a href="/settings/">Settings</a> and
+                                        make
                                         the change there.
                                     </div>
                                 </div>
@@ -285,7 +380,8 @@ const Page = () => {
                             </div>
                             {isLogin && (
                                 <div className={cn(styles.lot__history, isHistoryOpen && styles.open)}>
-                                    <div className={styles.lot__history_title} onClick={() => setIsHistoryOpen(!isHistoryOpen)}>
+                                    <div className={styles.lot__history_title}
+                                         onClick={() => setIsHistoryOpen(!isHistoryOpen)}>
                                         Bid History
                                     </div>
                                     <div className={styles.lot__history_list}>
@@ -343,6 +439,32 @@ const Page = () => {
                                 </p>
                                 <br/>
                                 <a href="https://www.arttalkmagazine.com/janik-brgin-rome" target="_blank">More About Lot</a>
+                            </div>
+
+                            <div
+                                className={cn(styles.lot__description2_block, {
+                                    [styles.open]: openTabs.provenance,
+                                })}
+                                onClick={() => toggleTab("provenance")}
+                            >
+                                <div className={styles.lot__description2_block_title}>Provenance</div>
+                                <div className={styles.lot__description2_block_text}>
+                                    Private Collection
+                                </div>
+                            </div>
+
+                            <div
+                                className={cn(styles.lot__description2_block, {
+                                    [styles.open]: openTabs.notes,
+                                })}
+                                onClick={() => toggleTab("notes")}
+                            >
+                                <div className={styles.lot__description2_block_title}>Notes</div>
+                                <div className={styles.lot__description2_block_text}>
+                                    The large hands are placed on either side of the abdomen, which features a cavity intended to hold a
+                                    &quot;magical&quot; or medicinal charge.<br />
+                                    Signs of wear from use.
+                                </div>
                             </div>
                         </div>
                     </div>

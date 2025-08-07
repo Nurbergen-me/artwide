@@ -135,9 +135,9 @@ const RegisterModal = ({ open, onOpenChange, onLogin }: RegisterModalProps) => {
                             name="terms"
                             render={({ field }) => (
                                 <div>
-                                    <div className="flex items-center gap-3 max-md:gap-[5vw]">
+                                    <div className="flex items-center max-md:items-start gap-3 max-md:gap-[5vw]">
                                         <Checkbox id="terms" checked={field.value} onCheckedChange={field.onChange} />
-                                        <Label htmlFor="terms">
+                                        <Label htmlFor="terms" className="leading-tight">
                                             By registering, you agree to our <a href="/online-auctions-terms-and-conditions/" target="_blank" className="underline hover:no-underline">
                                             Online Auctions
                                         </a> &amp; <a href="/private-sales-terms-and-conditions/" target="_blank" className="underline hover:no-underline">

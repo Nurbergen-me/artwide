@@ -10,16 +10,16 @@ const PrivateSales = () => {
         <div className={styles.privsales}>
             <div className="container">
                 <div className={styles.privsales__top}>
-                    <Link href="/public" className={styles.press__title}>
+                    <Link href="/private-sales" className={styles.press__title}>
                         Private Sales
                     </Link>
-                    <Link href="/public" className={styles.privsales__link}>
+                    <Link href="/private-sales" className={styles.privsales__link}>
                         View All
                     </Link>
                 </div>
                 <div className={styles.privsales__list}>
                     <div className="grid grid-cols-4 gap-4 max-md:grid-cols-[repeat(4,_minmax(250px,_1fr))]">
-                        {lots.map(lot => (
+                        {lots.slice(0, 4).map(lot => (
                             <LotCard variant="private" key={lot.id} {...lot}/>
                         ))}
                     </div>

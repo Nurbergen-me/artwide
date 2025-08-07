@@ -19,7 +19,7 @@ const HomeSlider = () => {
             <Carousel opts={{ loop: true }}>
                 <CarouselContent>
                     {Array.from({ length: 5 }).map((_, index) => (
-                        <CarouselItem key={index} className="w-full h-screen flex items-center justify-center relative">
+                        <CarouselItem key={index} className="w-full h-screen flex max-md:flex-col items-center justify-center max-md:justify-start relative">
                             <AuctionStarts/>
                             <Image
                                 src="/uploads/slider-1.jpg" alt="slider"

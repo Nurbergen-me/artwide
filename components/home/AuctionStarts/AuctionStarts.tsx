@@ -18,7 +18,7 @@ const getAuctionStatus = (deadline: string) => {
 }
 
 const AuctionStarts = () => {
-    const deadline = '2025-08-05T12:00:00Z'
+    const deadline = '2025-08-12T12:00:00Z'
     const status = getAuctionStatus(deadline)
 
     const statusText = {
@@ -28,7 +28,7 @@ const AuctionStarts = () => {
     }[status]
 
     return (
-        <Link href="#" className={cn(styles.auctionstarts)}>
+        <Link href="#" className={cn(styles.auctionstarts, styles.auctionstarts)}>
             {status === 'closed' ? (
                 <div className={cn(styles.container, 'container')}>
                     <div className={styles.auctionstarts__ftitle}>AUCTION CLOSED</div>

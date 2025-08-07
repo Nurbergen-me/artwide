@@ -14,6 +14,8 @@
         display: block;
         padding: 0;
         height: auto;
+        margin-bottom: 14vw;
+        position: relative;
     }
 }
 @media (min-aspect-ratio: 2.1) {

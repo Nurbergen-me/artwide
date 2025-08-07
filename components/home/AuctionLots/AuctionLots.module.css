@@ -36,7 +36,7 @@
         margin-bottom: 0;
         display: block;
         height: auto;
-        padding-bottom: 6.4vw;
+        /*padding-bottom: 6.4vw;*/
         grid-template-columns: 1fr;
     }
     .gallery__pop::-webkit-scrollbar {

@@ -65,7 +65,7 @@ const HaveAQuestionModal = ({ open, onOpenChange }: HaveAQuestionModalProps) => 
                         </DialogTitle>
                     </DialogHeader>
                     <Form {...form}>
-                        <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-[1.6vw] max-md:px-[4.26vw] max-md:gap-[6.4vw] overflow-auto max-md:py-12 max-md:h-[calc(100vh-15vw)]">
+                        <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-[1.6vw] max-md:px-[4.26vw] max-md:gap-[6.4vw] overflow-auto max-md:py-[10vw] max-md:h-[calc(100vh-15vw)]">
                             <FormField
                                 control={form.control}
                                 name="first_name"
@@ -127,9 +127,9 @@ const HaveAQuestionModal = ({ open, onOpenChange }: HaveAQuestionModalProps) => 
                                 name="terms"
                                 render={({ field }) => (
                                     <div>
-                                        <div className="flex items-center gap-3">
+                                        <div className="flex items-center max-md:items-start gap-3 max-md:gap-5">
                                             <Checkbox id="terms" checked={field.value} onCheckedChange={field.onChange} />
-                                            <Label htmlFor="terms">
+                                            <Label htmlFor="terms" className="leading-tight">
                                                 I agree with the <a href="/private-sales-terms-and-conditions/" target="_blank" className="underline hover:no-underline">Private Sales Terms and Conditions</a> &amp; <a href="/gdpr/" target="_blank" className="underline hover:no-underline">GDPR/ Data Protection</a>, <a href="/privacy-policy/" target="_blank" className="underline hover:no-underline">Privacy Policy</a>
                                             </Label>
                                         </div>
@@ -138,7 +138,7 @@ const HaveAQuestionModal = ({ open, onOpenChange }: HaveAQuestionModalProps) => 
                                 )}
                             />
                             <div>
-                                <Button type="submit" className="w-full mt-[1.2vw] font-medium text-[1.1vw] max-md:h-[12.8vw] max-md:rounded-[2.1vw] max-md:text-[4.26vw]">
+                                <Button type="submit" className="w-full mt-[1.2vw] font-medium text-[1.1vw] max-md:h-[12.8vw] max-md:rounded-[2.1vw] max-md:text-[4.26vw] mb-[10vw]">
                                     Send
                                 </Button>
                             </div>
