@@ -6827,3 +6827,10 @@ body.mybidstab .mybids.finalbids .mybids__item:not(.mine):not(.finalbids__top) {
   background-color: #26272d99;
   backdrop-filter: blur(7px);
 }
+
+@media (max-width: 768px) {
+  .mobile-form-height {
+    height: calc(100dvh - 15vw);
+    height: calc(100vh - 15vw - env(keyboard-inset-height, 0px));
+  }
+}
