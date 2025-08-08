@@ -14,6 +14,8 @@ import {
 import {Button} from "@/components/ui/button";
 import {lots} from "@/constants";
 import BiddingGuidelineModal from "@/components/modals/BiddingGuidelineModal";
+import FiltersModal from "@/components/modals/FiltersModal";
+import {FilterData} from "@/types";
 
 const mediaTypes: Option[] = [
     { label: "Design", value: "design" },
@@ -57,6 +59,7 @@ const Page = () => {
         sort?: string;
     }>({sort: "id"});
     const [isGuidelineModalOpen, setIsGuidelineModalOpen] = useState(false)
+    const [isFiltersModalOpen, setIsFiltersModalOpen] = useState(false)
 
     const setSort = (val: string) =>
         setFilters((prev) => ({ ...prev, sort: val }));
@@ -77,6 +80,9 @@ const Page = () => {
         });
     };
 
+    const handleFiltersApply = (data: FilterData) => {
+        console.log(data)
+    }
     // Clear all filters
     const clearAll = () => setFilters({});
 
@@ -132,7 +138,7 @@ const Page = () => {
                     </div>
                     <div className="auction__tabs"></div>
 
-                    <div className="flex justify-between items-center pt-[2.8vw]">
+                    <div className="flex justify-between items-center pt-[2.8vw] max-md:hidden">
                         <div className="flex items-center gap-[2.8vw]">
                             <RangeSelect
                                 minValue={1500}
@@ -194,6 +200,12 @@ const Page = () => {
                             ))}
                         </div>
                     </div>
+
+                    <Button className="hidden max-md:block mt-[12vw]" onClick={() => setIsFiltersModalOpen(true)}>
+                        <div className="content__mfilter">
+                            Sort & Filters
+                        </div>
+                    </Button>
 
                     <div className="chosenfilters mt-[1.38vw]">
                         <div className="flex gap-2 flex-wrap">
@@ -258,6 +270,7 @@ const Page = () => {
                 </div>
             </div>
             <BiddingGuidelineModal open={isGuidelineModalOpen} onOpenChange={setIsGuidelineModalOpen}/>
+            <FiltersModal open={isFiltersModalOpen} onOpenChange={setIsFiltersModalOpen} onFiltersApply={handleFiltersApply} />
         </div>
     )
 }
