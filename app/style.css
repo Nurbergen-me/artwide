@@ -6830,7 +6830,20 @@ body.mybidstab .mybids.finalbids .mybids__item:not(.mine):not(.finalbids__top) {
 
 @media (max-width: 768px) {
   .mobile-form-height {
-    height: calc(100dvh - 15vw);
-    height: calc(100vh - 15vw - env(keyboard-inset-height, 0px));
+    height: calc(100dvh - 15vw) !important;
+  }
+
+  /* iOS Safari support */
+  @supports (-webkit-touch-callout: none) {
+    .mobile-form-height {
+      height: calc(100vh - 15vw - env(keyboard-inset-height, 0px)) !important;
+    }
+  }
+
+  /* Fallback for browsers without dvh support */
+  @supports not (height: 100dvh) {
+    .mobile-form-height {
+      height: calc(100vh - 15vw) !important;
+    }
   }
 }

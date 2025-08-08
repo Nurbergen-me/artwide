@@ -70,7 +70,7 @@ const SellWithModal = ({ open, onOpenChange }: SellWithModalProps) => {
                     </DialogDescription>
                 </DialogHeader>
                 <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-[1.6vw] max-md:px-[4.26vw] max-md:py-0 max-md:gap-[6.4vw] overflow-auto  max-md:mobile-form-height">
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-[1.6vw] max-md:px-[4.26vw] max-md:py-0 max-md:gap-[6.4vw] overflow-auto  mobile-form-height">
                         <DialogDescription className="hidden max-md:block max-md:px-0 pt-[10.6vw] max-md:pb-0">
                             Fill out the form, and we’ll guide you through the next steps shortly.
                         </DialogDescription>
