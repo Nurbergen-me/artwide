@@ -68,7 +68,7 @@ const EnquiryModal = ({ open, onOpenChange }: EnquiryModalProps) => {
                     </DialogDescription>
                 </DialogHeader>
                 <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-[1.6vw] max-md:px-[4.26vw] max-md:gap-[6.4vw] overflow-auto py-1 max-md:h-[calc(100vh-15vw)]">
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-[1.6vw] max-md:px-[4.26vw] max-md:gap-[6.4vw] overflow-auto py-1 mobile-form-height">
                         <DialogDescription className="hidden max-md:block max-md:pl-0 max-md:pb-0">
                             Fill out the form, and we’ll share more details shortly.
                         </DialogDescription>

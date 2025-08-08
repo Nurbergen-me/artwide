@@ -136,7 +136,7 @@ const FiltersModal = ({ open, onOpenChange, onFiltersApply }: FiltersModalProps)
                         Sort & Filters
                     </DialogTitle>
                 </DialogHeader>
-                <div className="popup__block max-md:pt-[10vw]! max-md:h-[calc(100vh-15vw)] overflow-auto">
+                <div className="popup__block max-md:pt-[10vw]! mobile-form-height overflow-auto">
                     {/* Sort by */}
                     <div className={`popupfilter__block ${openBlocks.sort ? 'open' : ''}`}>
                         <div

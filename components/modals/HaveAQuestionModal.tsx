@@ -65,7 +65,7 @@ const HaveAQuestionModal = ({ open, onOpenChange }: HaveAQuestionModalProps) => 
                         </DialogTitle>
                     </DialogHeader>
                     <Form {...form}>
-                        <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-[1.6vw] max-md:px-[4.26vw] max-md:gap-[6.4vw] overflow-auto max-md:py-[10vw] max-md:h-[calc(100vh-15vw)]">
+                        <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-[1.6vw] max-md:px-[4.26vw] max-md:gap-[6.4vw] overflow-auto max-md:py-[10vw] mobile-form-height">
                             <FormField
                                 control={form.control}
                                 name="first_name"
